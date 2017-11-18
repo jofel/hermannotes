@@ -1,0 +1,28 @@
+{
+    "hermannotesApp": {
+        "circular" : {
+            "home": {
+                "title": "Circulars",
+                "createLabel": "Create a new Circular",
+                "createOrEditLabel": "Create or edit a Circular"
+            },
+            "created": "A new Circular is created with identifier {{ param }}",
+            "updated": "A Circular is updated with identifier {{ param }}",
+            "deleted": "A Circular is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Circular {{ id }}?"
+            },
+            "detail": {
+                "title": "Circular"
+            },
+            "title": "Title",
+            "day": "Day",
+            "time": "Time",
+            "locale": "Locale",
+            "content": "Content",
+            "image": "Image",
+            "active": "Active",
+            "student": "Student"
+        }
+    }
+}

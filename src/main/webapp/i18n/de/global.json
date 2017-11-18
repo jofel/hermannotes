@@ -9,6 +9,7 @@
                 "main": "Entitäten",
                 "student": "Student",
                 "program": "Program",
+                "circular": "Circular",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

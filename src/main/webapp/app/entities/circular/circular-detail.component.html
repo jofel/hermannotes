@@ -1,0 +1,55 @@
+
+<div *ngIf="circular">
+    <h2><span jhiTranslate="hermannotesApp.circular.detail.title">Circular</span> {{circular.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="hermannotesApp.circular.title">Title</span></dt>
+        <dd>
+            <span>{{circular.title}}</span>
+        </dd>
+        <dt><span jhiTranslate="hermannotesApp.circular.day">Day</span></dt>
+        <dd>
+            <span jhiTranslate="{{'hermannotesApp.DayOfWeek.' + circular.day}}">{{circular.day}}</span>
+        </dd>
+        <dt><span jhiTranslate="hermannotesApp.circular.time">Time</span></dt>
+        <dd>
+            <span>{{circular.time}}</span>
+        </dd>
+        <dt><span jhiTranslate="hermannotesApp.circular.locale">Locale</span></dt>
+        <dd>
+            <span>{{circular.locale}}</span>
+        </dd>
+        <dt><span jhiTranslate="hermannotesApp.circular.content">Content</span></dt>
+        <dd>
+            <span>{{circular.content}}</span>
+        </dd>
+        <dt><span jhiTranslate="hermannotesApp.circular.image">Image</span></dt>
+        <dd>
+            <span>{{circular.image}}</span>
+        </dd>
+        <dt><span jhiTranslate="hermannotesApp.circular.active">Active</span></dt>
+        <dd>
+            <span>{{circular.active}}</span>
+        </dd>
+        <dt><span jhiTranslate="hermannotesApp.circular.student">Student</span></dt>
+        <dd>
+            <div *ngIf="circular.student">
+                <a [routerLink]="['/student', circular.student?.id]">{{circular.student?.name}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'circular/'+ circular.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

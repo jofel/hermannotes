@@ -1,0 +1,28 @@
+{
+    "hermannotesApp": {
+        "circular" : {
+            "home": {
+                "title": "Circulars",
+                "createLabel": "Egy új Circular létrehozása",
+                "createOrEditLabel": "Hozzon létre, vagy módosítson Circulart"
+            },
+            "created": "Egy új Circular lett létrehozva {{ param }} azonosítóval",
+            "updated": "A Circular módosítva lett {{ param }} azonosítóval",
+            "deleted": "A Circular törölve lett {{ param }} azonosítóval",
+            "delete": {
+                "question": "Biztos benne, hogy törölni szeretné az Circulart {{ id }} azonosítóval?"
+            },
+            "detail": {
+                "title": "Circular"
+            },
+            "title": "Title",
+            "day": "Day",
+            "time": "Time",
+            "locale": "Locale",
+            "content": "Content",
+            "image": "Image",
+            "active": "Active",
+            "student": "Student"
+        }
+    }
+}
