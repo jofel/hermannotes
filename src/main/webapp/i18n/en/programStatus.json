@@ -1,0 +1,10 @@
+{
+    "hermannotesApp": {
+        "ProgramStatus" : {
+            "null": "",
+            "plan": "plan",
+            "progress": "progress",
+            "closed": "closed"
+        }
+    }
+}

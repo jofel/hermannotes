@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "hu.u_szeged.ohsh",
+      "nativeLanguage": "hu"
+    },
+    "jhipsterVersion": "4.6.2",
+    "baseName": "hermannotes",
+    "packageName": "hu.u_szeged.ohsh",
+    "packageFolder": "hu/u_szeged/ohsh",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSocialSignIn": false,
+    "jwtSecretKey": "21d959a630d5b597b09c2bae10703f561244ee07",
+    "clientFramework": "angularX",
+    "useSass": false,
+    "clientPackageManager": "yarn",
+    "applicationType": "monolith",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "enableTranslation": true,
+    "nativeLanguage": "hu",
+    "languages": [
+      "hu",
+      "en",
+      "de"
+    ],
+    "herokuAppName": "hermannotes"
+  }
+}

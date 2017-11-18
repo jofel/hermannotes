@@ -1,0 +1,64 @@
+<div>
+    <h2>
+        <span jhiTranslate="hermannotesApp.student.home.title">Students</span>
+        <button class="btn btn-primary float-right jh-create-entity create-student" [routerLink]="['/', { outlets: { popup: ['student-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="hermannotesApp.student.home.createLabel">
+            Create new Student
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="students">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="hermannotesApp.student.name">Name</span></th>
+            <th><span jhiTranslate="hermannotesApp.student.studies">Studies</span></th>
+            <th><span jhiTranslate="hermannotesApp.student.room">Room</span></th>
+            <th><span jhiTranslate="hermannotesApp.student.point">Point</span></th>
+            <th><span jhiTranslate="hermannotesApp.student.status">Status</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let student of students ;trackBy: trackId">
+                <td><a [routerLink]="['../student', student.id ]">{{student.id}}</a></td>
+                <td>{{student.name}}</td>
+                <td>{{student.studies}}</td>
+                <td>{{student.room}}</td>
+                <td>{{student.point}}</td>
+                <td jhiTranslate="{{'hermannotesApp.StudentStatus.' + student.status}}">{{student.status}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../student', student.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'student/'+ student.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'student/'+ student.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

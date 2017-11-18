@@ -1,0 +1,41 @@
+
+<div *ngIf="student">
+    <h2><span jhiTranslate="hermannotesApp.student.detail.title">Student</span> {{student.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="hermannotesApp.student.name">Name</span></dt>
+        <dd>
+            <span>{{student.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="hermannotesApp.student.studies">Studies</span></dt>
+        <dd>
+            <span>{{student.studies}}</span>
+        </dd>
+        <dt><span jhiTranslate="hermannotesApp.student.room">Room</span></dt>
+        <dd>
+            <span>{{student.room}}</span>
+        </dd>
+        <dt><span jhiTranslate="hermannotesApp.student.point">Point</span></dt>
+        <dd>
+            <span>{{student.point}}</span>
+        </dd>
+        <dt><span jhiTranslate="hermannotesApp.student.status">Status</span></dt>
+        <dd>
+            <span jhiTranslate="{{'hermannotesApp.StudentStatus.' + student.status}}">{{student.status}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'student/'+ student.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,25 @@
+{
+    "hermannotesApp": {
+        "student" : {
+            "home": {
+                "title": "Students",
+                "createLabel": "Egy új Student létrehozása",
+                "createOrEditLabel": "Hozzon létre, vagy módosítson Studentt"
+            },
+            "created": "Egy új Student lett létrehozva {{ param }} azonosítóval",
+            "updated": "A Student módosítva lett {{ param }} azonosítóval",
+            "deleted": "A Student törölve lett {{ param }} azonosítóval",
+            "delete": {
+                "question": "Biztos benne, hogy törölni szeretné az Studentt {{ id }} azonosítóval?"
+            },
+            "detail": {
+                "title": "Student"
+            },
+            "name": "Name",
+            "studies": "Studies",
+            "room": "Room",
+            "point": "Point",
+            "status": "Status"
+        }
+    }
+}

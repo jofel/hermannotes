@@ -1,0 +1,270 @@
+id,name,studies,room,status,point
+1,Ábrahám Dávid,Anglisz (1),509,student,0
+2,Ádám Dóra,biol. (4),206,student,0
+3,Ádám  Edit,Földr-tört.o.ta (1),203,student,0
+4,Albert Csaba,szab.bölcs. (1),807,student,0
+5,Albert Krisztián,körny.tan (2),802,student,0
+6,Andróczki László György,biológus (2),706,student,0
+7,Árizs  Alexandra,Jogi FOSZ (2),209,student,0
+8,Babity Balázs,Fiz.-mat.o.t. (2),812,kb,0
+9,Bajáki  Bence,gazd-inf. (1),512,student,0
+10,Bakos  Benjámin,könyvtár-ped. (1),903,student,0
+11,Balázs Brigitta,Földr.,301,student,0
+12,Balázs  János,progt-info (1),704,student,0
+13,Bálint Tamás,műsz.men. (4),804,student,0
+14,Balogh  Bence,progt-info (2),606,student,0
+15,Balogh Fanni,Biol_M (2),504,student,0
+16,Bánffy Zsófia Éva,biomérn. (1),412,student,0
+17,Batiz Bálint,tört.tan. (2),602,student,0
+18,Béniám  Balázs Sándor,kém. (2),706,student,0
+19,Benkovics Kornél István,munk.tb.igazg. (3),611,student,0
+20,Berta Gizella Izabella,Biol-mat.o.tan. (4),202,student,0
+21,Bibarc  Imre,Ang.o.t (1),907,student,0
+22,Bodó  Boglárka,Földr-tört.o.ta (2),305,student,0
+23,Bodzsár Minka,ang.,210,student,0
+24,Borbély Noémi,képidiagn. (2),302,student,0
+25,Borók  Levente,földr. (1),805,student,0
+26,Böcker Luca Réka,biol. (3),207,student,0
+27,Bőtös Bettina Barbara,földr. (3),307,student,0
+28,Braun Adél,biol. (4),405,student,0
+29,Bruttyó  Dániel,progt-info (1),703,student,0
+30,Bűn  Rudolf,gazd-inf. (1),502,student,0
+31,Bűn  Tamás,gazd-inf. (1),502,student,0
+32,Celikovic Nikola,biol. (1),305,student,0
+33,Chudi Barbara,munk.tb.igazg. (3),302,student,0
+34,Csányi Sándor,biol. (3),602,student,0
+35,Cseh István,Földr.tan.M (2),710,student,0
+36,Csernák Dávid,progt-info (3),607,student,0
+37,Csernok  Norbert Anta,mérnök-info (2),910,student,0
+38,Csibor Erzsébet,gazd-inf._M (2),304,student,0
+39,Csontos  Dániel,biol. (1),603,student,0
+40,Cui  Leila Viktória,gazd-menedzs (2),309,student,0
+41,Czimber  Fruzsina,Jogi FOSZ (2),301,student,0
+42,Czvalinga Zsolt,biomérn. (4),911,student,0
+43,Czvitkó Balázs Attila,ang-magy o.t. (1),610,student,0
+44,Deáki Dominik,biol. (2),612,student,0
+45,Dékány Attila Ádám,Vegy_M (1),608,student,0
+46,Dénes  András Ferenc,progt-info (1),907,student,0
+47,Dobai  Dóra Mária,biol. (2),205,student,0
+48,Dobosi Gábor,ker-mark (2),609,student,0
+49,Dombi Bálint,földr. (1),510,student,0
+50,Dombi Erika Boglárka,Anglisz (3),304,student,0
+51,Drimba  Máté,fold.tud. (2),809,student,0
+52,Drobnik Valentin,Tört. o.t. (2),605,student,0
+53,Dula Márk,progt-info (2),908,student,0
+54,Eszes Norbert,- - - (1),811,student,0
+55,Farkas  Anikó,gazd-inf. (1),309,student,0
+56,Farkas  Máté,kém. (1),704,student,0
+57,Fási Milán,progt-info (2),612,student,0
+58,Fehér Álmos,germ (3),712,student,0
+59,Fejes  Kristóf Márton,mol.bio. (1),501,student,0
+60,Fejszés Dorina,Anglisz (2),204,student,0
+61,Fekete  Gábor,prog.mat. (1),510,student,0
+62,Felczán Olivér,nemz.tan. (1),607,student,0
+63,Ferencz  Nándor,tört. (1),804,student,0
+64,Ferenczi  Balázs Levente,progt-info (1),610,student,0
+65,Fodor József Felicián,progt-info (3),506,senior,0
+66,Fraller  Laura,kém. (2),404,student,0
+67,Francia Dóra,földr. (3),307,student,0
+68,Fülöp Adrián,progt-info (1),908,student,0
+69,Fürtön Petra,Tört-erkt.o.t. (2),207,kb,0
+70,Füzi Imre,Geogr_M (1),711,student,0
+71,Gábor Annamária,mat. (3),210,student,0
+72,Gál  Vazul,Földtud_M (2),904,student,0
+73,Garai Anna,tört. (2),204,student,0
+74,Gáti Szabolcs,- - - (1),903,student,0
+75,Gonda  Karolina Stella,szab.bölcs. (1),211,student,0
+76,Gruncsity Goldina,Jogi FOSZ (1),203,student,0
+77,Gubics  Flórián Csaba,pszich. (2),809,kb,0
+78,Gustonj  Andras,polit (1),612,student,0
+79,Gyáfrás Tamás,földr. (2),701,student,0
+80,Gyovai Endre,progt-info (3),703,student,0
+81,Györe Anikó,biol. (2),507,student,0
+82,Györe Klaudia,progt-info (3),508,student,0
+83,György Angéla Tünde,Biol_M (1),407,student,0
+84,Győri Tibor,Vegy_M (2),806,student,0
+85,Gyurin  Ákos,biol. (2),605,student,0
+86,Hajdú Nicoletta,biol. (1),201,student,0
+87,Hajdú Richárd,mérnök-info (4),707,student,0
+88,Hajma Tamás,testn. tan. (2),811,student,0
+89,Hajnáczky  Tamás,gazd-inf. (1),512,student,0
+90,Hajzer Alexandra,polit (3),508,student,0
+91,Halasi  Adél,fold.tud. (4),412,student,0
+92,Hegedűs  Anna Barbara,progt-info (2),305,student,0
+93,Hegedüs  Gitta,szoc. (1),205,student,0
+94,Hetényi Kinga,biol. (3),508,student,0
+95,Hlacs Attila,biol. (3),703,student,0
+96,Horváth András Zsolt,kém. (3),912,senior,0
+97,Horváth Csaba Gyula,Biol_M (1),705,student,0
+98,Horváth  Dániel,fiz. (3),808,student,0
+99,Horváth Kristóf,mech.mérn (3),712,student,0
+100,Horváth Péter,Katekéta-lelkip (3),708,student,0
+101,Imre Kristóf,progt-info (1),912,student,0
+102,Jármai  Ali János,progt-info (2),605,student,0
+103,Jónás Diána,Média-rajz o.t. (1),507,student,0
+104,Juhász Anita,földr. (3),307,student,0
+105,Kalmár Dávid György,munk.tb.igazg. (2),607,student,0
+106,Kaló Zsuzsa Bernadett,Biol-termism.ot (5),311,student,0
+107,Kancsár Kinga,mat. (1),409,student,0
+108,Kecskés Maconkai  Zsuzsanna,biol. (2),202,student,0
+109,Kenjves Regina,gazd-inf. (1),302,student,0
+110,Kerekes Csilla,Angol-rajz o.t. (3),411,student,0
+111,Kis  Bence,pénzügy és szv. (1),702,student,0
+112,Kis-Torma  Simon,polit (2),608,student,0
+113,Kóbor  Ervin,progt-info (1),811,student,0
+114,Kocsis Éva Andrea,biol. (3),403,student,0
+115,Koma  Máté,polit (1),705,student,0
+116,Korpás  Evelin Kinga,mat. (1),110,student,0
+117,Kővári Dávid,Földtud_M (2),904,student,0
+118,Kövesi  Vivien,szoc.munk. (1),303,student,0
+119,Krajcsik  Dóra,ang-magy o.t. (1),403,student,0
+120,Krámli Lola Krisztina,Nemz. tan. M (2),306,student,0
+121,Kukri András,Biol_M (1),911,student,0
+122,Ladányi László,ált. rendszg. (2),4,senior,0
+123,Lipka Barbara,magy-tört. o.t. (2),312,senior,0
+124,Lipka Dóra Veronika,biomérn. (4),404,student,0
+125,Loe  Attila,földr. (1),805,student,0
+126,Lőrincz Gergő,Földr-tört.o.ta (5),802,student,0
+127,Madarász  Edit,körny.tan (1),303,student,0
+128,Magyar Zoltán,körny.tan (2),812,kb,0
+129,Márton András,kém. (1),710,student,0
+130,Meczker Péter,Földr.,610,student,0
+131,Megyeri Vivien,munk.tb.igazg. (3),404,student,0
+132,Mészáros Ádám,Biol.PHD (3),711,student,0
+133,Mezei Diána,Biol.PHD (1),311,student,0
+134,Micskei  Fanni,germ (2),505,student,0
+135,Miklós  Zoltán Ferenc,mérnök-info (2),709,student,0
+136,Molnár András Ferenc,jogász (1),604,student,0
+137,Molnár  Anett,szoc. (1),308,student,0
+138,Molnár Dóra,biol. (1),405,student,0
+139,Molnár Kinga,biomérn. (1),201,student,0
+140,Molnár Levente,Földr-tört.o.ta (2),706,student,0
+141,Molnár  Vanda Zita,biomérn. (1),211,student,0
+142,Mucsi  Tamás,Tört. o.t. (2),602,student,0
+143,Nagy  Ádám Richárd,mérnök-info (2),709,student,0
+144,Nagy  Barbara,Ang.o.t (3),411,student,0
+145,Nagy Dezső,körny.tan (1),603,student,0
+146,Nagy Evelin,szlav-o. (2),209,student,0
+147,Nagy Melinda,progt-info (1),210,student,0
+148,Nagy Zoltán,progt-info (1),801,student,0
+149,Nemes  Arnold,kém. (2),709,student,0
+150,Nemes  Krisztina,gazd-menedzs (1),309,student,0
+151,Nemes-Andrik  Dávid,Anglisz (1),701,student,0
+152,Németh István,progt-info (1),908,student,0
+153,Németh Orsolya,biol.-mat. (1),312,student,0
+154,Nkubito Emilia,biol. (1),301,student,0
+155,Novák  Ferenc,mol.bio. (1),611,student,0
+156,Nyers Katalin,Magy.-ném. o.t. (1),406,student,0
+157,Nyírádi Léna,kém. (2),311,student,0
+158,Paholló  Gergő,ker-mark (2),807,student,0
+159,Pál  Dávid András,biol. (2),808,student,0
+160,Pál Viola,Tört. o.t. (2),410,student,0
+161,Pálfi  Péter,biol. (1),712,student,0
+162,Palika Kamilla Eszter,földr. (2),408,student,0
+163,Papp  Bernadett,gazd-menedzs (2),408,student,0
+164,Papp Levente,földr. (3),904,student,0
+165,Papp  Márk,biol. (1),810,student,0
+166,Papp Szabolcs László,germ (2),503,student,0
+167,Papp Viktória,biol. (3),411,student,0
+168,Pasztovszki Marcell,polit_M (1),710,student,0
+169,Pázsit  Attila,mérnök-info (1),510,student,0
+170,Pelsőczi  Alina Beatrix,biol. (2),408,student,0
+171,Piatkó Károly,mol.bio. (2),604,student,0
+172,Polacsek Hanna,biol. (1),303,student,0
+173,Pollák Boglárka Dóra,biol. (1),304,student,0
+174,Primusz  Miklós,biol-kém.o.tan. (1),803,student,0
+175,Prózsa Attila,pénzügy és szv. (2),501,student,0
+176,Purucki  Tamás,fold.tud. (3),503,student,0
+177,Puskás Anna,Anglisz (1),410,student,0
+178,Rácz Anna,ker-mark (1),203,student,0
+179,Rácz Ottó,Tört. o.t. (4),806,student,0
+180,Ragoncsa Petra,kém. (3),308,student,0
+181,Resch  Attila,földr. (2),701,student,0
+182,Rétfalvi Jonatán,Földr-tört.o.ta (2),803,student,0
+183,Rimóczi  Edina,biol. (2),205,student,0
+184,Rokszin Nóra,Mat.tan.M (1),207,student,0
+185,Rózsa Flórián,mérnök-info (1),509,student,0
+186,Rózsár Dániel,Vegy_M (1),100,student,0
+187,Rozsmán  László,gazd-inf. (1),805,student,0
+188,Rubóczki Benjámin,gazd-inf. (1),512,student,0
+189,Rubóczki  Dávid,gazd-inf. (1),511,student,0
+190,Ruppert Zsófia,biol. (2),406,student,0
+191,Ruzsinkó Emese,biomérn. (1),312,student,0
+192,Sabic  Dániel,mérnök-info (1),801,student,0
+193,Sajti Marianna Adrienn,tört. (2),208,student,0
+194,Sánta  Barbara,biol-földr.o.t. (2),505,student,0
+195,Sebestyén Miklós,biol. - tesi (1),604,student,0
+196,Sepsi Ivett,földr. (4),306,student,0
+197,Sidlóczki  Bence Béla,földr. (2),708,student,0
+198,Simon József Richárd,Földr-tört.o.ta (4),803,student,0
+199,Sipos Donát,Ang.o.t (1),509,student,0
+200,Slajchó Petra,Ang.o.t (1),409,student,0
+201,Stiaszni Alexandra,biol. (4),306,kb,0
+202,Szabados Éva,Biol_M (1),506,student,0
+203,Szabó  Bence,ném. tan. (1),609,student,0
+204,Szabó Bence Gergő,szoc.munk. (1),608,student,0
+205,Szabó Boglárka,Kém-mat o. t. (1),507,student,0
+206,Szabó  Gergő László,gazd-inf. (2),812,student,0
+207,Szabó György,mérnök-info (3),910,student,0
+208,Szabó  Hajnalka,munk.tb.igazg. (1),409,student,0
+209,Szabó Patrik,progt-info (1),707,student,0
+210,Szabó  Petra,germ (2),505,student,0
+211,Szabó Roland László,kém. (3),909,student,0
+212,Szabó Zsófia,biol.-kém. (2),407,student,0
+213,Szabó Zsolt,gazd-inf. (3),808,student,0
+214,Szalai Ádám,Geogr_M (2),909,kb,0
+215,Szalai Balázs,kém. (2),603,student,0
+216,Szegedi Donát Ferenc,fiz. (3),810,student,0
+217,Székely  Krisztina,biol. (1),212,student,0
+218,Szép  József,gazd-menedzs (1),502,student,0
+219,Szfarli  Alex Dániel,mol.bio. (1),907,student,0
+220,Szilágyi Rómeó Sebestyén,televíziós mk. (1),601,senior,0
+221,Szilák  Zsófia,Fiz.-mat.o.t. (2),206,student,0
+222,Szivós Ádám,biol-kém.o.tan. (5),909,student,0
+223,Szőke Ákos László,polit (3),511,student,0
+224,Szvoboda Zoltán Mihály,mérnök-info (4),801,student,0
+225,Takács  Titanilla,mol.bio. (2),407,student,0
+226,Talmácsi Edvin,gazd-inf. (3),511,student,0
+227,Tánczos Fanni,jogász (3),406,student,0
+228,Tankai Fanni,- - - (1),100,student,0
+229,Tar Ábrahám,progt-info (2),804,student,0
+230,Tar  Bence,mérnök-info (1),704,student,0
+231,Telek Nikolett,biol. (3),202,student,0
+232,Teleki  András,biomérn. (1),702,student,0
+233,Temesvári  Kitti,jogász (1),211,student,0
+234,Terjék  Róbert,fold.tud. (3),503,student,0
+235,Topolcsányi  Petronella,biol. (1),209,student,0
+236,Torma  Péter,gazd-inf. (1),702,student,0
+237,Tornai Máté,gazd-inf. (4),806,student,0
+238,Tóth Aurél,Ang-tört.o.t. (1),807,student,0
+239,Tóth Bálint Viktor,Kém-mat o. t. (3),611,student,0
+240,Tóth Henrietta Erika,Ang-tört.o.t. (4),405,student,0
+241,Tóth László,Tört. o.t. (5),609,student,0
+242,Tóth  Olivér,földr. (2),708,student,0
+243,Tóth  Patrik,fiz. (2),606,student,0
+244,Tóth Richárd,gazd-inf. (2),911,student,0
+245,Tölcsér  Petra,fold.tud. (2),504,student,0
+246,Tömördi Péter,gazd-inf. (3),501,student,0
+247,Turcsányi Áron,Geogr_M (2),711,student,0
+248,Udvari Alexandra,biol. (1),201,student,0
+249,Urbán  János Dániel,mérnök-info (1),910,student,0
+250,Varga Attila,progt-info (2),606,student,0
+251,Varga  Dominika,Jogi FOSZ (2),410,student,0
+252,Varró Lilla,szlav-o. (1),308,student,0
+253,Vásári Nikolett,Anglisz. M (2),212,student,0
+254,Vatai  Katalin,pszich. (2),310,student,0
+255,Vida Linda,biomérn. (3),208,student,0
+256,Viemann  Sára,mol.bio. (1),310,student,0
+257,Vig Viktor,biol. (1),802,student,0
+258,Világos  Gyöngyi Szabina,progt-info (2),412,student,0
+259,Vincze György Erik,Biol_M (1),705,student,0
+260,Virág László,magy-tört. o.t. (3),809,student,0
+261,Volford Bettina,Biol_M (2),208,student,0
+262,Vörös  Réka,biomérn. (1),212,student,0
+263,Zalatnai Anna,Biol_M (2),204,student,0
+264,Zerebélyi  Evelin,biol. (1),403,student,0
+265,Zerebélyi Rebeka,pszich. (2),504,student,0
+266,Ziegenheim Gitta Katalin,biol-kém.o.tan. (3),206,student,0
+267,Zombori Ferenc,kém. (3),810,student,0
+268,Zsigri  Nikolett,biol. (2),310,student,0
+269,Zsiros Dominik,gazd-inf. (3),912,student,0

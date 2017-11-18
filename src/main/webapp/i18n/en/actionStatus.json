@@ -1,0 +1,10 @@
+{
+    "hermannotesApp": {
+        "ActionStatus" : {
+            "null": "",
+            "new": "new",
+            "progress": "progress",
+            "closed": "closed"
+        }
+    }
+}

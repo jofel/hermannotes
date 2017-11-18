@@ -1,0 +1,19 @@
+{
+    "home": {
+        "title": "Üdvözöljük!",
+        "subtitle": "Ez a nyitóképernyőd",
+        "logged": {
+            "message": "Ön \"{{username}}\"-ként lépett be."
+        },
+        "question": "Fontosabb linkek:",
+        "link": {
+            "homepage": "Herman honlapja",
+            "stackoverflow": "Herman a facebookon",
+            "bugtracker": "JHipster hibakövető",
+            "chat": "JHipster public chat room",
+            "follow": "lépjen kapcsolatba készítővel a facebookon"
+        },
+        "like": "Ha tetszik a JHipster, ne feledjen csillagot adni a",
+        "github": "GitHub-on"
+    }
+}

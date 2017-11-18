@@ -1,0 +1,29 @@
+{
+    "hermannotesApp": {
+        "program" : {
+            "home": {
+                "title": "Programs",
+                "createLabel": "Program erstellen",
+                "createOrEditLabel": "Program erstellen oder bearbeiten"
+            },
+            "created": "Program erstellt mit ID {{ param }}",
+            "updated": "Program aktualisiert mit ID {{ param }}",
+            "deleted": "Program gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Program {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Program"
+            },
+            "title": "Title",
+            "date": "Date",
+            "plan": "Plan",
+            "planCost": "Plan Cost",
+            "decision": "Decision",
+            "decisionCost": "Decision Cost",
+            "report": "Report",
+            "reportCost": "Report Cost",
+            "status": "Status"
+        }
+    }
+}

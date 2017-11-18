@@ -1,0 +1,10 @@
+{
+    "hermannotesApp": {
+        "UserStatus" : {
+            "null": "",
+            "student": "hallgató",
+            "kb": "kb",
+            "senior": "senior"
+        }
+    }
+}

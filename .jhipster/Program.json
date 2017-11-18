@@ -1,0 +1,51 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "plan",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "planCost",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "decision",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "decisionCost",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "report",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "reportCost",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "ActionStatus",
+            "fieldValues": "new, progress, closed"
+        }
+    ],
+    "changelogDate": "20171117210815",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "program",
+    "pagination": "pagination"
+}

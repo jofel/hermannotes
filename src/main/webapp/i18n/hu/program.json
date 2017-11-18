@@ -1,0 +1,29 @@
+{
+    "hermannotesApp": {
+        "program" : {
+            "home": {
+                "title": "Programok",
+                "createLabel": "Egy új Program létrehozása",
+                "createOrEditLabel": "Hozzon létre, vagy módosítson Programot"
+            },
+            "created": "Egy új Program lett létrehozva {{ param }} azonosítóval",
+            "updated": "Egy Program módosítva lett {{ param }} azonosítóval",
+            "deleted": "Egy Program törölve lett {{ param }} azonosítóval",
+            "delete": {
+                "question": "Biztos benne, hogy törölni szeretné a Programot {{ id }} azonosítóval?"
+            },
+            "detail": {
+                "title": "Program"
+            },
+            "title": "Cím",
+            "date": "Időpont",
+            "plan": "Terv",
+            "planCost": "Költség",
+            "decision": "Döntés",
+            "decisionCost": "Támogatás",
+            "report": "Jelentés",
+            "reportCost": "Költség",
+            "status": "Állapot"
+        }
+    }
+}

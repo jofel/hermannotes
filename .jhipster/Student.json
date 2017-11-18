@@ -1,0 +1,32 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "studies",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "room",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "point",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "StudentStatus",
+            "fieldValues": "student, kb, senior"
+        }
+    ],
+    "changelogDate": "20171106150001",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "student",
+    "pagination": "no"
+}
