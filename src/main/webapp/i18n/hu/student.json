@@ -2,24 +2,24 @@
     "hermannotesApp": {
         "student" : {
             "home": {
-                "title": "Students",
-                "createLabel": "Egy új Student létrehozása",
-                "createOrEditLabel": "Hozzon létre, vagy módosítson Studentt"
+                "title": "Hallgatók",
+                "createLabel": "Egy új Hallgató létrehozása",
+                "createOrEditLabel": "Hozzon létre, vagy módosítson Hallgatót"
             },
-            "created": "Egy új Student lett létrehozva {{ param }} azonosítóval",
-            "updated": "A Student módosítva lett {{ param }} azonosítóval",
-            "deleted": "A Student törölve lett {{ param }} azonosítóval",
+            "created": "Egy új Hallgató lett létrehozva {{ param }} azonosítóval",
+            "updated": "Egy Hallgató módosítva lett {{ param }} azonosítóval",
+            "deleted": "Egy Hallgató törölve lett {{ param }} azonosítóval",
             "delete": {
-                "question": "Biztos benne, hogy törölni szeretné az Studentt {{ id }} azonosítóval?"
+                "question": "Biztos benne, hogy törölni szeretné a Hallgatót {{ id }} azonosítóval?"
             },
             "detail": {
-                "title": "Student"
+                "title": "Hallgató"
             },
-            "name": "Name",
-            "studies": "Studies",
-            "room": "Room",
-            "point": "Point",
-            "status": "Status"
+            "name": "Név",
+            "studies": "Tanulmányok",
+            "room": "Szoba",
+            "point": "Pont",
+            "status": "Státusz"
         }
     }
 }

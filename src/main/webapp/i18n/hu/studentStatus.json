@@ -2,7 +2,7 @@
     "hermannotesApp": {
         "StudentStatus" : {
             "null": "",
-            "student": "student",
+            "student": "hallgató",
             "kb": "kb",
             "senior": "senior"
         }
