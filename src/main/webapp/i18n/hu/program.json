@@ -13,7 +13,7 @@
                 "question": "Biztos benne, hogy törölni szeretné a Programot {{ id }} azonosítóval?"
             },
             "detail": {
-                "title": "Program"
+                "title": "Programok"
             },
             "title": "Cím",
             "date": "Időpont",
