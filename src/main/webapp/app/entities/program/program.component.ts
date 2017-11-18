@@ -10,7 +10,8 @@ import { PaginationConfig } from '../../blocks/config/uib-pagination.config';
 
 @Component({
     selector: 'jhi-program',
-    templateUrl: './program.component.html'
+    templateUrl: './program.component.html',
+    styleUrls: ['./program.component.css']
 })
 export class ProgramComponent implements OnInit, OnDestroy {
 

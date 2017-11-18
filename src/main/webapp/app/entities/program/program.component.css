@@ -1,0 +1,11 @@
+.plan{
+    background-color: lightgreen;
+}
+
+.progress{
+    background-color: lightsalmon;
+}
+
+.closed{
+    background-color: lightslategray;
+}
