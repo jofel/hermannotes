@@ -16,9 +16,9 @@
                 "title": "Programok"
             },
             "title": "Cím",
-            "date": "Időpont",
+            "date": "Dátum",
             "plan": "Terv",
-            "planCost": "Költség",
+            "planCost": "Ft",
             "decision": "Döntés",
             "decisionCost": "Támogatás",
             "report": "Jelentés",
