@@ -16,6 +16,7 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th></th>
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="title"><span jhiTranslate="hermannotesApp.program.title">Title</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="date"><span jhiTranslate="hermannotesApp.program.date">Date</span> <span class="fa fa-sort"></span></th>
@@ -31,6 +32,9 @@
             </thead>
             <tbody>
             <tr *ngFor="let program of programs ;trackBy: trackId">
+                <td *ngIf="program.status === 'plan'" class="statusPlan"></td>
+                <td *ngIf="program.status === 'progress'" class="statusProgress"></td>
+                <td *ngIf="program.status === 'closed'" class="statusClosed"></td>
                 <td><a [routerLink]="['../program', program.id ]">{{program.id}}</a></td>
                 <td>{{program.title}}</td>
                 <td>{{program.date | date:'medium'}}</td>

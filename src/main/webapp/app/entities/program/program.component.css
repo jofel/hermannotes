@@ -1,11 +1,11 @@
-.plan{
+.statusPlan {
     background-color: lightgreen;
 }
 
-.progress{
+.statusProgress {
     background-color: lightsalmon;
 }
 
-.closed{
+.statusClosed {
     background-color: lightgrey;
 }
