@@ -23,7 +23,8 @@
             "decisionCost": "Decision Cost",
             "report": "Report",
             "reportCost": "Report Cost",
-            "status": "Status"
+            "status": "Status",
+            "student": "Student"
         }
     }
 }

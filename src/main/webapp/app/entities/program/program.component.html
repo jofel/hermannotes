@@ -20,6 +20,7 @@
             <th class="no-print" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="title"><span jhiTranslate="hermannotesApp.program.title">Title</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="date"><span jhiTranslate="hermannotesApp.program.date">Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="student.name"><span jhiTranslate="hermannotesApp.program.student">Student</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="plan"><span jhiTranslate="hermannotesApp.program.plan">Plan</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="planCost"><span jhiTranslate="hermannotesApp.program.planCost">Plan Cost</span> <span class="fa fa-sort"></span></th>
             <th class="no-print" jhiSortBy="status"><span jhiTranslate="hermannotesApp.program.status">Status</span> <span class="fa fa-sort"></span></th>
@@ -34,6 +35,11 @@
                 <td class="no-print"><a [routerLink]="['../program', program.id ]">{{program.id}}</a></td>
                 <td>{{program.title}}</td>
                 <td>{{program.date | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="program.student">
+                        <a [routerLink]="['../student', program.student?.id ]" >{{program.student?.name}}</a>
+                    </div>
+                </td>
                 <td *ngIf="program.status === 'plan'">{{program.plan}}</td>
                 <td *ngIf="program.status === 'plan'">{{program.planCost}}</td>
                 <td *ngIf="program.status === 'progress'">{{program.decision}}</td>
@@ -67,12 +73,12 @@
             </tbody>
         </table>
     </div>
-        <div class="no-print" *ngIf="programs && programs.length">
-            <div class="row justify-content-center">
-                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
-            </div>
-            <div class="row justify-content-center">
-                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" (pageChange)="loadPage(page)"></ngb-pagination>
-            </div>
+    <div class="no-print" *ngIf="programs && programs.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
         </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
 </div>

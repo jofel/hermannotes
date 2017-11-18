@@ -9,6 +9,8 @@ import { JhiEventManager, JhiAlertService, JhiDataUtils } from 'ng-jhipster';
 import { Program } from './program.model';
 import { ProgramPopupService } from './program-popup.service';
 import { ProgramService } from './program.service';
+import { Student, StudentService } from '../student';
+import { ResponseWrapper } from '../../shared';
 
 @Component({
     selector: 'jhi-program-dialog',
@@ -19,17 +21,22 @@ export class ProgramDialogComponent implements OnInit {
     program: Program;
     isSaving: boolean;
 
+    students: Student[];
+
     constructor(
         public activeModal: NgbActiveModal,
         private dataUtils: JhiDataUtils,
         private alertService: JhiAlertService,
         private programService: ProgramService,
+        private studentService: StudentService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
+        this.studentService.query()
+            .subscribe((res: ResponseWrapper) => { this.students = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     byteSize(field) {
@@ -91,6 +98,10 @@ export class ProgramDialogComponent implements OnInit {
 
     private onError(error) {
         this.alertService.error(error.message, null, null);
+    }
+
+    trackStudentById(index: number, item: Student) {
+        return item.id;
     }
 }
 

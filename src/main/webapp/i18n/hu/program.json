@@ -23,7 +23,8 @@
             "decisionCost": "Támogatás",
             "report": "Jelentés",
             "reportCost": "Költség",
-            "status": "Állapot"
+            "status": "Állapot",
+            "student": "Hallgató"
         }
     }
 }

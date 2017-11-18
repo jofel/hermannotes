@@ -18,6 +18,13 @@
                 [(ngModel)]="program.title"  />
         </div>
         <div class="form-group">
+            <label jhiTranslate="hermannotesApp.program.student" for="field_student">Student</label>
+            <select class="form-control" id="field_student" name="student" [(ngModel)]="program.student" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="studentOption.id === program.student?.id ? program.student : studentOption" *ngFor="let studentOption of students; trackBy: trackStudentById">{{studentOption.name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
             <label class="form-control-label" jhiTranslate="hermannotesApp.program.date" for="field_date">Date</label>
             <div class="d-flex">
                 <input id="field_date" type="datetime-local" class="form-control" name="date" [(ngModel)]="program.date"
@@ -62,7 +69,6 @@
                 <option value="closed" jhiTranslate="hermannotesApp.ProgramStatus.closed">closed</option>
             </select>
         </div>
-
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">

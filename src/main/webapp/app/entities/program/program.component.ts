@@ -15,7 +15,7 @@ import { PaginationConfig } from '../../blocks/config/uib-pagination.config';
 })
 export class ProgramComponent implements OnInit, OnDestroy {
 
-currentAccount: any;
+    currentAccount: any;
     programs: Program[];
     error: any;
     success: any;

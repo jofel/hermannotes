@@ -18,6 +18,7 @@ export class Program implements BaseEntity {
         public report?: any,
         public reportCost?: number,
         public status?: ProgramStatus,
+        public student?: BaseEntity,
     ) {
     }
 }

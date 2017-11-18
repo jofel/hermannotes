@@ -56,6 +56,9 @@ public class Program implements Serializable {
     @Column(name = "status")
     private ProgramStatus status;
 
+    @ManyToOne
+    private Student student;
+
     public Long getId() {
         return id;
     }
@@ -179,6 +182,19 @@ public class Program implements Serializable {
 
     public void setStatus(ProgramStatus status) {
         this.status = status;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public Program student(Student student) {
+        this.student = student;
+        return this;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
     @Override

@@ -40,6 +40,12 @@
         <dd>
             <span jhiTranslate="{{'hermannotesApp.ProgramStatus.' + program.status}}">{{program.status}}</span>
         </dd>
+        <dt><span jhiTranslate="hermannotesApp.program.student">Student</span></dt>
+        <dd>
+            <div *ngIf="program.student">
+                <a [routerLink]="['/student', program.student?.id]">{{program.student?.name}}</a>
+            </div>
+        </dd>
     </dl>
 
     <button type="submit"
