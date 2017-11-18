@@ -9,6 +9,7 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { Student } from './student.model';
 import { StudentPopupService } from './student-popup.service';
 import { StudentService } from './student.service';
+import { ITEMS_PER_PAGE, Principal, ResponseWrapper } from '../../shared';
 
 @Component({
     selector: 'jhi-student-dialog',
@@ -18,13 +19,18 @@ export class StudentDialogComponent implements OnInit {
 
     student: Student;
     isSaving: boolean;
+    account: any;
 
     constructor(
         public activeModal: NgbActiveModal,
         private alertService: JhiAlertService,
         private studentService: StudentService,
-        private eventManager: JhiEventManager
+        private eventManager: JhiEventManager,
+        private principal: Principal
     ) {
+        this.principal.identity().then((account) => {
+            this.account = account;
+        });
     }
 
     ngOnInit() {

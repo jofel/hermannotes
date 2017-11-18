@@ -1,7 +1,7 @@
 <div>
     <h2>
         <span jhiTranslate="hermannotesApp.student.home.title">Students</span>
-        <button class="btn btn-primary float-right jh-create-entity create-student" [routerLink]="['/', { outlets: { popup: ['student-new'] } }]">
+        <button *jhiHasAnyAuthority="'ROLE_ADMIN'" class="btn btn-primary float-right jh-create-entity create-student" [routerLink]="['/', { outlets: { popup: ['student-new'] } }]">
             <span class="fa fa-plus"></span>
             <span  jhiTranslate="hermannotesApp.student.home.createLabel">
             Create new Student
@@ -16,7 +16,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th *jhiHasAnyAuthority="'ROLE_ADMIN'"><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="hermannotesApp.student.name">Name</span></th>
             <th><span jhiTranslate="hermannotesApp.student.studies">Studies</span></th>
             <th><span jhiTranslate="hermannotesApp.student.room">Room</span></th>
@@ -27,13 +27,13 @@
             </thead>
             <tbody>
             <tr *ngFor="let student of students ;trackBy: trackId">
-                <td><a [routerLink]="['../student', student.id ]">{{student.id}}</a></td>
+                <td *jhiHasAnyAuthority="'ROLE_ADMIN'" ><a [routerLink]="['../student', student.id ]">{{student.id}}</a></td>
                 <td>{{student.name}}</td>
                 <td>{{student.studies}}</td>
                 <td>{{student.room}}</td>
                 <td>{{student.point}}</td>
                 <td jhiTranslate="{{'hermannotesApp.StudentStatus.' + student.status}}">{{student.status}}</td>
-                <td class="text-right">
+                <td *jhiHasAnyAuthority="'ROLE_ADMIN'" class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"
                                 [routerLink]="['../student', student.id ]"
