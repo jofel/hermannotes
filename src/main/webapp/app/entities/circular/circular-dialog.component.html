@@ -2,73 +2,72 @@
 
     <div class="modal-header">
         <h4 class="modal-title" id="myCircularLabel" jhiTranslate="hermannotesApp.circular.home.createOrEditLabel">Create or edit a Circular</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
-                (click)="clear()">&times;</button>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="clear()">&times;</button>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
         <div class="form-group" [hidden]="!circular.id">
             <label for="id" jhiTranslate="global.field.id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                   [(ngModel)]="circular.id" readonly />
+            <input type="text" class="form-control" id="id" name="id" [(ngModel)]="circular.id" readonly />
         </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="hermannotesApp.circular.title" for="field_title">Title</label>
-            <input type="text" class="form-control" name="title" id="field_title"
-                [(ngModel)]="circular.title"  />
+        <div class="row">
+            <div class="form-group col-6">
+                <label class="form-control-label" jhiTranslate="hermannotesApp.circular.title" for="field_title">Title</label>
+                <input type="text" class="form-control" name="title" id="field_title" [(ngModel)]="circular.title" />
+            </div>
+            <div class="form-group col-6">
+                <label jhiTranslate="hermannotesApp.circular.student" for="field_student">Student</label>
+                <select class="form-control" id="field_student" name="student" [(ngModel)]="circular.student">
+                    <option [ngValue]="null"></option>
+                    <option [ngValue]="studentOption.id === circular.student?.id ? circular.student : studentOption" *ngFor="let studentOption of students; trackBy: trackStudentById">{{studentOption.name}}</option>
+                </select>
+            </div>
         </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="hermannotesApp.circular.day" for="field_day">Day</label>
-            <select class="form-control" name="day" [(ngModel)]="circular.day" id="field_day" >
-                <option value="monday" jhiTranslate="hermannotesApp.DayOfWeek.monday">monday</option>
-                <option value="tuesday" jhiTranslate="hermannotesApp.DayOfWeek.tuesday">tuesday</option>
-                <option value="wednesday" jhiTranslate="hermannotesApp.DayOfWeek.wednesday">wednesday</option>
-                <option value="thursday" jhiTranslate="hermannotesApp.DayOfWeek.thursday">thursday</option>
-                <option value="friday" jhiTranslate="hermannotesApp.DayOfWeek.friday">friday</option>
-                <option value="saturday" jhiTranslate="hermannotesApp.DayOfWeek.saturday">saturday</option>
-                <option value="sunday" jhiTranslate="hermannotesApp.DayOfWeek.sunday">sunday</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="hermannotesApp.circular.time" for="field_time">Time</label>
-            <input type="text" class="form-control" name="time" id="field_time"
-                [(ngModel)]="circular.time"  />
+        <div class="row">
+            <div class="form-group col-9">
+                <label class="form-control-label" jhiTranslate="hermannotesApp.circular.day" for="field_day">Day</label>
+                <select class="form-control" name="day" [(ngModel)]="circular.day" id="field_day">
+                    <option value="monday" jhiTranslate="hermannotesApp.DayOfWeek.monday">monday</option>
+                    <option value="tuesday" jhiTranslate="hermannotesApp.DayOfWeek.tuesday">tuesday</option>
+                    <option value="wednesday" jhiTranslate="hermannotesApp.DayOfWeek.wednesday">wednesday</option>
+                    <option value="thursday" jhiTranslate="hermannotesApp.DayOfWeek.thursday">thursday</option>
+                    <option value="friday" jhiTranslate="hermannotesApp.DayOfWeek.friday">friday</option>
+                    <option value="saturday" jhiTranslate="hermannotesApp.DayOfWeek.saturday">saturday</option>
+                    <option value="sunday" jhiTranslate="hermannotesApp.DayOfWeek.sunday">sunday</option>
+                </select>
+            </div>
+            <div class="form-group col-3">
+                <label class="form-control-label" jhiTranslate="hermannotesApp.circular.time" for="field_time">Time</label>
+                <input type="text" class="form-control" name="time" id="field_time" [(ngModel)]="circular.time" />
+            </div>
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="hermannotesApp.circular.locale" for="field_locale">Locale</label>
-            <input type="text" class="form-control" name="locale" id="field_locale"
-                [(ngModel)]="circular.locale"  />
+            <input type="text" class="form-control" name="locale" id="field_locale" [(ngModel)]="circular.locale" />
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="hermannotesApp.circular.content" for="field_content">Content</label>
-            <textarea class="form-control" name="content" id="field_content"
-                [(ngModel)]="circular.content"  ></textarea>
+            <textarea class="form-control" name="content" id="field_content" [(ngModel)]="circular.content"></textarea>
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="hermannotesApp.circular.image" for="field_image">Image</label>
-            <input type="text" class="form-control" name="image" id="field_image"
-                [(ngModel)]="circular.image"  />
+            <input type="text" class="form-control" name="image" id="field_image" [(ngModel)]="circular.image" />
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="hermannotesApp.circular.active" for="field_active">Active</label>
-            <input type="checkbox" class="form-control" name="active" id="field_active"
-                [(ngModel)]="circular.active"  />
+            <input type="checkbox" class="form-control" name="active" id="field_active" [(ngModel)]="circular.active" />
         </div>
 
-        <div class="form-group">
-            <label jhiTranslate="hermannotesApp.circular.student" for="field_student">Student</label>
-            <select class="form-control" id="field_student" name="student" [(ngModel)]="circular.student" >
-                <option [ngValue]="null"></option>
-                <option [ngValue]="studentOption.id === circular.student?.id ? circular.student : studentOption" *ngFor="let studentOption of students; trackBy: trackStudentById">{{studentOption.name}}</option>
-            </select>
-        </div>
+
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
-            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+            <span class="fa fa-ban"></span>&nbsp;
+            <span jhiTranslate="entity.action.cancel">Cancel</span>
         </button>
         <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+            <span class="fa fa-save"></span>&nbsp;
+            <span jhiTranslate="entity.action.save">Save</span>
         </button>
     </div>
 </form>

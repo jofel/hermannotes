@@ -9,7 +9,7 @@
                 "main": "Entitások",
                 "student": "Hallgatók",
                 "program": "Programok",
-                "circular": "Circular",
+                "circular": "Körlevél",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
