@@ -1,959 +1,447 @@
+<textarea rows="5" cols="140" hidden="false">
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <title data="A Responsive Email Template">A Responsive Email Template</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <style type="text/css">
+            /* CLIENT-SPECIFIC STYLES */
+            body, table, td, a{-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;} /* Prevent WebKit and Windows mobile changing default text sizes */
+            table, td{mso-table-lspace: 0pt; mso-table-rspace: 0pt;} /* Remove spacing between tables in Outlook 2007 and up */
+            img{-ms-interpolation-mode: bicubic;} /* Allow smoother rendering of resized image in Internet Explorer */
+        
+            /* RESET STYLES */
+            img{border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none;}
+            table{border-collapse: collapse !important;}
+            body{height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important;}
+        
+            /* iOS BLUE LINKS */
+            a[x-apple-data-detectors] {
+                color: inherit !important;
+                text-decoration: none !important;
+                font-size: inherit !important;
+                font-family: inherit !important;
+                font-weight: inherit !important;
+                line-height: inherit !important;
+            }
+        
+            /* MOBILE STYLES */
+            @media screen and (max-width: 525px) {
+        
+                /* ALLOWS FOR FLUID TABLES */
+                .wrapper {
+                width: 100% !important;
+                    max-width: 100% !important;
+                }
+        
+                /* ADJUSTS LAYOUT OF LOGO IMAGE */
+                .logo img {
+                margin: 0 auto !important;
+                }
+        
+                /* USE THESE CLASSES TO HIDE CONTENT ON MOBILE */
+                .mobile-hide {
+                display: none !important;
+                }
+        
+                .img-max {
+                max-width: 100% !important;
+                width: 100% !important;
+                height: auto !important;
+                }
+        
+                /* FULL-WIDTH TABLES */
+                .responsive-table {
+                width: 100% !important;
+                }
+        
+                /* UTILITY CLASSES FOR ADJUSTING PADDING ON MOBILE */
+                .padding {
+                padding: 10px 5% 15px 5% !important;
+                }
+        
+                .padding-meta {
+                padding: 30px 5% 0px 5% !important;
+                text-align: center;
+                }
+        
+                .padding-copy {
+                    padding: 10px 5% 10px 5% !important;
+                text-align: center;
+                }
+        
+                .no-padding {
+                padding: 0 !important;
+                }
+        
+                .section-padding {
+                padding: 50px 15px 50px 15px !important;
+                }
+        
+                /* ADJUST BUTTONS ON MOBILE */
+                .mobile-button-container {
+                    margin: 0 auto;
+                    width: 100% !important;
+                }
+        
+                .mobile-button {
+                    padding: 15px !important;
+                    border: 0 !important;
+                    font-size: 16px !important;
+                    display: block !important;
+                }
+        
+            }
+        
+            /* ANDROID CENTER FIX */
+            div[style*="margin: 16px 0;"] { margin: 0 !important; }
+        </style>
+        
+        <!--[if gte mso 12]>
+    <style type="text/css">
+    .mso-right {
+        padding-left: 20px;
+    }
+    </style>
+    <![endif]-->
+    </head>
+    
+    <body style="margin: 0 !important; padding: 0 !important;">
+    
+        <!-- HIDDEN PREHEADER TEXT -->
+        <div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
+            Herman Ottó Kollégium "A" épületének heti programajánlója. Kérés/kérdés esetén az alábbi címre lehet írni: adminisztracio@ohsh.u-szeged.hu
+        </div>
+    
+        <!-- HEADER -->
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td bgcolor="#333333" align="center">
+                    <!--[if (gte mso 9)|(IE)]>
+                    <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
+                    <tr>
+                    <td align="center" valign="top" width="500">
+                    <![endif]-->
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="wrapper">
+                        <tr>
+                            <td align="center" style="font-size: 36px; font-family: Helvetica, Arial, sans-serif; color: #D8D8D8; padding-top: 15px;"
+                                class="padding-copy">Herman Körlevél</td>
+                        </tr>
+                    </table>
+                    <!--[if (gte mso 9)|(IE)]>
+                    </td>
+                    </tr>
+                    </table>
+                    <![endif]-->
+                </td>
+            </tr>
+            <tr>
+                <td bgcolor="#ffffff" align="center" style="padding: 70px 15px 25px 15px;" class="section-padding">
+                    <table border="0" cellpadding="0" cellspacing="0" width="700" style="padding:0 0 20px 0;" class="responsive-table">
+    
+                        <tr >
+                            <td align="center" height="100%" valign="top" width="100%" style="padding-bottom: 35px;">
+                                <!--[if (gte mso 9)|(IE)]>
+                                <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
+                                <tr>
+                                <td align="center" valign="top" width="500">
+                                <![endif]-->
+                                <table *ngFor="let day of days" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:500;">
+                                    <tr>
+                                        <td align="center" style="padding: 0 0 5px 0; font-size: 25px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #333333;"
+                                            class="padding-copy">
+                                            <b jhiTranslate="{{'hermannotesApp.DayOfWeek.' + day}}" >{{day}}</b> 
+                                        </td>
+                                    </tr>
+    
+                                    <tr *ngFor="let circular of circulars ;trackBy: trackId">
+                                        <template [ngIf]="circular.day == day && circular.active">
+                                            <td align="center" valign="top" style="font-size:0;">
+                                                <!--[if (gte mso 9)|(IE)]>
+                                                <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
+                                                <tr>
+                                                <td align="left" valign="top" width="150">
+                                                <![endif]-->
+                                                <div style="display:inline-block; margin: 0 -2px; max-width:150px; vertical-align:top; width:100%;">
+    
+                                                    <table align="left" border="0" cellpadding="0" cellspacing="0" width="150">
+                                                        <tr>
+                                                            <td valign="top">
+                                                                <img src="{{circular.image}}" alt="alt text here" width="150" height="150" border="0" style="display: block; font-family: Arial; color: #666666; font-size: 14px;">
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <!--[if (gte mso 9)|(IE)]>
+                                                </td>
+                                                <td align="left" valign="top" width="350">
+                                                <![endif]-->
+                                                <div style="display:inline-block; margin: 0 -2px; max-width:350px; vertical-align:top; width:100%;" class="wrapper">
+    
+                                                    <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 325px; float: right;" class="wrapper">
+                                                        <tr>
+    
+                                                            <td style="padding: 40px 0 0 0;" class="no-padding">
+                                                                <!-- ARTICLE -->
+                                                                <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                                                                    <tr>
+                                                                        <td align="left" style="padding: 0 0 5px 0; font-size: 22px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #333333;"
+                                                                            class="padding-copy">{{circular.title}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="left" style="padding: 10px 0 15px 0; font-size: 16px; line-height: 24px; font-family: Helvetica, Arial, sans-serif; color: #666666;"
+                                                                            class="padding-copy">
+                                                                            <i>{{circular.time}} | {{circular.locale}}</i>
+                                                                            <br> {{circular.content}}
+                                                                            <br>
+                                                                            <i> {{circular.student.name}} ({{circular.student.room}})</i>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <!--[if (gte mso 9)|(IE)]>
+                                                </td>
+                                                </tr>
+                                                </table>
+                                                <![endif]-->
+                                            </td>
+                                        </template>
+                                    </tr>
+                                </table>
+                                <hr width="80%">
+                                <!--[if (gte mso 9)|(IE)]>
+                                </td>
+                                </tr>
+                                </table>
+                                <![endif]-->
+                            </td>
+                        </tr>
+    
+                    </table>
+                </td>
+            </tr>
+    
+            <tr>
+                <td bgcolor="#ffffff" align="center" style="padding: 20px 0px;">
+                    <!--[if (gte mso 9)|(IE)]>
+                    <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
+                    <tr>
+                    <td align="center" valign="top" width="500">
+                    <![endif]-->
+                    <!-- UNSUBSCRIBE COPY -->
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="max-width: 500px;" class="responsive-table">
+                        <tr>
+                            <td align="center" style="font-size: 12px; line-height: 18px; font-family: Helvetica, Arial, sans-serif; color:#666666;">
+                                Körlevélért felelős:
+                                <br>Fodor József Felicián
+                                <br>adminisztracio@ohsh.u-szeged.hu
+                                <br>
+    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" style="font-size: 12px; line-height: 18px; font-family: Helvetica, Arial, sans-serif; color:#666666;">
+                                <br>6726 Szeged Temesvári krt. 50-52.
+                                <br>
+                                <a href="https://www.facebook.com/groups/839503426210108/" target="_blank" style="color: darkblue; text-decoration: none;">Facebook
+                                    <span style="font-family: Arial, sans-serif; font-size: 12px; color: #444444;">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                    <a href="http://www.ohsh.u-szeged.hu" target="_blank" style="color: darkblue; text-decoration: none;">Weblap
+                            </td>
+                        </tr>
+                    </table>
+                    <!--[if (gte mso 9)|(IE)]>
+                    </td>
+                    </tr>
+                    </table>
+                    <![endif]-->
+                </td>
+            </tr>
+        </table>
+    </body>
+    
+    </html>
+        </textarea>
+
+
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>A Responsive Email Template</title>
-<!--
+    <title data="A Responsive Email Template">A Responsive Email Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    An email present from your friends at Litmus (@litmusapp)
-
-    Email is surprisingly hard. While this has been thoroughly tested, your mileage may vary.
-    It's highly recommended that you test using a service like Litmus () and your own devices.
-
-    Enjoy!
-
- -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<style type="text/css">
-    /* CLIENT-SPECIFIC STYLES */
-    body, table, td, a{-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;} /* Prevent WebKit and Windows mobile changing default text sizes */
-    table, td{mso-table-lspace: 0pt; mso-table-rspace: 0pt;} /* Remove spacing between tables in Outlook 2007 and up */
-    img{-ms-interpolation-mode: bicubic;} /* Allow smoother rendering of resized image in Internet Explorer */
-
-    /* RESET STYLES */
-    img{border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none;}
-    table{border-collapse: collapse !important;}
-    body{height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important;}
-
-    /* iOS BLUE LINKS */
-    a[x-apple-data-detectors] {
-        color: inherit !important;
-        text-decoration: none !important;
-        font-size: inherit !important;
-        font-family: inherit !important;
-        font-weight: inherit !important;
-        line-height: inherit !important;
+    <!--[if gte mso 12]>
+    <style type="text/css">
+    .mso-right {
+        padding-left: 20px;
     }
-
-    /* MOBILE STYLES */
-    @media screen and (max-width: 525px) {
-
-        /* ALLOWS FOR FLUID TABLES */
-        .wrapper {
-          width: 100% !important;
-        	max-width: 100% !important;
-        }
-
-        /* ADJUSTS LAYOUT OF LOGO IMAGE */
-        .logo img {
-          margin: 0 auto !important;
-        }
-
-        /* USE THESE CLASSES TO HIDE CONTENT ON MOBILE */
-        .mobile-hide {
-          display: none !important;
-        }
-
-        .img-max {
-          max-width: 100% !important;
-          width: 100% !important;
-          height: auto !important;
-        }
-
-        /* FULL-WIDTH TABLES */
-        .responsive-table {
-          width: 100% !important;
-        }
-
-        /* UTILITY CLASSES FOR ADJUSTING PADDING ON MOBILE */
-        .padding {
-          padding: 10px 5% 15px 5% !important;
-        }
-
-        .padding-meta {
-          padding: 30px 5% 0px 5% !important;
-          text-align: center;
-        }
-
-        .padding-copy {
-     		padding: 10px 5% 10px 5% !important;
-          text-align: center;
-        }
-
-        .no-padding {
-          padding: 0 !important;
-        }
-
-        .section-padding {
-          padding: 50px 15px 50px 15px !important;
-        }
-
-        /* ADJUST BUTTONS ON MOBILE */
-        .mobile-button-container {
-            margin: 0 auto;
-            width: 100% !important;
-        }
-
-        .mobile-button {
-            padding: 15px !important;
-            border: 0 !important;
-            font-size: 16px !important;
-            display: block !important;
-        }
-
-    }
-
-    /* ANDROID CENTER FIX */
-    div[style*="margin: 16px 0;"] { margin: 0 !important; }
-</style>
-<!--[if gte mso 12]>
-<style type="text/css">
-.mso-right {
-	padding-left: 20px;
-}
-</style>
-<![endif]-->
+    </style>
+    <![endif]-->
 </head>
+
 <body style="margin: 0 !important; padding: 0 !important;">
 
-<!-- HIDDEN PREHEADER TEXT -->
-<div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
-    Herman Ottó Kollégium "A" épületének heti programajánlója. 
-	Kérés/kérdés esetén az alábbi címre lehet írni: adminisztracio@ohsh.u-szeged.hu
-</div>
+    <!-- HIDDEN PREHEADER TEXT -->
+    <div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
+        Herman Ottó Kollégium "A" épületének heti programajánlója. Kérés/kérdés esetén az alábbi címre lehet írni: adminisztracio@ohsh.u-szeged.hu
+    </div>
 
-<!-- HEADER -->
-<table border="0" cellpadding="0" cellspacing="0" width="100%">
-    <tr>
-        <td bgcolor="#333333" align="center">
-            <!--[if (gte mso 9)|(IE)]>
-            <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-            <tr>
-            <td align="center" valign="top" width="500">
-            <![endif]-->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="wrapper">
+    <!-- HEADER -->
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td bgcolor="#333333" align="center">
+                <!--[if (gte mso 9)|(IE)]>
+                <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
                 <tr>
-                    <td align="center" style="font-size: 36px; font-family: Helvetica, Arial, sans-serif; color: #D8D8D8; padding-top: 15px;" class="padding-copy">Herman Körlevél</td>
-                                        
-					
+                <td align="center" valign="top" width="500">
+                <![endif]-->
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="wrapper">
+                    <tr>
+                        <td align="center" style="font-size: 36px; font-family: Helvetica, Arial, sans-serif; color: #D8D8D8; padding-top: 15px;"
+                            class="padding-copy">Herman Körlevél</td>
+                    </tr>
+                </table>
+                <!--[if (gte mso 9)|(IE)]>
+                </td>
                 </tr>
-            </table>
-            <!--[if (gte mso 9)|(IE)]>
+                </table>
+                <![endif]-->
             </td>
-            </tr>
-            </table>
-            <![endif]-->
-        </td>
-    </tr>
-    <tr>
-        <td bgcolor="#ffffff" align="center" style="padding: 70px 15px 25px 15px;" class="section-padding">
-            <table border="0" cellpadding="0" cellspacing="0" width="500" style="padding:0 0 20px 0;" class="responsive-table">
-			
-				<!----------------------------------------- HÉTFŐ --------------------------------------------- -->
-			
-                <tr>
-                    <td align="center" height="100%" valign="top" width="100%" style="padding-bottom: 35px;">
-                        <!--[if (gte mso 9)|(IE)]>
-                        <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-                        <tr>
-                        <td align="center" valign="top" width="500">
-                        <![endif]-->
-                        <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:500;">
-						
+        </tr>
+        <tr>
+            <td bgcolor="#ffffff" align="center" style="padding: 70px 15px 25px 15px;" class="section-padding">
+                <table border="0" cellpadding="0" cellspacing="0" width="500" style="padding:0 0 20px 0;" class="responsive-table">
+
+                    <tr >
+                        <td align="center" height="100%" valign="top" width="100%" style="padding-bottom: 35px;">
+                            <!--[if (gte mso 9)|(IE)]>
+                            <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
                             <tr>
-								<td align="center" style="padding: 0 0 5px 0; font-size: 25px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #333333;" class="padding-copy"><b>HÉTFŐ</b></td>
-                                                
-							</tr>
-							
-							
-							
-							
-							<tr>
-                                <td align="center" valign="top" style="font-size:0;">
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-                                    <tr>
-                                    <td align="left" valign="top" width="150">
-                                    <![endif]-->
-                                    <div style="display:inline-block; margin: 0 -2px; max-width:150px; vertical-align:top; width:100%;">
-
-                                        <table align="left" border="0" cellpadding="0" cellspacing="0" width="150">
-                                            <tr>
-                                                <td valign="top"><img src="http://kepkezelo.com/images/3d4bc7sg3hfbb6gnf7v9.png" alt="alt text here" width="150" height="150" border="0" style="display: block; font-family: Arial; color: #666666; font-size: 14px;"></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <!--[if (gte mso 9)|(IE)]>
+                            <td align="center" valign="top" width="500">
+                            <![endif]-->
+                            <table *ngFor="let day of days" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:500;">
+                                <tr>
+                                    <td align="center" style="padding: 0 0 5px 0; font-size: 25px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #333333;"
+                                        class="padding-copy">
+                                        <b jhiTranslate="{{'hermannotesApp.DayOfWeek.' + day}}" >{{day}}</b> 
                                     </td>
-                                    <td align="left" valign="top" width="350">
-                                    <![endif]-->
-                                    <div style="display:inline-block; margin: 0 -2px; max-width:350px; vertical-align:top; width:100%;" class="wrapper">
+                                </tr>
 
-                                        <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 325px; float: right;" class="wrapper">
+                                <tr *ngFor="let circular of circulars ;trackBy: trackId">
+                                    <template [ngIf]="circular.day == day && circular.active">
+                                        <td align="center" valign="top" style="font-size:0;">
+                                            <!--[if (gte mso 9)|(IE)]>
+                                            <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
                                             <tr>
+                                            <td align="left" valign="top" width="150">
+                                            <![endif]-->
+                                            <div style="display:inline-block; margin: 0 -2px; max-width:150px; vertical-align:top; width:100%;">
 
-                                                <td style="padding: 40px 0 0 0;" class="no-padding">
-                                                    <!-- ARTICLE -->
-                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                                                        <tr>
-                                                            <td align="left" style="padding: 0 0 5px 0; font-size: 22px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #333333;" class="padding-copy">Code Club</td>
-                                                        </tr>
-                                                        <tr>
-                                                             <td align="left" style="padding: 10px 0 15px 0; font-size: 16px; line-height: 24px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">
-															 <i>20:00 | Társalgó</i><br>
-															 Programozó szakkörre várunk minden érdeklődőt.
-															 Kötprog, házi, szorgalmi, vagy csak kérdésed van? <br>
-																Gyere el és kapsz segítséget! <br>
-															 <i> Zsiros Dominik (912)</i>
-															 </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
+                                                <table align="left" border="0" cellpadding="0" cellspacing="0" width="150">
+                                                    <tr>
+                                                        <td valign="top">
+                                                            <img src="{{circular.image}}" alt="alt text here" width="150" height="150" border="0" style="display: block; font-family: Arial; color: #666666; font-size: 14px;">
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <!--[if (gte mso 9)|(IE)]>
+                                            </td>
+                                            <td align="left" valign="top" width="350">
+                                            <![endif]-->
+                                            <div style="display:inline-block; margin: 0 -2px; max-width:350px; vertical-align:top; width:100%;" class="wrapper">
+
+                                                <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 325px; float: right;" class="wrapper">
+                                                    <tr>
+
+                                                        <td style="padding: 40px 0 0 0;" class="no-padding">
+                                                            <!-- ARTICLE -->
+                                                            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                                                                <tr>
+                                                                    <td align="left" style="padding: 0 0 5px 0; font-size: 22px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #333333;"
+                                                                        class="padding-copy">{{circular.title}}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="left" style="padding: 10px 0 15px 0; font-size: 16px; line-height: 24px; font-family: Helvetica, Arial, sans-serif; color: #666666;"
+                                                                        class="padding-copy">
+                                                                        <i>{{circular.time}} | {{circular.locale}}</i>
+                                                                        <br> {{circular.content}}
+                                                                        <br>
+                                                                        <i> {{circular.student.name}} ({{circular.student.room}})</i>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <!--[if (gte mso 9)|(IE)]>
+                                            </td>
                                             </tr>
-                                        </table>
-                                    </div>
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    </td>
-                                    </tr>
-                                    </table>
-                                    <![endif]-->
-                                </td>
+                                            </table>
+                                            <![endif]-->
+                                        </td>
+                                    </template>
+                                </tr>
+                            </table>
+                            <hr width="80%">
+                            <!--[if (gte mso 9)|(IE)]>
+                            </td>
                             </tr>
-							
-							<tr>
-                                <td align="center" valign="top" style="font-size:0;">
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-                                    <tr>
-                                    <td align="left" valign="top" width="150">
-                                    <![endif]-->
-                                    <div style="display:inline-block; margin: 0 -2px; max-width:150px; vertical-align:top; width:100%;">
-
-                                        <table align="left" border="0" cellpadding="0" cellspacing="0" width="150">
-                                            <tr>
-                                                <td valign="top"><img src="http://kepkezelo.com/images/dmy89nff2qxi6wwn4haf.png" alt="alt text here" width="150" height="150" border="0" style="display: block; font-family: Arial; color: #666666; font-size: 14px;"></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    </td>
-                                    <td align="left" valign="top" width="350">
-                                    <![endif]-->
-                                    <div style="display:inline-block; margin: 0 -2px; max-width:350px; vertical-align:top; width:100%;" class="wrapper">
-
-                                        <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 325px; float: right;" class="wrapper">
-                                            <tr>
-
-                                                <td style="padding: 40px 0 0 0;" class="no-padding">
-                                                    <!-- ARTICLE -->
-                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                                                        <tr>
-                                                            <td align="left" style="padding: 0 0 5px 0; font-size: 22px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #333333;" class="padding-copy">Labdarúgás</td>
-                                                        </tr>
-                                                        <tr>
-                                                             <td align="left" style="padding: 10px 0 15px 0; font-size: 16px; line-height: 24px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">
-															 <i>20:00-22:00 | Műfüves pálya</i><br>
-															 Focisták figyelmébe.<br>
-															 <i> Szilágyi Rómeó (601)</i>
-															 </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    </td>
-                                    </tr>
-                                    </table>
-                                    <![endif]-->
-                                </td>
-                            </tr>
-							
-							<tr>
-                                <td align="center" valign="top" style="font-size:0;">
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-                                    <tr>
-                                    <td align="left" valign="top" width="150">
-                                    <![endif]-->
-                                    <div style="display:inline-block; margin: 0 -2px; max-width:150px; vertical-align:top; width:100%;">
-
-                                        <table align="left" border="0" cellpadding="0" cellspacing="0" width="150">
-                                            <tr>
-                                                <td valign="top"><img src="http://kepkezelo.com/images/h1kxbmbf8zf105l3q860.png" alt="alt text here" width="150" height="150" border="0" style="display: block; font-family: Arial; color: #666666; font-size: 14px;"></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    </td>
-                                    <td align="left" valign="top" width="350">
-                                    <![endif]-->
-                                    <div style="display:inline-block; margin: 0 -2px; max-width:350px; vertical-align:top; width:100%;" class="wrapper">
-
-                                        <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 325px; float: right;" class="wrapper">
-                                            <tr>
-
-                                                <td style="padding: 40px 0 0 0;" class="no-padding">
-                                                    <!-- ARTICLE -->
-                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                                                        <tr>
-                                                            <td align="left" style="padding: 0 0 5px 0; font-size: 22px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #333333;" class="padding-copy">Streetball</td>
-                                                        </tr>
-                                                        <tr>
-                                                             <td align="left" style="padding: 10px 0 15px 0; font-size: 16px; line-height: 24px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">
-															 <i>20:00-22:00 | Móra pálya</i><br>
-															 <i> Deáki Dominik (612)</i>
-															 </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    </td>
-                                    </tr>
-                                    </table>
-                                    <![endif]-->
-                                </td>
-                            </tr>
-
-							
-                        </table>
-						<hr width="80%">
-                        <!--[if (gte mso 9)|(IE)]>
+                            </table>
+                            <![endif]-->
                         </td>
-                        </tr>
-                        </table>
-                        <![endif]-->
-                    </td>
-                </tr>
-				
-				<!----------------------------------------- KEDD --------------------------------------------- -->
-				<tr>
-					<td align="center" style="padding: 0 0 5px 0; font-size: 25px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #333333;" class="padding-copy"><b>KEDD</b></td>											
-				</tr>
-				
-				
-                <tr>
-					
-				
-                    <td align="center" height="100%" valign="top" width="100%" style="padding-bottom: 35px;">
-                        <!--[if (gte mso 9)|(IE)]>
-                        <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-                        <tr>
-                        <td align="center" valign="top" width="500">
-                        <![endif]-->
-                        <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:500;">
-							
-                            
-							
-							
-							
-							  <!-- Angol szakkor-start -->
-							<tr>
-                                <td align="center" valign="top" style="font-size:0;" dir="rtl">
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-                                    <tr>
-                                    <td align="left" valign="top" width="150">
-                                    <![endif]-->
-                                    <div style="display:inline-block; margin: 0 -2px; max-width:150px; vertical-align:top; width:100%;" dir="ltr">
-                                        <table align="left" border="0" cellpadding="0" cellspacing="0" width="150">
-                                            <tr>
-                                                <td valign="top"><img src="http://kepkezelo.com/images/rt7225hjw5tzqrjt9zhw.png" alt="alt text here" width="150" height="150" border="0" style="display: block; font-family: Arial; color: #666666; font-size: 14px;"></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    </td>
-                                    <td align="left" valign="top" width="350">
-                                    <![endif]-->
-                                    <div style="display:inline-block; margin: 0 -2px; max-width:350px; vertical-align:top; width:100%;" dir="ltr">
+                    </tr>
 
-                                        <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 325px;">
-                                            <tr>
-
-                                                <td style="padding: 40px 0 0 0;" class="no-padding">
-                                                    <!-- ARTICLE -->
-                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                                                        <tr>
-                                                            <td align="left" style="padding: 0 0 5px 0; font-size: 22px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #333333;" class="padding-copy">Angol szakkör</td>
-                                                        </tr>
-                                                        <tr>
-                                                             <td align="left" style="padding: 10px 0 15px 0; font-size: 16px; line-height: 24px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">
-															 <i>20:30 | Könyvtár</i> <br> 
-															 Ha szeretnél szóban fejlődni vagy ha nyelvvizsgára készülsz akkor ne habozz, csatlakozz! <br><i>Bodzsár Minka (210)</i>
-															 </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    </td>
-                                    </tr>
-                                    </table>
-                                    <![endif]-->
-                                </td>
-                            </tr>
-							<!-- angol szakkor-end -->
-							
-							<!-- kémia szakkor-start -->
-							<tr>
-                                <td align="center" valign="top" style="font-size:0;" dir="rtl">
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-                                    <tr>
-                                    <td align="left" valign="top" width="150">
-                                    <![endif]-->
-                                    <div style="display:inline-block; margin: 0 -2px; max-width:150px; vertical-align:top; width:100%;" dir="ltr">
-                                        <table align="left" border="0" cellpadding="0" cellspacing="0" width="150">
-                                            <tr>
-                                                <td valign="top"><img src="http://kepkezelo.com/images/9lmabkk9ojkv1nkep1wf.jpg" alt="alt text here" width="150" height="150" border="0" style="display: block; font-family: Arial; color: #666666; font-size: 14px;"></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    </td>
-                                    <td align="left" valign="top" width="350">
-                                    <![endif]-->
-                                    <div style="display:inline-block; margin: 0 -2px; max-width:350px; vertical-align:top; width:100%;" dir="ltr">
-
-                                        <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 325px;">
-                                            <tr>
-
-                                                <td style="padding: 40px 0 0 0;" class="no-padding">
-                                                    <!-- ARTICLE -->
-                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                                                        <tr>
-                                                            <td align="left" style="padding: 0 0 5px 0; font-size: 22px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #333333;" class="padding-copy">Kémia szakkör</td>
-                                                        </tr>
-                                                        <tr>
-                                                             <td align="left" style="padding: 10px 0 15px 0; font-size: 16px; line-height: 24px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">
-															 <i>20:00 | Folyóiratolvasó</i> <br> 
-															 Azon hallgatókat várjuk, akiknek szükségük van korrepetálásra, segítségre a Kémia alapja, illetve az Általános kémia kurzusok elméleti és gyakorlati részéből.<br>
-															 Eheti téma: <br><b>A pH számítással kapcsolatos összetettebb feladatok megoldása</b>
-															
-															 <br><i>Horváth András Zsolt (912)</i>
-															 </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    </td>
-                                    </tr>
-                                    </table>
-                                    <![endif]-->
-                                </td>
-                            </tr>
-							<!-- kémia szakkor-end -->
-							
-							 <!--teaház -start -->
-							<tr>
-                                <td align="center" valign="top" style="font-size:0;" dir="rtl">
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-                                    <tr>
-                                    <td align="left" valign="top" width="150">
-                                    <![endif]-->
-                                    <div style="display:inline-block; margin: 0 -2px; max-width:150px; vertical-align:top; width:100%;" dir="ltr">
-                                        <table align="left" border="0" cellpadding="0" cellspacing="0" width="150">
-                                            <tr>
-                                                <td valign="top"><img src="http://kepkezelo.com/images/tonoq7a98kcdffi4jogt.png" alt="alt text here" width="150" height="150" border="0" style="display: block; font-family: Arial; color: #666666; font-size: 14px;"></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    </td>
-                                    <td align="left" valign="top" width="350">
-                                    <![endif]-->
-                                    <div style="display:inline-block; margin: 0 -2px; max-width:350px; vertical-align:top; width:100%;" dir="ltr">
-
-                                        <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 325px;">
-                                            <tr>
-
-                                                <td style="padding: 40px 0 0 0;" class="no-padding">
-                                                    <!-- ARTICLE -->
-                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                                                        <tr>
-                                                            <td align="left" style="padding: 0 0 5px 0; font-size: 22px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #333333;" class="padding-copy">Teaház</td>
-                                                        </tr>
-                                                        <tr>
-                                                             <td align="left" style="padding: 10px 0 15px 0; font-size: 16px; line-height: 24px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">
-															 <i>21:00 | Társalgó</i> <br> 
-															 
-															 Lesz társas, tea és zsíros kenyér!<br>
-															 Bögrét, kiskanalat hozzatok!<br>
-															 <i>Fejszés Dorina, Garai Anna (204)</i>
-															 </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    </td>
-                                    </tr>
-                                    </table>
-                                    <![endif]-->
-                                </td>
-                            </tr>
-							<!-- teaház -end -->
-	
-                        </table>
-						<hr width="80%">
-                        <!--[if (gte mso 9)|(IE)]>
-                        </td>
-                        </tr>
-                        </table>
-                        <![endif]-->
-                    </td>
-                </tr>
-				
-				<!----------------------------------------- SZERDA --------------------------------------------- -->
-				
-				
-				
-                <tr>
-                    <td align="center" height="100%" valign="top" width="100%" style="padding-bottom: 25px;">
-                        <!--[if (gte mso 9)|(IE)]>
-                        <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-                        <tr>
-                        <td align="center" valign="top" width="500">
-                        <![endif]-->
-                        <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:500;">
-						
-                            <tr>
-								<td align="center" style="padding: 0 0 5px 0; font-size: 25px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #333333;" class="padding-copy"><b>SZERDA</b></td>                    
-							</tr>
-							
-							
-							<!-- hermanősz start -->
-							<tr>
-								<td align="center" valign="top" style="font-size:0;">
-									<!--[if (gte mso 9)|(IE)]>
-									<table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-									<tr>
-									<td align="left" valign="top" width="150">
-									<![endif]-->
-									<div style="display:inline-block; margin: 0 -2px; max-width:150px; vertical-align:top; width:100%;">
-
-										<table align="left" border="0" cellpadding="0" cellspacing="0" width="150">
-											<tr>
-												<td valign="top"><img src="http://kepkezelo.com/images/53lb0momrl4q3e08rx2o.jpg" alt="alt text here" width="150" height="150" border="0" style="display: block; font-family: Arial; color: #666666; font-size: 14px;"></td>
-											</tr>
-										</table>
-									</div>
-									<!--[if (gte mso 9)|(IE)]>
-									</td>
-									<td align="left" valign="top" width="350">
-									<![endif]-->
-									<div style="display:inline-block; margin: 0 -2px; max-width:350px; vertical-align:top; width:100%;" class="wrapper">
-
-										<table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 325px; float: right;" class="wrapper">
-											<tr>
-
-												<td style="padding: 40px 0 0 0;" class="no-padding">
-													<!-- ARTICLE -->
-													<table border="0" cellspacing="0" cellpadding="0" width="100%">
-														<tr>
-															<td align="left" style="padding: 0 0 5px 0; font-size: 22px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #333333;" class="padding-copy">Herman Ősz</td>
-														</tr>
-														<tr>
-															 <td align="left" style="padding: 10px 0 15px 0; font-size: 16px; line-height: 24px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">
-															 <i>16:00 | Park</i><br>
-															 A mellettünk lévő parkot és a vészlépcsőházunkat tesszük szebbé a délután folyamán. <br>
-															 Öltözzetek rétegesen, festéshez és gereblyézéshez.<br>
-															 A résztvevők pluszponttal és 21:00-tól forraltborral gazdagodnak. <br>
-															 Részletek:<br>
-															 <i>Szalai Balázs (603)</i>
-															 </td>
-														</tr>
-													</table>
-												</td>
-											</tr>
-										</table>
-									</div>
-									<!--[if (gte mso 9)|(IE)]>
-									</td>
-									</tr>
-									</table>
-									<![endif]-->
-								</td>
-							</tr>
-							<!-- hermanősz end -->
-							
-							
-							
-							<!-- esély Foci start -->
-							<tr>
-								<td align="center" valign="top" style="font-size:0;">
-									<!--[if (gte mso 9)|(IE)]>
-									<table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-									<tr>
-									<td align="left" valign="top" width="150">
-									<![endif]-->
-									<div style="display:inline-block; margin: 0 -2px; max-width:150px; vertical-align:top; width:100%;">
-
-										<table align="left" border="0" cellpadding="0" cellspacing="0" width="150">
-											<tr>
-												<td valign="top"><img src="http://kepkezelo.com/images/dmy89nff2qxi6wwn4haf.png" alt="alt text here" width="150" height="150" border="0" style="display: block; font-family: Arial; color: #666666; font-size: 14px;"></td>
-											</tr>
-										</table>
-									</div>
-									<!--[if (gte mso 9)|(IE)]>
-									</td>
-									<td align="left" valign="top" width="350">
-									<![endif]-->
-									<div style="display:inline-block; margin: 0 -2px; max-width:350px; vertical-align:top; width:100%;" class="wrapper">
-
-										<table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 325px; float: right;" class="wrapper">
-											<tr>
-
-												<td style="padding: 40px 0 0 0;" class="no-padding">
-													<!-- ARTICLE -->
-													<table border="0" cellspacing="0" cellpadding="0" width="100%">
-														<tr>
-															<td align="left" style="padding: 0 0 5px 0; font-size: 22px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #333333;" class="padding-copy">Esélykiegyenlítő foci</td>
-														</tr>
-														<tr>
-															 <td align="left" style="padding: 10px 0 15px 0; font-size: 16px; line-height: 24px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">
-															 <i>21:00-22:00 | Műfüves pálya</i><br>
-															 5+1 fős csapatok jelentkezését várjuk egy forraltboros, esélykiegyenlítős focizásra.<br>
-															 Részletek és jelentkezés:<br>
-															 <i> Szilágyi Rómeó (601), Magyar Zoltán(812)</i>
-															 </td>
-														</tr>
-													</table>
-												</td>
-											</tr>
-										</table>
-									</div>
-									<!--[if (gte mso 9)|(IE)]>
-									</td>
-									</tr>
-									</table>
-									<![endif]-->
-								</td>
-							</tr>
-							<!-- Foci end -->
-							
-							<!-- mr start -->
-							<tr>
-								<td align="center" valign="top" style="font-size:0;">
-									<!--[if (gte mso 9)|(IE)]>
-									<table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-									<tr>
-									<td align="left" valign="top" width="150">
-									<![endif]-->
-									<div style="display:inline-block; margin: 0 -2px; max-width:150px; vertical-align:top; width:100%;">
-
-										<table align="left" border="0" cellpadding="0" cellspacing="0" width="150">
-											<tr>
-												<td valign="top"><img src="http://kepkezelo.com/images/igvxtite41bs90jpkl96.png" alt="alt text here" width="150" height="150" border="0" style="display: block; font-family: Arial; color: #666666; font-size: 14px;"></td>
-											</tr>
-										</table>
-									</div>
-									<!--[if (gte mso 9)|(IE)]>
-									</td>
-									<td align="left" valign="top" width="350">
-									<![endif]-->
-									<div style="display:inline-block; margin: 0 -2px; max-width:350px; vertical-align:top; width:100%;" class="wrapper">
-
-										<table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 325px; float: right;" class="wrapper">
-											<tr>
-
-												<td style="padding: 40px 0 0 0;" class="no-padding">
-													<!-- ARTICLE -->
-													<table border="0" cellspacing="0" cellpadding="0" width="100%">
-														<tr>
-															<td align="left" style="padding: 0 0 5px 0; font-size: 22px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #333333;" class="padding-copy">Mr. Herman jelölés</td>
-														</tr>
-														<tr>
-															 <td align="left" style="padding: 10px 0 15px 0; font-size: 16px; line-height: 24px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">
-															 Fiúk eddig kampányolhatnak szórólapokkal, facebook posztokkal stb..
-															 Az este folyamán szedjük össze a szavazólapokat a lányoktól, addig töltsétek ki.<br>
-															 Ha esetleg valamelyik lány hallgató nem kapott volna szavazólapot, érdeklődjetek:<br>
-															 <i>Stiaszni Alexa (306)</i>
-															 </td>
-														</tr>
-													</table>
-												</td>
-											</tr>
-										</table>
-									</div>
-									<!--[if (gte mso 9)|(IE)]>
-									</td>
-									</tr>
-									</table>
-									<![endif]-->
-								</td>
-							</tr>
-							
-							
-							
-                        </table>
-						<hr width="80%">
-                        <!--[if (gte mso 9)|(IE)]>
-                        </td>
-                        </tr>
-                        </table>
-                        <![endif]-->
-                    </td>
-                </tr>
-				
-				
-				
-				<!----------------------------------------- CSÜTÖRTÖK --------------------------------------------- -->
-				
-				<tr>
-                    <td align="center" height="100%" valign="top" width="100%" style="padding-bottom: 35px;">
-                        <!--[if (gte mso 9)|(IE)]>
-                        <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-                        <tr>
-                        <td align="center" valign="top" width="500">
-                        <![endif]-->
-                        <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:500;">
-							
-							<tr>
-								<td align="center" style="padding: 0 0 5px 0; font-size: 25px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #333333;" class="padding-copy"><b>CSÜTÖRTÖK</b></td>                    
-							</tr>
-							
-							<tr>
-                                <td align="center" valign="top" style="font-size:0;" dir="rtl">
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-                                    <tr>
-                                    <td align="left" valign="top" width="150">
-                                    <![endif]-->
-                                    <div style="display:inline-block; margin: 0 -2px; max-width:150px; vertical-align:top; width:100%;" dir="ltr">
-                                        <table align="left" border="0" cellpadding="0" cellspacing="0" width="150">
-                                            <tr>
-                                                <td valign="top"><img src="http://kepkezelo.com/images/dxxb6kk48zg9r14m5jbx.png" alt="alt text here" width="150" height="150" border="0" style="display: block; font-family: Arial; color: #666666; font-size: 14px;"></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    </td>
-                                    <td align="left" valign="top" width="350">
-                                    <![endif]-->
-                                    <div style="display:inline-block; margin: 0 -2px; max-width:350px; vertical-align:top; width:100%;" dir="ltr">
-
-                                        <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 325px;">
-                                            <tr>
-
-                                                <td style="padding: 40px 0 0 0;" class="no-padding">
-                                                    <!-- ARTICLE -->
-                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                                                        <tr>
-                                                            <td align="left" style="padding: 0 0 5px 0; font-size: 22px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #333333;" class="padding-copy">Van programötleted?</td>
-                                                        </tr>
-                                                        <tr>
-                                                             <td align="left" style="padding: 10px 0 15px 0; font-size: 16px; line-height: 24px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">
-																Jelezd ezt bármelyik Seniornak vagy Kollégiumi Bizottsági tagnak, és biztosan kapsz segítséget megszervezni.
-															 </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    </td>
-                                    </tr>
-                                    </table>
-                                    <![endif]-->
-                                </td>
-                            </tr>
-							
-							
-                            
-							
-                        </table>
-						<hr width="80%">
-                        <!--[if (gte mso 9)|(IE)]>
-                        </td>
-                        </tr>
-                        </table>
-                        <![endif]-->
-                    </td>
-                </tr>
-				
-				
-				<!-- --------------------------------------- EGYÉB --------------------------------------------- -->
-				<tr>
-                    <td align="center" height="100%" valign="top" width="100%" style="padding-bottom: 25px;">
-                        <!--[if (gte mso 9)|(IE)]>
-                        <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-                        <tr>
-                        <td align="center" valign="top" width="500">
-                        <![endif]-->
-                        <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:500;">
-						
-                            <tr>
-								<td align="center" style="padding: 0 0 5px 0; font-size: 25px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #333333;" class="padding-copy"><b>EGYÉB</b></td>                    
-							</tr>
-							
-														
-							<tr>
-                                <td align="center" valign="top" style="font-size:0;">
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-                                    <tr>
-                                    <td align="left" valign="top" width="150">
-                                    <![endif]-->
-                                    <div style="display:inline-block; margin: 0 -2px; max-width:150px; vertical-align:top; width:100%;">
-
-                                        <table align="left" border="0" cellpadding="0" cellspacing="0" width="150">
-                                            <tr>
-                                                <td valign="top"><img src="http://kepkezelo.com/images/qyx4ljsyvlolby0mn6rf.png" alt="alt text here" width="150" height="150" border="0" style="display: block; font-family: Arial; color: #666666; font-size: 14px;"></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    </td>
-                                    <td align="left" valign="top" width="350">
-                                    <![endif]-->
-                                    <div style="display:inline-block; margin: 0 -2px; max-width:350px; vertical-align:top; width:100%;" class="wrapper">
-
-                                        <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 325px; float: right;" class="wrapper">
-                                            <tr>
-
-                                                <td style="padding: 40px 0 0 0;" class="no-padding">
-                                                    <!-- ARTICLE -->
-                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                                                        <tr>
-                                                            <td align="left" style="padding: 0 0 5px 0; font-size: 22px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #333333;" class="padding-copy">Szállásengedély</td>
-                                                        </tr>
-                                                        <tr>
-                                                             <td align="left" style="padding: 10px 0 15px 0; font-size: 16px; line-height: 24px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">
-																Ha vendéget szeretnél fogadni az éjszaka, akkor nincs más dolgod:<br>
-																<ul>
-																<li>Beszélsz a szobatársaiddal erről, mert az ő engedélyük feltétlen szükséges.</li>
-																<li>Kérsz szállásengedélyt az ügyeletes seniortól ügyeleti időben.</li>
-																<li>Aláíratod a szobatársaiddal a szállásengedélyt.</li>
-																<li>Ha megjön a vendég, akkor lemész elé.</li>
-																<li>A portán leadod a szállásengedélyt, és kifizeted az éjszakát.</li>
-																</ul>
-																<i>Kollégiumi Bizottság</i>
-															 </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    </td>
-                                    </tr>
-                                    </table>
-                                    <![endif]-->
-                                </td>
-                            </tr>
-							
-							
-							
-							<tr>
-                                <td align="center" valign="top" style="font-size:0;">
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-                                    <tr>
-                                    <td align="left" valign="top" width="150">
-                                    <![endif]-->
-                                    <div style="display:inline-block; margin: 0 -2px; max-width:150px; vertical-align:top; width:100%;">
-
-                                        <table align="left" border="0" cellpadding="0" cellspacing="0" width="150">
-                                            <tr>
-                                                <td valign="top"><img src="http://kepkezelo.com/images/y0g45l70ez2xq6b889ru.png" alt="alt text here" width="150" height="150" border="0" style="display: block; font-family: Arial; color: #666666; font-size: 14px;"></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    </td>
-                                    <td align="left" valign="top" width="350">
-                                    <![endif]-->
-                                    <div style="display:inline-block; margin: 0 -2px; max-width:350px; vertical-align:top; width:100%;" class="wrapper">
-
-                                        <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 325px; float: right;" class="wrapper">
-                                            <tr>
-
-                                                <td style="padding: 40px 0 0 0;" class="no-padding">
-                                                    <!-- ARTICLE -->
-                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                                                        <tr>
-                                                            <td align="left" style="padding: 0 0 5px 0; font-size: 22px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #333333;" class="padding-copy">Várólista</td>
-                                                        </tr>
-                                                        <tr>
-                                                             <td align="left" style="padding: 10px 0 15px 0; font-size: 16px; line-height: 24px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">A lány várólista üres, és van lány helyünk a kollégiumban.<br> Ha van lány ismerősötök, aki sokat panaszkodik az albérlet magas ára miatt, annak feltétlen ajánljátok a kollégiumunkat.<br><i>Fodor József Felicián (506)</i></td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    </td>
-                                    </tr>
-                                    </table>
-                                    <![endif]-->
-                                </td>
-                            </tr>
-							
-							
-                        </table>
-						<hr width="80%">
-                        <!--[if (gte mso 9)|(IE)]>
-                        </td>
-                        </tr>
-                        </table>
-                        <![endif]-->
-                    </td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-    
-    <tr>
-        <td bgcolor="#ffffff" align="center" style="padding: 20px 0px;">
-            <!--[if (gte mso 9)|(IE)]>
-            <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-            <tr>
-            <td align="center" valign="top" width="500">
-            <![endif]-->
-            <!-- UNSUBSCRIBE COPY -->
-            <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="max-width: 500px;" class="responsive-table">
-				<tr>
-                    <td align="center" style="font-size: 12px; line-height: 18px; font-family: Helvetica, Arial, sans-serif; color:#666666;">
-                        Körlevélért felelős:<br>Fodor József Felicián<br>adminisztracio@ohsh.u-szeged.hu 
-                        <br>
-                        
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" style="font-size: 12px; line-height: 18px; font-family: Helvetica, Arial, sans-serif; color:#666666;">
-                        <br>6726 Szeged Temesvári krt. 50-52.
-                        <br>
-                        <a href="https://www.facebook.com/groups/839503426210108/" target="_blank" style="color: darkblue; text-decoration: none;">Facebook
-                        <span style="font-family: Arial, sans-serif; font-size: 12px; color: #444444;">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                        <a href="http://www.ohsh.u-szeged.hu" target="_blank" style="color: darkblue; text-decoration: none;">Weblap
-                    </td>
-                </tr>
-            </table>
-            <!--[if (gte mso 9)|(IE)]>
+                </table>
             </td>
-            </tr>
-            </table>
-            <![endif]-->
-        </td>
-    </tr>
-</table>
+        </tr>
+
+        <tr>
+            <td bgcolor="#ffffff" align="center" style="padding: 20px 0px;">
+                <!--[if (gte mso 9)|(IE)]>
+                <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
+                <tr>
+                <td align="center" valign="top" width="500">
+                <![endif]-->
+                <!-- UNSUBSCRIBE COPY -->
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="max-width: 500px;" class="responsive-table">
+                    <tr>
+                        <td align="center" style="font-size: 12px; line-height: 18px; font-family: Helvetica, Arial, sans-serif; color:#666666;">
+                            Körlevélért felelős:
+                            <br>Fodor József Felicián
+                            <br>adminisztracio@ohsh.u-szeged.hu
+                            <br>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="font-size: 12px; line-height: 18px; font-family: Helvetica, Arial, sans-serif; color:#666666;">
+                            <br>6726 Szeged Temesvári krt. 50-52.
+                            <br>
+                            <a href="https://www.facebook.com/groups/839503426210108/" target="_blank" style="color: darkblue; text-decoration: none;">Facebook
+                                <span style="font-family: Arial, sans-serif; font-size: 12px; color: #444444;">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                <a href="http://www.ohsh.u-szeged.hu" target="_blank" style="color: darkblue; text-decoration: none;">Weblap
+                        </td>
+                    </tr>
+                </table>
+                <!--[if (gte mso 9)|(IE)]>
+                </td>
+                </tr>
+                </table>
+                <![endif]-->
+            </td>
+        </tr>
+    </table>
 </body>
+
 </html>

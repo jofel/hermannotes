@@ -12,10 +12,18 @@ import { PaginationConfig } from '../../blocks/config/uib-pagination.config';
     templateUrl: './circular-generate.component.html',
     styleUrls: ['./circular.css']
 })
+
 export class CircularGenerateComponent implements OnInit, OnDestroy {
     circulars: Circular[];
+    circular: Circular;
+    days= ['monday',
+    'tuesday',
+    'wednesday',
+    'thursday',
+    'friday'];
     currentAccount: any;
     eventSubscriber: Subscription;
+    igen: 'true';
 
     constructor(
         private circluarService: CircularService,

@@ -2,13 +2,13 @@
     "hermannotesApp": {
         "DayOfWeek" : {
             "null": "",
-            "monday": "monday",
-            "tuesday": "tuesday",
-            "wednesday": "wednesday",
-            "thursday": "thursday",
-            "friday": "friday",
-            "saturday": "saturday",
-            "sunday": "sunday"
+            "monday": "HÉTFŐ",
+            "tuesday": "KEDD",
+            "wednesday": "SZERDA",
+            "thursday": "CSÜTÖRTÖK",
+            "friday": "PÉNTEK",
+            "saturday": "SZOMBAT",
+            "sunday": "VASÁRNAP"
         }
     }
 }

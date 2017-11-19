@@ -7,6 +7,10 @@
                 "generateLabel": "Egy új Körlevél generálása",
                 "createOrEditLabel": "Hozzon létre, vagy módosítson Körlevél elemet"
             },
+            "generate": {
+                "html": "HTML kód",
+                "view": "Élőkép"
+            },
             "created": "Egy Körlevél elem lett létrehozva {{ param }} azonosítóval",
             "updated": "A Körlevél elem módosítva lett {{ param }} azonosítóval",
             "deleted": "A Körlevél elem törölve lett {{ param }} azonosítóval",
