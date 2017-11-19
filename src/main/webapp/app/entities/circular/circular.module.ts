@@ -8,6 +8,7 @@ import {
     CircularComponent,
     CircularDetailComponent,
     CircularDialogComponent,
+    CircularGenerateComponent,
     CircularPopupComponent,
     CircularDeletePopupComponent,
     CircularDeleteDialogComponent,
@@ -30,6 +31,7 @@ const ENTITY_STATES = [
         CircularComponent,
         CircularDetailComponent,
         CircularDialogComponent,
+        CircularGenerateComponent,
         CircularDeleteDialogComponent,
         CircularPopupComponent,
         CircularDeletePopupComponent,
@@ -37,6 +39,7 @@ const ENTITY_STATES = [
     entryComponents: [
         CircularComponent,
         CircularDialogComponent,
+        CircularGenerateComponent,
         CircularPopupComponent,
         CircularDeleteDialogComponent,
         CircularDeletePopupComponent,

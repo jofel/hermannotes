@@ -8,6 +8,7 @@ import { CircularComponent } from './circular.component';
 import { CircularDetailComponent } from './circular-detail.component';
 import { CircularPopupComponent } from './circular-dialog.component';
 import { CircularDeletePopupComponent } from './circular-delete-dialog.component';
+import { CircularGenerateComponent } from './circular-generate.component';
 
 @Injectable()
 export class CircularResolvePagingParams implements Resolve<any> {
@@ -40,6 +41,14 @@ export const circularRoute: Routes = [
     }, {
         path: 'circular/:id',
         component: CircularDetailComponent,
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'hermannotesApp.circular.home.title'
+        },
+        canActivate: [UserRouteAccessService]
+    }, {
+        path: 'circular-generate',
+        component: CircularGenerateComponent,
         data: {
             authorities: ['ROLE_USER'],
             pageTitle: 'hermannotesApp.circular.home.title'
