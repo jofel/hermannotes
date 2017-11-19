@@ -4,6 +4,7 @@
             "home": {
                 "title": "Circulars",
                 "createLabel": "Create a new Circular",
+                "generateLabel": "Generate a new Circular Mail",
                 "createOrEditLabel": "Create or edit a Circular"
             },
             "created": "A new Circular is created with identifier {{ param }}",

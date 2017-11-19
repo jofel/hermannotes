@@ -1,10 +1,16 @@
 <div>
         <h2>
             <span jhiTranslate="hermannotesApp.circular.home.title">Circulars</span>
-            <button class="btn btn-primary float-right jh-create-entity create-circular" [routerLink]="['/', { outlets: { popup: ['circular-new'] } }]">
+            <button class="btn btn-access float-right jh-create-entity create-circular" [routerLink]="['/', { outlets: { popup: ['circular-new'] } }]">
                 <span class="fa fa-plus"></span>
                 <span jhiTranslate="hermannotesApp.circular.home.createLabel">
                     Create new Circular
+                </span>
+            </button>
+            <button class="btn btn-primary float-right jh-create-entity create-circular" [routerLink]="['/', { outlets: { popup: ['circular-new'] } }]">
+                <span class="fa fa-rocket"></span>
+                <span jhiTranslate="hermannotesApp.circular.home.generateLabel">
+                    Generate new Circular Mail
                 </span>
             </button>
         </h2>

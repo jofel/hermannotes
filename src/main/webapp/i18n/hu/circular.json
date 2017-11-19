@@ -2,27 +2,28 @@
     "hermannotesApp": {
         "circular" : {
             "home": {
-                "title": "Circulars",
-                "createLabel": "Egy új Circular létrehozása",
-                "createOrEditLabel": "Hozzon létre, vagy módosítson Circulart"
+                "title": "Körlevél elemek",
+                "createLabel": "Egy új Körlevél elem létrehozása",
+                "generateLabel": "Egy új Körlevél generálása",
+                "createOrEditLabel": "Hozzon létre, vagy módosítson Körlevél elemet"
             },
-            "created": "Egy új Circular lett létrehozva {{ param }} azonosítóval",
-            "updated": "A Circular módosítva lett {{ param }} azonosítóval",
-            "deleted": "A Circular törölve lett {{ param }} azonosítóval",
+            "created": "Egy Körlevél elem lett létrehozva {{ param }} azonosítóval",
+            "updated": "A Körlevél elem módosítva lett {{ param }} azonosítóval",
+            "deleted": "A Körlevél elem törölve lett {{ param }} azonosítóval",
             "delete": {
-                "question": "Biztos benne, hogy törölni szeretné az Circulart {{ id }} azonosítóval?"
+                "question": "Biztos benne, hogy törölni szeretné a Körlevél elemet {{ id }} azonosítóval?"
             },
             "detail": {
-                "title": "Circular"
+                "title": "Körlevél elem"
             },
-            "title": "Title",
-            "day": "Day",
-            "time": "Time",
-            "locale": "Locale",
-            "content": "Content",
-            "image": "Image",
-            "active": "Active",
-            "student": "Student"
+            "title": "Cím",
+            "day": "Nap",
+            "time": "Idő",
+            "locale": "Hely",
+            "content": "Tartalom",
+            "image": "Kép",
+            "active": "Aktivitás",
+            "student": "Hallgató"
         }
     }
 }
