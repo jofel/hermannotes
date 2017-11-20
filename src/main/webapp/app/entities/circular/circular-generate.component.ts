@@ -16,6 +16,7 @@ import { PaginationConfig } from '../../blocks/config/uib-pagination.config';
 export class CircularGenerateComponent implements OnInit, OnDestroy {
     circulars: Circular[];
     circular: Circular;
+    day: any;
     days= ['monday',
     'tuesday',
     'wednesday',
@@ -23,7 +24,6 @@ export class CircularGenerateComponent implements OnInit, OnDestroy {
     'friday'];
     currentAccount: any;
     eventSubscriber: Subscription;
-    igen: 'true';
 
     constructor(
         private circluarService: CircularService,
