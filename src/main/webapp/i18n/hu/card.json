@@ -5,7 +5,8 @@
                 "title": "Kártyák",
                 "createLabel": "Egy új Kártya létrehozása",
                 "createOrEditLabel": "Hozzon létre, vagy módosítson Kártyát",
-                "generateLabel": "Egy új Kártya lap generálása"
+                "generateLabel": "Egy új Kártya lap generálása",
+                "printLabel": "Nyomtatás"
             },
             "created": "Egy új Kártya lett létrehozva {{ param }} azonosítóval",
             "updated": "A Kártya módosítva lett {{ param }} azonosítóval",

@@ -10,15 +10,17 @@ import { PaginationConfig } from '../../blocks/config/uib-pagination.config';
 @Component({
     selector: 'jhi-card-generate',
     templateUrl: './card-generate.component.html',
+    styleUrls: ['./card.css']
 })
 
 export class CardGenerateComponent implements OnInit, OnDestroy {
-    cards: Card[];
+    cardList: Card[];
+    cardItem: any;
     currentAccount: any;
     eventSubscriber: Subscription;
 
     constructor(
-        private circluarService: CardService,
+        private cardService: CardService,
         private alertService: JhiAlertService,
         private eventManager: JhiEventManager,
         private principal: Principal
@@ -26,9 +28,9 @@ export class CardGenerateComponent implements OnInit, OnDestroy {
     }
 
     loadAll() {
-        this.circluarService.query().subscribe(
+        this.cardService.query().subscribe(
             (res: ResponseWrapper) => {
-                this.cards = res.json;
+                this.cardList = res.json;
             },
             (res: ResponseWrapper) => this.onError(res.json)
         );
@@ -39,6 +41,7 @@ export class CardGenerateComponent implements OnInit, OnDestroy {
             this.currentAccount = account;
         });
         this.registerChangeInCard();
+        console.log( 'Kártya 1: ' + this.cardList);
     }
 
     ngOnDestroy() {
@@ -49,7 +52,7 @@ export class CardGenerateComponent implements OnInit, OnDestroy {
         return item.id;
     }
     registerChangeInCard() {
-        this.eventSubscriber = this.eventManager.subscribe('circluarListModification', (response) => this.loadAll());
+        this.eventSubscriber = this.eventManager.subscribe('cardListModification', (response) => this.loadAll());
     }
 
     private onError(error) {

@@ -1,0 +1,41 @@
+table, th, td {
+   border: 1px solid black;
+   margin: 57.5px 30px;
+}
+
+.card {
+  border: 1px solid black;
+}
+
+.left {
+  float: left;
+  margin: 0px 40px 10px 0px;
+}
+.right {
+    float: left;
+    margin: 0px 40px 10px 0px;
+  }
+
+.name {
+   font-size: 30px;
+   font-weight:bold;
+   font-family: Arial;
+}
+
+.room {
+  font-size: 70px;
+  font-weight:bold;
+  font-family: Arial;
+}
+
+@media print
+{
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}
+
+table:hover {
+  background-color: lightgrey;
+}

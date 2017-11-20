@@ -47,6 +47,7 @@ export class CircularGenerateComponent implements OnInit, OnDestroy {
             this.currentAccount = account;
         });
         this.registerChangeInCircular();
+        console.log(this.circulars);
     }
 
     ngOnDestroy() {

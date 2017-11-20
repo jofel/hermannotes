@@ -1,0 +1,26 @@
+<div class="no-print">
+    <h2>
+        <span class="row" jhiTranslate="hermannotesApp.card.home.title">Cards</span>
+        <a href="javascript:window.print()">
+            <button class="btn btn-primary float-right jh-create-entity create-circular" [routerLink]="['../card-generate' ]">
+                <span class="fa fa-print fa-5"></span>
+                <span jhiTranslate="hermannotesApp.card.home.printLabel">
+                    Print Card Page
+                </span>
+            </button>
+        </a>
+    </h2>
+</div>
+<div *ngFor="let card of cardList;  let i = index" [attr.data-index]="i">
+    <table [class]="i%2==0 ? 'left' : 'right' ">
+        <tr>
+            <td class="name" colspan="2" width="280" height="25">{{card.student.name}}</td>
+        </tr>
+        <tr>
+            <td width="150">
+                <img src="http://kepkezelo.com/images/y0g45l70ez2xq6b889ru.png" width="150" height="150" alt="jofel" />
+            </td>
+            <td class="room">{{card.student.room}}</td>
+        </tr>
+    </table>
+</div>

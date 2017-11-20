@@ -4,7 +4,9 @@
             "home": {
                 "title": "Cards",
                 "createLabel": "Create a new Card",
-                "createOrEditLabel": "Create or edit a Card"
+                "createOrEditLabel": "Create or edit a Card",
+                "generateLabel": "A Card Page generate",
+                "printLabel": "Print"
             },
             "created": "A new Card is created with identifier {{ param }}",
             "updated": "A Card is updated with identifier {{ param }}",
