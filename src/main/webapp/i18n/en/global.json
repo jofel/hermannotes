@@ -10,6 +10,7 @@
                 "student": "Student",
                 "program": "Program",
                 "circular": "Circular",
+                "card": "Card",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

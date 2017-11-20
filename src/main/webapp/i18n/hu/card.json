@@ -1,0 +1,23 @@
+{
+    "hermannotesApp": {
+        "card" : {
+            "home": {
+                "title": "Kártyák",
+                "createLabel": "Egy új Kártya létrehozása",
+                "createOrEditLabel": "Hozzon létre, vagy módosítson Kártyát",
+                "generateLabel": "Egy új Kártya lap generálása"
+            },
+            "created": "Egy új Kártya lett létrehozva {{ param }} azonosítóval",
+            "updated": "A Kártya módosítva lett {{ param }} azonosítóval",
+            "deleted": "A Kártya törölve lett {{ param }} azonosítóval",
+            "delete": {
+                "question": "Biztos benne, hogy törölni szeretné a Kártyát {{ id }} azonosítóval?"
+            },
+            "detail": {
+                "title": "Kártya"
+            },
+            "lost": "Elveszett",
+            "student": "Hallgató"
+        }
+    }
+}

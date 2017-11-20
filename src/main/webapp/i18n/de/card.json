@@ -1,0 +1,22 @@
+{
+    "hermannotesApp": {
+        "card" : {
+            "home": {
+                "title": "Cards",
+                "createLabel": "Card erstellen",
+                "createOrEditLabel": "Card erstellen oder bearbeiten"
+            },
+            "created": "Card erstellt mit ID {{ param }}",
+            "updated": "Card aktualisiert mit ID {{ param }}",
+            "deleted": "Card gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Card {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Card"
+            },
+            "lost": "Lost",
+            "student": "Student"
+        }
+    }
+}

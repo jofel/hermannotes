@@ -1,0 +1,22 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "student",
+            "otherEntityName": "student",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "lost",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20171120174918",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "card",
+    "pagination": "pagination"
+}

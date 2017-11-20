@@ -10,6 +10,7 @@
                 "student": "Hallgatók",
                 "program": "Programok",
                 "circular": "Körlevél",
+                "card": "Kártya",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

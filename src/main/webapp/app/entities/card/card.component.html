@@ -1,0 +1,82 @@
+<div>
+    <h2>
+        <span jhiTranslate="hermannotesApp.card.home.title">Cards</span>
+        <div class="btn-group  flex-btn-group-container">
+            <button class="btn btn-success float-right jh-create-entity create-card" [routerLink]="['/', { outlets: { popup: ['card-new'] } }]">
+                <span class="fa fa-plus"></span>
+                <span jhiTranslate="hermannotesApp.card.home.createLabel">
+                    Create new Card
+                </span>
+            </button>
+
+            <button class="btn btn-primary float-right jh-create-entity create-circular" [routerLink]="['../card-generate' ]">
+                <span class="fa fa-rocket"></span>
+                <span jhiTranslate="hermannotesApp.card.home.generateLabel">
+                    Generate new Card Page
+                </span>
+            </button>
+        </div>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="cards">
+        <table class="table table-striped">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+                    <th jhiSortBy="id">
+                        <span jhiTranslate="global.field.id">ID</span>
+                        <span class="fa fa-sort"></span>
+                    </th>
+                    <th jhiSortBy="lost">
+                        <span jhiTranslate="hermannotesApp.card.lost">Lost</span>
+                        <span class="fa fa-sort"></span>
+                    </th>
+                    <th jhiSortBy="student.name">
+                        <span jhiTranslate="hermannotesApp.card.student">Student</span>
+                        <span class="fa fa-sort"></span>
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let card of cards ;trackBy: trackId">
+                    <td>
+                        <a [routerLink]="['../card', card.id ]">{{card.id}}</a>
+                    </td>
+                    <td>{{card.lost}}</td>
+                    <td>
+                        <div *ngIf="card.student">
+                            <a [routerLink]="['../student', card.student?.id ]">{{card.student?.name}}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit" [routerLink]="['../card', card.id ]" class="btn btn-info btn-sm">
+                                <span class="fa fa-eye"></span>
+                                <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                            </button>
+                            <button type="submit" [routerLink]="['/', { outlets: { popup: 'card/'+ card.id + '/edit'} }]" replaceUrl="true" class="btn btn-primary btn-sm">
+                                <span class="fa fa-pencil"></span>
+                                <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+                            <button type="submit" [routerLink]="['/', { outlets: { popup: 'card/'+ card.id + '/delete'} }]" replaceUrl="true" class="btn btn-danger btn-sm">
+                                <span class="fa fa-remove"></span>
+                                <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="cards && cards.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>
