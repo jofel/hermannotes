@@ -1,6 +1,6 @@
 <div class="no-print">
     <h2>
-        <span class="row" jhiTranslate="hermannotesApp.card.home.title">Cards</span>
+        <span jhiTranslate="hermannotesApp.card.home.title">Cards</span>
         <a href="javascript:window.print()">
             <button class="btn btn-primary float-right jh-create-entity create-circular" [routerLink]="['../card-generate' ]">
                 <span class="fa fa-print fa-5"></span>
@@ -18,7 +18,8 @@
         </tr>
         <tr>
             <td width="150">
-                <img src="http://kepkezelo.com/images/y0g45l70ez2xq6b889ru.png" width="150" height="150" alt="jofel" />
+                <span class="cardBasicImage img-fluid img-rounded"> </span>
+                <!-- <img src="http://kepkezelo.com/images/y0g45l70ez2xq6b889ru.png" width="150" height="150" alt="jofel" /> -->
             </td>
             <td class="room">{{card.student.room}}</td>
         </tr>

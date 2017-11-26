@@ -1,6 +1,11 @@
-table, th, td {
+table {
    border: 1px solid black;
    margin: 57.5px 30px;
+}
+
+th, td {
+  border: 0px solid black;
+  margin: 57.5px 30px;
 }
 
 .card {
@@ -38,4 +43,12 @@ table, th, td {
 
 table:hover {
   background-color: lightgrey;
+}
+
+.cardBasicImage {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  background: url("../../../content/images/000.png") no-repeat center top;
+  background-size: contain;
 }
