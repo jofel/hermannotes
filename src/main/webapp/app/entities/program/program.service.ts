@@ -23,10 +23,15 @@ export class ProgramService {
     }
 
     update(program: Program): Observable<Program> {
+        console.log('before update convert');
+        console.log(program.date);
         const copy = this.convert(program);
+        console.log('after update convert');
+        console.log(program.date);
         return this.http.put(this.resourceUrl, copy).map((res: Response) => {
             const jsonResponse = res.json();
             this.convertItemFromServer(jsonResponse);
+            console.log(jsonResponse);
             return jsonResponse;
         });
     }
@@ -58,8 +63,12 @@ export class ProgramService {
     }
 
     private convertItemFromServer(entity: any) {
+        console.log('before convertItemFromServer');
+        console.log(entity.date);
         entity.date = this.dateUtils
             .convertLocalDateFromServer(entity.date);
+        console.log('after convertItemFromServer');
+        console.log(entity.date);
     }
 
     private convert(program: Program): Program {

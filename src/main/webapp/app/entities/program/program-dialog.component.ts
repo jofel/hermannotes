@@ -82,7 +82,7 @@ export class ProgramDialogComponent implements OnInit {
     }
 
     private onSaveSuccess(result: Program) {
-        this.eventManager.broadcast({ name: 'programListModification', content: 'OK'});
+        this.eventManager.broadcast({ name: 'programListModification', content: 'OK' });
         this.isSaving = false;
         this.activeModal.dismiss(result);
     }
@@ -104,6 +104,11 @@ export class ProgramDialogComponent implements OnInit {
     trackStudentById(index: number, item: Student) {
         return item.id;
     }
+
+    onDatePickerChanged() {
+        console.log('IDE FIGYELJETEK MÁR');
+        console.log(this.program.date);
+    }
 }
 
 @Component({
@@ -117,11 +122,11 @@ export class ProgramPopupComponent implements OnInit, OnDestroy {
     constructor(
         private route: ActivatedRoute,
         private programPopupService: ProgramPopupService
-    ) {}
+    ) { }
 
     ngOnInit() {
         this.routeSub = this.route.params.subscribe((params) => {
-            if ( params['id'] ) {
+            if (params['id']) {
                 this.programPopupService
                     .open(ProgramDialogComponent as Component, params['id']);
             } else {

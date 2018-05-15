@@ -17,6 +17,7 @@
             },
             "title": "Title",
             "date": "Date",
+            "time": "Time",
             "plan": "Plan",
             "planCost": "Plan Cost",
             "decision": "Decision",

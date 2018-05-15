@@ -3,8 +3,8 @@
         <span jhiTranslate="hermannotesApp.program.home.title">Programs</span>
         <button class="btn btn-primary float-right jh-create-entity create-program no-print" [routerLink]="['/', { outlets: { popup: ['program-new'] } }]">
             <span class="fa fa-plus"></span>
-            <span  jhiTranslate="hermannotesApp.program.home.createLabel">
-            Create new Program
+            <span jhiTranslate="hermannotesApp.program.home.createLabel">
+                Create new Program
             </span>
         </button>
     </h2>
@@ -15,61 +15,76 @@
     <div class="table-responsive" *ngIf="programs">
         <table class="table table-striped">
             <thead>
-            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th class="no-print"></th>
-            <th class="no-print" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="title"><span jhiTranslate="hermannotesApp.program.title">Title</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="date"><span jhiTranslate="hermannotesApp.program.date">Date</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="student.name"><span jhiTranslate="hermannotesApp.program.student">Student</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="plan"><span jhiTranslate="hermannotesApp.program.plan">Plan</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="planCost"><span jhiTranslate="hermannotesApp.program.planCost">Plan Cost</span> <span class="fa fa-sort"></span></th>
-            <th class="no-print" jhiSortBy="status"><span jhiTranslate="hermannotesApp.program.status">Status</span> <span class="fa fa-sort"></span></th>
-            <th></th>
-            </tr>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+                    <th class="no-print"></th>
+                    <th class="no-print" jhiSortBy="id">
+                        <span jhiTranslate="global.field.id">ID</span>
+                        <span class="fa fa-sort"></span>
+                    </th>
+                    <th jhiSortBy="title">
+                        <span jhiTranslate="hermannotesApp.program.title">Title</span>
+                        <span class="fa fa-sort"></span>
+                    </th>
+                    <th jhiSortBy="date">
+                        <span jhiTranslate="hermannotesApp.program.date">Date</span>
+                        <span class="fa fa-sort"></span>
+                    </th>
+                    <th jhiSortBy="student.name">
+                        <span jhiTranslate="hermannotesApp.program.student">Student</span>
+                        <span class="fa fa-sort"></span>
+                    </th>
+                    <th jhiSortBy="plan">
+                        <span jhiTranslate="hermannotesApp.program.plan">Plan</span>
+                        <span class="fa fa-sort"></span>
+                    </th>
+                    <th jhiSortBy="planCost">
+                        <span jhiTranslate="hermannotesApp.program.planCost">Plan Cost</span>
+                        <span class="fa fa-sort"></span>
+                    </th>
+                    <th class="no-print" jhiSortBy="status">
+                        <span jhiTranslate="hermannotesApp.program.status">Status</span>
+                        <span class="fa fa-sort"></span>
+                    </th>
+                    <th></th>
+                </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let program of programs ;trackBy: trackId">
-                <td *ngIf="program.status === 'plan'" class="statusPlan no-print"></td>
-                <td *ngIf="program.status === 'progress'" class="statusProgress no-print"></td>
-                <td *ngIf="program.status === 'closed'" class="statusClosed no-print"></td>
-                <td class="no-print"><a [routerLink]="['../program', program.id ]">{{program.id}}</a></td>
-                <td>{{program.title}}</td>
-                <td>{{program.date | date:'medium'}}</td>
-                <td>
-                    <div *ngIf="program.student">
-                        <a [routerLink]="['../student', program.student?.id ]" >{{program.student?.name}}</a>
-                    </div>
-                </td>
-                <td *ngIf="program.status === 'plan'">{{program.plan}}</td>
-                <td *ngIf="program.status === 'plan'">{{program.planCost}}</td>
-                <td *ngIf="program.status === 'progress'">{{program.decision}}</td>
-                <td *ngIf="program.status === 'progress'">{{program.decisionCost}}</td>
-                <td *ngIf="program.status === 'closed'">{{program.report}}</td>
-                <td *ngIf="program.status === 'closed'">{{program.reportCost}}</td>
-                <td class="no-print" jhiTranslate="{{'hermannotesApp.ProgramStatus.' + program.status}}">{{program.status}}</td>
-                <td class="text-right no-print">
-                    <div class="btn-group-vertical">
-                        <button type="submit"
-                            [routerLink]="['/', { outlets: { popup: 'program/'+ program.id + '/delete'} }]"
-                            replaceUrl="true"
-                            class="btn btn-danger btn-sm">
-                            <span class="fa fa-remove"></span>
-                        </button>
-                        <button type="submit"
-                            [routerLink]="['/', { outlets: { popup: 'program/'+ program.id + '/edit'} }]"
-                            replaceUrl="true"
-                            class="btn btn-primary btn-md">
-                            <span class="fa fa-pencil"></span>
-                        </button>
-                        <button type="submit"
-                            [routerLink]="['../program', program.id ]"
-                            class="btn btn-info btn-sm">
-                            <span class="fa fa-eye"></span>
-                        </button>
-                        
-                    </div>
-                </td>
-            </tr>
+                <tr *ngFor="let program of programs ;trackBy: trackId">
+                    <td *ngIf="program.status === 'plan'" class="statusPlan no-print"></td>
+                    <td *ngIf="program.status === 'progress'" class="statusProgress no-print"></td>
+                    <td *ngIf="program.status === 'closed'" class="statusClosed no-print"></td>
+                    <td class="no-print">
+                        <a [routerLink]="['../program', program.id ]">{{program.id}}</a>
+                    </td>
+                    <td>{{program.title}}</td>
+                    <td>{{program.date | date }}</td>
+                    <td>
+                        <div *ngIf="program.student">
+                            <a [routerLink]="['../student', program.student?.id ]">{{program.student?.name}}</a>
+                        </div>
+                    </td>
+                    <td *ngIf="program.status === 'plan'">{{program.plan}}</td>
+                    <td *ngIf="program.status === 'plan'">{{program.planCost}}</td>
+                    <td *ngIf="program.status === 'progress'">{{program.decision}}</td>
+                    <td *ngIf="program.status === 'progress'">{{program.decisionCost}}</td>
+                    <td *ngIf="program.status === 'closed'">{{program.report}}</td>
+                    <td *ngIf="program.status === 'closed'">{{program.reportCost}}</td>
+                    <td class="no-print" jhiTranslate="{{'hermannotesApp.ProgramStatus.' + program.status}}">{{program.status}}</td>
+                    <td class="text-right no-print">
+                        <div class="btn-group-vertical">
+                            <button type="submit" [routerLink]="['/', { outlets: { popup: 'program/'+ program.id + '/delete'} }]" replaceUrl="true" class="btn btn-danger btn-sm">
+                                <span class="fa fa-remove"></span>
+                            </button>
+                            <button type="submit" [routerLink]="['/', { outlets: { popup: 'program/'+ program.id + '/edit'} }]" replaceUrl="true" class="btn btn-primary btn-md">
+                                <span class="fa fa-pencil"></span>
+                            </button>
+                            <button type="submit" [routerLink]="['../program', program.id ]" class="btn btn-info btn-sm">
+                                <span class="fa fa-eye"></span>
+                            </button>
+
+                        </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>

@@ -48,6 +48,9 @@ public class ProgramResourceIntTest {
     private static final LocalDate DEFAULT_DATE = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_DATE = LocalDate.now(ZoneId.systemDefault());
 
+    private static final String DEFAULT_TIME = "AAAAAAAAAA";
+    private static final String UPDATED_TIME = "BBBBBBBBBB";
+
     private static final String DEFAULT_PLAN = "AAAAAAAAAA";
     private static final String UPDATED_PLAN = "BBBBBBBBBB";
 
@@ -104,7 +107,7 @@ public class ProgramResourceIntTest {
      * they test an entity which requires the current entity.
      */
     public static Program createEntity(EntityManager em) {
-        Program program = new Program().title(DEFAULT_TITLE).date(DEFAULT_DATE).plan(DEFAULT_PLAN)
+        Program program = new Program().title(DEFAULT_TITLE).date(DEFAULT_DATE).time(DEFAULT_TIME).plan(DEFAULT_PLAN)
                 .planCost(DEFAULT_PLAN_COST).decision(DEFAULT_DECISION).decisionCost(DEFAULT_DECISION_COST)
                 .report(DEFAULT_REPORT).reportCost(DEFAULT_REPORT_COST).status(DEFAULT_STATUS);
         return program;
@@ -130,6 +133,7 @@ public class ProgramResourceIntTest {
         Program testProgram = programList.get(programList.size() - 1);
         assertThat(testProgram.getTitle()).isEqualTo(DEFAULT_TITLE);
         assertThat(testProgram.getDate()).isEqualTo(DEFAULT_DATE);
+        assertThat(testProgram.getTime()).isEqualTo(DEFAULT_TIME);
         assertThat(testProgram.getPlan()).isEqualTo(DEFAULT_PLAN);
         assertThat(testProgram.getPlanCost()).isEqualTo(DEFAULT_PLAN_COST);
         assertThat(testProgram.getDecision()).isEqualTo(DEFAULT_DECISION);
@@ -168,6 +172,7 @@ public class ProgramResourceIntTest {
                 .andExpect(jsonPath("$.[*].id").value(hasItem(program.getId().intValue())))
                 .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE.toString())))
                 .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())))
+                .andExpect(jsonPath("$.[*].time").value(hasItem(DEFAULT_TIME.toString())))
                 .andExpect(jsonPath("$.[*].plan").value(hasItem(DEFAULT_PLAN.toString())))
                 .andExpect(jsonPath("$.[*].planCost").value(hasItem(DEFAULT_PLAN_COST)))
                 .andExpect(jsonPath("$.[*].decision").value(hasItem(DEFAULT_DECISION.toString())))
@@ -189,6 +194,7 @@ public class ProgramResourceIntTest {
                 .andExpect(jsonPath("$.id").value(program.getId().intValue()))
                 .andExpect(jsonPath("$.title").value(DEFAULT_TITLE.toString()))
                 .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()))
+                .andExpect(jsonPath("$.time").value(DEFAULT_TIME.toString()))
                 .andExpect(jsonPath("$.plan").value(DEFAULT_PLAN.toString()))
                 .andExpect(jsonPath("$.planCost").value(DEFAULT_PLAN_COST))
                 .andExpect(jsonPath("$.decision").value(DEFAULT_DECISION.toString()))
@@ -214,9 +220,9 @@ public class ProgramResourceIntTest {
 
         // Update the program
         Program updatedProgram = programRepository.findOne(program.getId());
-        updatedProgram.title(UPDATED_TITLE).date(UPDATED_DATE).plan(UPDATED_PLAN).planCost(UPDATED_PLAN_COST)
-                .decision(UPDATED_DECISION).decisionCost(UPDATED_DECISION_COST).report(UPDATED_REPORT)
-                .reportCost(UPDATED_REPORT_COST).status(UPDATED_STATUS);
+        updatedProgram.title(UPDATED_TITLE).date(UPDATED_DATE).time(UPDATED_TIME).plan(UPDATED_PLAN)
+                .planCost(UPDATED_PLAN_COST).decision(UPDATED_DECISION).decisionCost(UPDATED_DECISION_COST)
+                .report(UPDATED_REPORT).reportCost(UPDATED_REPORT_COST).status(UPDATED_STATUS);
 
         restProgramMockMvc.perform(put("/api/programs").contentType(TestUtil.APPLICATION_JSON_UTF8)
                 .content(TestUtil.convertObjectToJsonBytes(updatedProgram))).andExpect(status().isOk());
@@ -227,6 +233,7 @@ public class ProgramResourceIntTest {
         Program testProgram = programList.get(programList.size() - 1);
         assertThat(testProgram.getTitle()).isEqualTo(UPDATED_TITLE);
         assertThat(testProgram.getDate()).isEqualTo(UPDATED_DATE);
+        assertThat(testProgram.getTime()).isEqualTo(UPDATED_TIME);
         assertThat(testProgram.getPlan()).isEqualTo(UPDATED_PLAN);
         assertThat(testProgram.getPlanCost()).isEqualTo(UPDATED_PLAN_COST);
         assertThat(testProgram.getDecision()).isEqualTo(UPDATED_DECISION);

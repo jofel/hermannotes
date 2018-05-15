@@ -29,6 +29,10 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="jhi_time" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
             <column name="jhi_plan" type="clob">
                 <constraints nullable="true" />
             </column>

@@ -6,6 +6,7 @@ import { Student, StudentService } from '../../student';
 import { Program, ProgramService, ProgramStatus } from '../../program';
 import { ResponseWrapper } from '../../../shared/model/response-wrapper.model';
 import { Observable } from 'rxjs/Rx';
+import { NgbDatepicker, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'jhi-note-program',
@@ -21,6 +22,8 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
     model: Program;
     needToSave = false;
     isSaving: boolean;
+    d: NgbDatepicker;
+    dateOfDeclarationPicker: NgbDateStruct;
 
     constructor(
         private studentService: StudentService,
@@ -109,6 +112,7 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
                 this.model = this.programs[index];
             }
             this.needToSave = false;
+            this.setDatePickerModel();
         }
     }
 
@@ -133,6 +137,7 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
     sendFromSuccessToClosed() {
         console.log('Next Button clicked!!');
         this.model.status = ProgramStatus.Closed;
+        this.save();
     }
 
     closed() {
@@ -142,10 +147,30 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
     onSaveButton() {
         console.log('Save Button clicked!! ');
         console.log(this.model);
-        // this.save();
+        // this.model.date = this.dateOfDeclarationPicker;
+        this.needToSave = false;
+        this.save();
     }
 
     modelChanged() {
         this.needToSave = true;
+    }
+
+    onDatePickerChanged() {
+        console.log('IDE FIGYELJETEK MÁR');
+        console.log(this.model.date);
+
+        this.needToSave = true;
+    }
+
+    private setDatePickerModel() {
+        const date = this.model.date;
+
+        this.dateOfDeclarationPicker = {
+            year: date.getFullYear(),
+            month: date.getMonth() + 1, // Added because in the JS Date class, months start with zero
+            day: date.getDate()
+        }
+        this.model.date = this.dateOfDeclarationPicker;
     }
 }

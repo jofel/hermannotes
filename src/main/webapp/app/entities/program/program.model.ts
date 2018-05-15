@@ -12,6 +12,7 @@ export class Program implements BaseEntity {
         public id?: number,
         public title?: string,
         public date?: any,
+        public time?: string,
         public plan?: any,
         public planCost?: number,
         public decision?: any,

@@ -31,6 +31,9 @@ public class Program implements Serializable {
     @Column(name = "jhi_date")
     private LocalDate date;
 
+    @Column(name = "jhi_time")
+    private String time;
+
     @Lob
     @Column(name = "jhi_plan")
     private String plan;
@@ -91,6 +94,19 @@ public class Program implements Serializable {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public Program time(String time) {
+        this.time = time;
+        return this;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getPlan() {
@@ -219,9 +235,9 @@ public class Program implements Serializable {
 
     @Override
     public String toString() {
-        return "Program{" + "id=" + getId() + ", title='" + getTitle() + "'" + ", date='" + getDate() + "'" + ", plan='"
-                + getPlan() + "'" + ", planCost='" + getPlanCost() + "'" + ", decision='" + getDecision() + "'"
-                + ", decisionCost='" + getDecisionCost() + "'" + ", report='" + getReport() + "'" + ", reportCost='"
-                + getReportCost() + "'" + ", status='" + getStatus() + "'" + "}";
+        return "Program{" + "id=" + getId() + ", title='" + getTitle() + "'" + ", date='" + getDate() + "'" + ", time='"
+                + getTime() + "'" + ", plan='" + getPlan() + "'" + ", planCost='" + getPlanCost() + "'" + ", decision='"
+                + getDecision() + "'" + ", decisionCost='" + getDecisionCost() + "'" + ", report='" + getReport() + "'"
+                + ", reportCost='" + getReportCost() + "'" + ", status='" + getStatus() + "'" + "}";
     }
 }

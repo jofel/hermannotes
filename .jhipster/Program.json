@@ -18,6 +18,10 @@
             "fieldType": "LocalDate"
         },
         {
+            "fieldName": "time",
+            "fieldType": "String"
+        },
+        {
             "fieldName": "plan",
             "fieldType": "byte[]",
             "fieldTypeBlobContent": "text"

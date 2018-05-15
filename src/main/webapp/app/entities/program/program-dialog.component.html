@@ -21,11 +21,24 @@
                 <option [ngValue]="studentOption.id === program.student?.id ? program.student : studentOption" *ngFor="let studentOption of students; trackBy: trackStudentById">{{studentOption.name}}</option>
             </select>
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label class="form-control-label" jhiTranslate="hermannotesApp.program.date" for="field_date">Date</label>
             <div class="d-flex">
                 <input id="field_date" type="date" class="form-control" name="date" [(ngModel)]="program.date" />
             </div>
+        </div> -->
+        <div class="input-group">
+            <input id="field_date" type="text" class="form-control" name="date" ngbDatepicker #dateDp="ngbDatepicker" [(ngModel)]="program.date"
+                (ngModelChange)="onDatePickerChanged()" />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" (click)="dateDp.toggle()">
+                    <i class="fa fa-calendar"></i>
+                </button>
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hermannotesApp.program.time" for="field_time">Time</label>
+            <textarea class="form-control" name="time" id="field_time" [(ngModel)]="program.time"></textarea>
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="hermannotesApp.program.plan" for="field_plan">Plan</label>
