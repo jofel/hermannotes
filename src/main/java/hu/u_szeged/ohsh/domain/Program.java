@@ -5,7 +5,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.ZonedDateTime;
+import java.time.LocalDate;
 import java.util.Objects;
 
 import hu.u_szeged.ohsh.domain.enumeration.ProgramStatus;
@@ -29,7 +29,7 @@ public class Program implements Serializable {
     private String title;
 
     @Column(name = "jhi_date")
-    private ZonedDateTime date;
+    private LocalDate date;
 
     @Lob
     @Column(name = "jhi_plan")
@@ -80,16 +80,16 @@ public class Program implements Serializable {
         this.title = title;
     }
 
-    public ZonedDateTime getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public Program date(ZonedDateTime date) {
+    public Program date(LocalDate date) {
         this.date = date;
         return this;
     }
 
-    public void setDate(ZonedDateTime date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -219,17 +219,9 @@ public class Program implements Serializable {
 
     @Override
     public String toString() {
-        return "Program{" +
-            "id=" + getId() +
-            ", title='" + getTitle() + "'" +
-            ", date='" + getDate() + "'" +
-            ", plan='" + getPlan() + "'" +
-            ", planCost='" + getPlanCost() + "'" +
-            ", decision='" + getDecision() + "'" +
-            ", decisionCost='" + getDecisionCost() + "'" +
-            ", report='" + getReport() + "'" +
-            ", reportCost='" + getReportCost() + "'" +
-            ", status='" + getStatus() + "'" +
-            "}";
+        return "Program{" + "id=" + getId() + ", title='" + getTitle() + "'" + ", date='" + getDate() + "'" + ", plan='"
+                + getPlan() + "'" + ", planCost='" + getPlanCost() + "'" + ", decision='" + getDecision() + "'"
+                + ", decisionCost='" + getDecisionCost() + "'" + ", report='" + getReport() + "'" + ", reportCost='"
+                + getReportCost() + "'" + ", status='" + getStatus() + "'" + "}";
     }
 }

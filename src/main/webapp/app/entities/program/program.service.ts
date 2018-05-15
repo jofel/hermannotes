@@ -59,14 +59,13 @@ export class ProgramService {
 
     private convertItemFromServer(entity: any) {
         entity.date = this.dateUtils
-            .convertDateTimeFromServer(entity.date);
+            .convertLocalDateFromServer(entity.date);
     }
 
     private convert(program: Program): Program {
         const copy: Program = Object.assign({}, program);
-        console.log('Before convert date: ' + copy.date);
-        copy.date = this.dateUtils.toDate(program.date);
-        console.log('After convert date: ' + copy.date);
+        copy.date = this.dateUtils
+            .convertLocalDateToServer(program.date);
         return copy;
     }
 }

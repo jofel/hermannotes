@@ -1,66 +1,46 @@
+
 <div *ngIf="program">
-    <h2>
-        <span jhiTranslate="hermannotesApp.program.detail.title">Program</span> {{program.id}}</h2>
+    <h2><span jhiTranslate="hermannotesApp.program.detail.title">Program</span> {{program.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
-        <dt>
-            <span jhiTranslate="hermannotesApp.program.title">Title</span>
-        </dt>
+        <dt><span jhiTranslate="hermannotesApp.program.title">Title</span></dt>
         <dd>
             <span>{{program.title}}</span>
         </dd>
-        <dt>
-            <span jhiTranslate="hermannotesApp.program.date">Date</span>
-        </dt>
+        <dt><span jhiTranslate="hermannotesApp.program.date">Date</span></dt>
         <dd>
-            <span>{{program.date}}</span>
+            <span>{{program.date | date:'mediumDate'}}</span>
         </dd>
-        <dt>
-            <span jhiTranslate="hermannotesApp.program.plan">Plan</span>
-        </dt>
+        <dt><span jhiTranslate="hermannotesApp.program.plan">Plan</span></dt>
         <dd>
             <span>{{program.plan}}</span>
         </dd>
-        <dt>
-            <span jhiTranslate="hermannotesApp.program.planCost">Plan Cost</span>
-        </dt>
+        <dt><span jhiTranslate="hermannotesApp.program.planCost">Plan Cost</span></dt>
         <dd>
             <span>{{program.planCost}}</span>
         </dd>
-        <dt>
-            <span jhiTranslate="hermannotesApp.program.decision">Decision</span>
-        </dt>
+        <dt><span jhiTranslate="hermannotesApp.program.decision">Decision</span></dt>
         <dd>
             <span>{{program.decision}}</span>
         </dd>
-        <dt>
-            <span jhiTranslate="hermannotesApp.program.decisionCost">Decision Cost</span>
-        </dt>
+        <dt><span jhiTranslate="hermannotesApp.program.decisionCost">Decision Cost</span></dt>
         <dd>
             <span>{{program.decisionCost}}</span>
         </dd>
-        <dt>
-            <span jhiTranslate="hermannotesApp.program.report">Report</span>
-        </dt>
+        <dt><span jhiTranslate="hermannotesApp.program.report">Report</span></dt>
         <dd>
             <span>{{program.report}}</span>
         </dd>
-        <dt>
-            <span jhiTranslate="hermannotesApp.program.reportCost">Report Cost</span>
-        </dt>
+        <dt><span jhiTranslate="hermannotesApp.program.reportCost">Report Cost</span></dt>
         <dd>
             <span>{{program.reportCost}}</span>
         </dd>
-        <dt>
-            <span jhiTranslate="hermannotesApp.program.status">Status</span>
-        </dt>
+        <dt><span jhiTranslate="hermannotesApp.program.status">Status</span></dt>
         <dd>
-            <span jhiTranslate="{{'hermannotesApp.ProgramStatus.' + program.status}}">{{program.status}}</span>
+            <span jhiTranslate="{{'hermannotesApp.ActionStatus.' + program.status}}">{{program.status}}</span>
         </dd>
-        <dt>
-            <span jhiTranslate="hermannotesApp.program.student">Student</span>
-        </dt>
+        <dt><span jhiTranslate="hermannotesApp.program.student">Student</span></dt>
         <dd>
             <div *ngIf="program.student">
                 <a [routerLink]="['/student', program.student?.id]">{{program.student?.name}}</a>
@@ -68,13 +48,16 @@
         </dd>
     </dl>
 
-    <button type="submit" (click)="previousState()" class="btn btn-info">
-        <span class="fa fa-arrow-left"></span>&nbsp;
-        <span jhiTranslate="entity.action.back"> Back</span>
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
     </button>
 
-    <button type="button" [routerLink]="['/', { outlets: { popup: 'program/'+ program.id + '/edit'} }]" replaceUrl="true" class="btn btn-primary">
-        <span class="fa fa-pencil"></span>&nbsp;
-        <span jhiTranslate="entity.action.edit"> Edit</span>
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'program/'+ program.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
     </button>
 </div>

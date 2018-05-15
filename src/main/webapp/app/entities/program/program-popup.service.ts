@@ -1,18 +1,14 @@
 import { Injectable, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { DatePipe } from '@angular/common';
 import { Program } from './program.model';
 import { ProgramService } from './program.service';
-import { Pipe, PipeTransform } from '@angular/core';
 
 @Injectable()
 export class ProgramPopupService {
     private ngbModalRef: NgbModalRef;
 
     constructor(
-        private datePipe: DatePipe,
-        private dateTimeFormatPipe: DateTimeFormatPipe,
         private modalService: NgbModal,
         private router: Router,
         private programService: ProgramService
@@ -30,12 +26,15 @@ export class ProgramPopupService {
 
             if (id) {
                 this.programService.find(id).subscribe((program) => {
-                    console.log('Before transform date: ' + program.date);
-                    program.date = this.datePipe
-                        .transform(program.date, 'yyyy-MM-ddThh:mm');
+                    if (program.date) {
+                        program.date = {
+                            year: program.date.getFullYear(),
+                            month: program.date.getMonth() + 1,
+                            day: program.date.getDate()
+                        };
+                    }
                     this.ngbModalRef = this.programModalRef(component, program);
                     resolve(this.ngbModalRef);
-                    console.log('After transform date: ' + program.date);
                 });
             } else {
                 // setTimeout used as a workaround for getting ExpressionChangedAfterItHasBeenCheckedError
@@ -48,25 +47,15 @@ export class ProgramPopupService {
     }
 
     programModalRef(component: Component, program: Program): NgbModalRef {
-        const modalRef = this.modalService.open(component, { size: 'lg', backdrop: 'static' });
+        const modalRef = this.modalService.open(component, { size: 'lg', backdrop: 'static'});
         modalRef.componentInstance.program = program;
         modalRef.result.then((result) => {
-            this.router.navigate([{ outlets: { popup: null } }], { replaceUrl: true });
+            this.router.navigate([{ outlets: { popup: null }}], { replaceUrl: true });
             this.ngbModalRef = null;
         }, (reason) => {
-            this.router.navigate([{ outlets: { popup: null } }], { replaceUrl: true });
+            this.router.navigate([{ outlets: { popup: null }}], { replaceUrl: true });
             this.ngbModalRef = null;
         });
         return modalRef;
-    }
-}
-
-@Pipe({
-    name: 'dateTimeFormat'
-})
-export class DateTimeFormatPipe extends DatePipe implements PipeTransform {
-    DATE_TIME_FMT = 'yyyy-MM-ddThh:mm';
-    transform(value: any, args?: any): any {
-        return super.transform(value, this.DATE_TIME_FMT);
     }
 }

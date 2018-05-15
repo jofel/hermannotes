@@ -22,19 +22,17 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Base64Utils;
 
 import javax.persistence.EntityManager;
-import java.time.Instant;
-import java.time.ZonedDateTime;
-import java.time.ZoneOffset;
+import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.List;
 
-import static hu.u_szeged.ohsh.web.rest.TestUtil.sameInstant;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import hu.u_szeged.ohsh.domain.enumeration.ProgramStatus;
+
 /**
  * Test class for the ProgramResource REST controller.
  *
@@ -47,8 +45,8 @@ public class ProgramResourceIntTest {
     private static final String DEFAULT_TITLE = "AAAAAAAAAA";
     private static final String UPDATED_TITLE = "BBBBBBBBBB";
 
-    private static final ZonedDateTime DEFAULT_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
-    private static final ZonedDateTime UPDATED_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+    private static final LocalDate DEFAULT_DATE = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_DATE = LocalDate.now(ZoneId.systemDefault());
 
     private static final String DEFAULT_PLAN = "AAAAAAAAAA";
     private static final String UPDATED_PLAN = "BBBBBBBBBB";
@@ -95,28 +93,20 @@ public class ProgramResourceIntTest {
         MockitoAnnotations.initMocks(this);
         ProgramResource programResource = new ProgramResource(programRepository);
         this.restProgramMockMvc = MockMvcBuilders.standaloneSetup(programResource)
-            .setCustomArgumentResolvers(pageableArgumentResolver)
-            .setControllerAdvice(exceptionTranslator)
-            .setMessageConverters(jacksonMessageConverter).build();
+                .setCustomArgumentResolvers(pageableArgumentResolver).setControllerAdvice(exceptionTranslator)
+                .setMessageConverters(jacksonMessageConverter).build();
     }
 
     /**
      * Create an entity for this test.
      *
-     * This is a static method, as tests for other entities might also need it,
-     * if they test an entity which requires the current entity.
+     * This is a static method, as tests for other entities might also need it, if
+     * they test an entity which requires the current entity.
      */
     public static Program createEntity(EntityManager em) {
-        Program program = new Program()
-            .title(DEFAULT_TITLE)
-            .date(DEFAULT_DATE)
-            .plan(DEFAULT_PLAN)
-            .planCost(DEFAULT_PLAN_COST)
-            .decision(DEFAULT_DECISION)
-            .decisionCost(DEFAULT_DECISION_COST)
-            .report(DEFAULT_REPORT)
-            .reportCost(DEFAULT_REPORT_COST)
-            .status(DEFAULT_STATUS);
+        Program program = new Program().title(DEFAULT_TITLE).date(DEFAULT_DATE).plan(DEFAULT_PLAN)
+                .planCost(DEFAULT_PLAN_COST).decision(DEFAULT_DECISION).decisionCost(DEFAULT_DECISION_COST)
+                .report(DEFAULT_REPORT).reportCost(DEFAULT_REPORT_COST).status(DEFAULT_STATUS);
         return program;
     }
 
@@ -131,10 +121,8 @@ public class ProgramResourceIntTest {
         int databaseSizeBeforeCreate = programRepository.findAll().size();
 
         // Create the Program
-        restProgramMockMvc.perform(post("/api/programs")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(program)))
-            .andExpect(status().isCreated());
+        restProgramMockMvc.perform(post("/api/programs").contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(program))).andExpect(status().isCreated());
 
         // Validate the Program in the database
         List<Program> programList = programRepository.findAll();
@@ -160,10 +148,8 @@ public class ProgramResourceIntTest {
         program.setId(1L);
 
         // An entity with an existing ID cannot be created, so this API call must fail
-        restProgramMockMvc.perform(post("/api/programs")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(program)))
-            .andExpect(status().isBadRequest());
+        restProgramMockMvc.perform(post("/api/programs").contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(program))).andExpect(status().isBadRequest());
 
         // Validate the Alice in the database
         List<Program> programList = programRepository.findAll();
@@ -177,19 +163,18 @@ public class ProgramResourceIntTest {
         programRepository.saveAndFlush(program);
 
         // Get all the programList
-        restProgramMockMvc.perform(get("/api/programs?sort=id,desc"))
-            .andExpect(status().isOk())
-            .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-            .andExpect(jsonPath("$.[*].id").value(hasItem(program.getId().intValue())))
-            .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE.toString())))
-            .andExpect(jsonPath("$.[*].date").value(hasItem(sameInstant(DEFAULT_DATE))))
-            .andExpect(jsonPath("$.[*].plan").value(hasItem(DEFAULT_PLAN.toString())))
-            .andExpect(jsonPath("$.[*].planCost").value(hasItem(DEFAULT_PLAN_COST)))
-            .andExpect(jsonPath("$.[*].decision").value(hasItem(DEFAULT_DECISION.toString())))
-            .andExpect(jsonPath("$.[*].decisionCost").value(hasItem(DEFAULT_DECISION_COST)))
-            .andExpect(jsonPath("$.[*].report").value(hasItem(DEFAULT_REPORT.toString())))
-            .andExpect(jsonPath("$.[*].reportCost").value(hasItem(DEFAULT_REPORT_COST)))
-            .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())));
+        restProgramMockMvc.perform(get("/api/programs?sort=id,desc")).andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .andExpect(jsonPath("$.[*].id").value(hasItem(program.getId().intValue())))
+                .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE.toString())))
+                .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())))
+                .andExpect(jsonPath("$.[*].plan").value(hasItem(DEFAULT_PLAN.toString())))
+                .andExpect(jsonPath("$.[*].planCost").value(hasItem(DEFAULT_PLAN_COST)))
+                .andExpect(jsonPath("$.[*].decision").value(hasItem(DEFAULT_DECISION.toString())))
+                .andExpect(jsonPath("$.[*].decisionCost").value(hasItem(DEFAULT_DECISION_COST)))
+                .andExpect(jsonPath("$.[*].report").value(hasItem(DEFAULT_REPORT.toString())))
+                .andExpect(jsonPath("$.[*].reportCost").value(hasItem(DEFAULT_REPORT_COST)))
+                .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())));
     }
 
     @Test
@@ -199,27 +184,25 @@ public class ProgramResourceIntTest {
         programRepository.saveAndFlush(program);
 
         // Get the program
-        restProgramMockMvc.perform(get("/api/programs/{id}", program.getId()))
-            .andExpect(status().isOk())
-            .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-            .andExpect(jsonPath("$.id").value(program.getId().intValue()))
-            .andExpect(jsonPath("$.title").value(DEFAULT_TITLE.toString()))
-            .andExpect(jsonPath("$.date").value(sameInstant(DEFAULT_DATE)))
-            .andExpect(jsonPath("$.plan").value(DEFAULT_PLAN.toString()))
-            .andExpect(jsonPath("$.planCost").value(DEFAULT_PLAN_COST))
-            .andExpect(jsonPath("$.decision").value(DEFAULT_DECISION.toString()))
-            .andExpect(jsonPath("$.decisionCost").value(DEFAULT_DECISION_COST))
-            .andExpect(jsonPath("$.report").value(DEFAULT_REPORT.toString()))
-            .andExpect(jsonPath("$.reportCost").value(DEFAULT_REPORT_COST))
-            .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()));
+        restProgramMockMvc.perform(get("/api/programs/{id}", program.getId())).andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .andExpect(jsonPath("$.id").value(program.getId().intValue()))
+                .andExpect(jsonPath("$.title").value(DEFAULT_TITLE.toString()))
+                .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()))
+                .andExpect(jsonPath("$.plan").value(DEFAULT_PLAN.toString()))
+                .andExpect(jsonPath("$.planCost").value(DEFAULT_PLAN_COST))
+                .andExpect(jsonPath("$.decision").value(DEFAULT_DECISION.toString()))
+                .andExpect(jsonPath("$.decisionCost").value(DEFAULT_DECISION_COST))
+                .andExpect(jsonPath("$.report").value(DEFAULT_REPORT.toString()))
+                .andExpect(jsonPath("$.reportCost").value(DEFAULT_REPORT_COST))
+                .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()));
     }
 
     @Test
     @Transactional
     public void getNonExistingProgram() throws Exception {
         // Get the program
-        restProgramMockMvc.perform(get("/api/programs/{id}", Long.MAX_VALUE))
-            .andExpect(status().isNotFound());
+        restProgramMockMvc.perform(get("/api/programs/{id}", Long.MAX_VALUE)).andExpect(status().isNotFound());
     }
 
     @Test
@@ -231,21 +214,12 @@ public class ProgramResourceIntTest {
 
         // Update the program
         Program updatedProgram = programRepository.findOne(program.getId());
-        updatedProgram
-            .title(UPDATED_TITLE)
-            .date(UPDATED_DATE)
-            .plan(UPDATED_PLAN)
-            .planCost(UPDATED_PLAN_COST)
-            .decision(UPDATED_DECISION)
-            .decisionCost(UPDATED_DECISION_COST)
-            .report(UPDATED_REPORT)
-            .reportCost(UPDATED_REPORT_COST)
-            .status(UPDATED_STATUS);
+        updatedProgram.title(UPDATED_TITLE).date(UPDATED_DATE).plan(UPDATED_PLAN).planCost(UPDATED_PLAN_COST)
+                .decision(UPDATED_DECISION).decisionCost(UPDATED_DECISION_COST).report(UPDATED_REPORT)
+                .reportCost(UPDATED_REPORT_COST).status(UPDATED_STATUS);
 
-        restProgramMockMvc.perform(put("/api/programs")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(updatedProgram)))
-            .andExpect(status().isOk());
+        restProgramMockMvc.perform(put("/api/programs").contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(updatedProgram))).andExpect(status().isOk());
 
         // Validate the Program in the database
         List<Program> programList = programRepository.findAll();
@@ -269,11 +243,10 @@ public class ProgramResourceIntTest {
 
         // Create the Program
 
-        // If the entity doesn't have an ID, it will be created instead of just being updated
-        restProgramMockMvc.perform(put("/api/programs")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(program)))
-            .andExpect(status().isCreated());
+        // If the entity doesn't have an ID, it will be created instead of just being
+        // updated
+        restProgramMockMvc.perform(put("/api/programs").contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(program))).andExpect(status().isCreated());
 
         // Validate the Program in the database
         List<Program> programList = programRepository.findAll();
@@ -288,9 +261,8 @@ public class ProgramResourceIntTest {
         int databaseSizeBeforeDelete = programRepository.findAll().size();
 
         // Get the program
-        restProgramMockMvc.perform(delete("/api/programs/{id}", program.getId())
-            .accept(TestUtil.APPLICATION_JSON_UTF8))
-            .andExpect(status().isOk());
+        restProgramMockMvc.perform(delete("/api/programs/{id}", program.getId()).accept(TestUtil.APPLICATION_JSON_UTF8))
+                .andExpect(status().isOk());
 
         // Validate the database is empty
         List<Program> programList = programRepository.findAll();

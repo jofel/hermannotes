@@ -2,29 +2,29 @@
     "hermannotesApp": {
         "program" : {
             "home": {
-                "title": "Programok",
+                "title": "Programs",
                 "createLabel": "Egy új Program létrehozása",
-                "createOrEditLabel": "Hozzon létre, vagy módosítson Programot"
+                "createOrEditLabel": "Hozzon létre, vagy módosítson Programt"
             },
             "created": "Egy új Program lett létrehozva {{ param }} azonosítóval",
-            "updated": "Egy Program módosítva lett {{ param }} azonosítóval",
-            "deleted": "Egy Program törölve lett {{ param }} azonosítóval",
+            "updated": "A Program módosítva lett {{ param }} azonosítóval",
+            "deleted": "A Program törölve lett {{ param }} azonosítóval",
             "delete": {
-                "question": "Biztos benne, hogy törölni szeretné a Programot {{ id }} azonosítóval?"
+                "question": "Biztos benne, hogy törölni szeretné az Programt {{ id }} azonosítóval?"
             },
             "detail": {
-                "title": "Programok"
+                "title": "Program"
             },
-            "title": "Cím",
-            "date": "Dátum",
-            "plan": "Terv",
-            "planCost": "Ft",
-            "decision": "Döntés",
-            "decisionCost": "Támogatás",
-            "report": "Jelentés",
-            "reportCost": "Költség",
-            "status": "Állapot",
-            "student": "Hallgató"
+            "title": "Title",
+            "date": "Date",
+            "plan": "Plan",
+            "planCost": "Plan Cost",
+            "decision": "Decision",
+            "decisionCost": "Decision Cost",
+            "report": "Report",
+            "reportCost": "Report Cost",
+            "status": "Status",
+            "student": "Student"
         }
     }
 }

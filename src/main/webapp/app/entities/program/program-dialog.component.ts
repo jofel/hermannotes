@@ -22,6 +22,7 @@ export class ProgramDialogComponent implements OnInit {
     isSaving: boolean;
 
     students: Student[];
+    dateDp: any;
 
     constructor(
         public activeModal: NgbActiveModal,
@@ -81,10 +82,9 @@ export class ProgramDialogComponent implements OnInit {
     }
 
     private onSaveSuccess(result: Program) {
-        this.eventManager.broadcast({ name: 'programListModification', content: 'OK' });
+        this.eventManager.broadcast({ name: 'programListModification', content: 'OK'});
         this.isSaving = false;
         this.activeModal.dismiss(result);
-        console.log(result);
     }
 
     private onSaveError(error) {
@@ -117,11 +117,11 @@ export class ProgramPopupComponent implements OnInit, OnDestroy {
     constructor(
         private route: ActivatedRoute,
         private programPopupService: ProgramPopupService
-    ) { }
+    ) {}
 
     ngOnInit() {
         this.routeSub = this.route.params.subscribe((params) => {
-            if (params['id']) {
+            if ( params['id'] ) {
                 this.programPopupService
                     .open(ProgramDialogComponent as Component, params['id']);
             } else {
