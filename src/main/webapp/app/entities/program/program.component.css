@@ -1,11 +1,28 @@
 .statusPlan {
-    background-color: lightgreen;
+    background-color: #81c784;
+}
+
+.statusPlanDark {
+    background-color: #519657;
 }
 
 .statusProgress {
-    background-color: lightsalmon;
+    background-color: #ff8a65;
+}
+
+.statusProgressDark {
+    background-color: #c75b39;
 }
 
 .statusClosed {
-    background-color: lightgrey;
+    background-color: #b0bec5;
 }
+
+.statusClosedDark {
+    background-color: #808e95;
+}
+
+.statusBack{
+    background-color: #cfcfcf;
+}
+

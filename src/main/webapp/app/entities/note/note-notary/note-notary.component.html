@@ -1,0 +1,5 @@
+<div class="radio form-control form-control-lg" *ngFor="let student of students; let i = index">
+    <label for="student_radio_button_{{i}}">
+        <input type="radio" name="student_radio_button" value="student.id" id="student_radio_button_{{i}}"> {{student.name}}
+    </label>
+</div>

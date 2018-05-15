@@ -1,0 +1,60 @@
+.card-title {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.plan.card-text {
+    background-color: #81c784;
+}
+
+
+.card{
+    border-radius: 10px;
+}
+
+.card-body {
+    border-radius: 10px;
+}
+.colorPlan {
+    background-color: #c8e6c9;
+}
+
+.colorPlanDark {
+    background-color: #519657;
+}
+
+.colorProgress {
+    background-color: #ffcdd2;
+}
+
+.colorProgressDark {
+    background-color: #c75b39;
+}
+
+.colorClosed {
+    background-color: #90a4ae;
+}
+
+.colorClosedDark {
+    background-color: #808e95;
+}
+
+.colorBack, input:disabled, textarea:disabled {
+    background-color: #ece9e9;
+}
+
+.bg-white {
+     background-color: white;
+}
+
+.fa-chevron-circle-right:hover {
+     color: white;
+}
+
+.fa-check-circle:hover {
+     color: white;
+}
+
+.fa-archive:hover {
+     color: white;
+}

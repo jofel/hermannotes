@@ -2,24 +2,21 @@
 
     <div class="modal-header">
         <h4 class="modal-title" id="myProgramLabel" jhiTranslate="hermannotesApp.program.home.createOrEditLabel">Create or edit a Program</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
-                (click)="clear()">&times;</button>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="clear()">&times;</button>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
         <div class="form-group" [hidden]="!program.id">
             <label for="id" jhiTranslate="global.field.id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                   [(ngModel)]="program.id" readonly />
+            <input type="text" class="form-control" id="id" name="id" [(ngModel)]="program.id" readonly />
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="hermannotesApp.program.title" for="field_title">Title</label>
-            <input type="text" class="form-control" name="title" id="field_title"
-                [(ngModel)]="program.title"  />
+            <input type="text" class="form-control" name="title" id="field_title" [(ngModel)]="program.title" />
         </div>
         <div class="form-group">
             <label jhiTranslate="hermannotesApp.program.student" for="field_student">Student</label>
-            <select class="form-control" id="field_student" name="student" [(ngModel)]="program.student" >
+            <select class="form-control" id="field_student" name="student" [(ngModel)]="program.student">
                 <option [ngValue]="null"></option>
                 <option [ngValue]="studentOption.id === program.student?.id ? program.student : studentOption" *ngFor="let studentOption of students; trackBy: trackStudentById">{{studentOption.name}}</option>
             </select>
@@ -27,43 +24,37 @@
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="hermannotesApp.program.date" for="field_date">Date</label>
             <div class="d-flex">
-                <input id="field_date" type="datetime-local" class="form-control" name="date" [(ngModel)]="program.date"
-                  />
+                <input id="field_date" type="datetime-local" class="form-control" name="date" [(ngModel)]="program.date" />
             </div>
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="hermannotesApp.program.plan" for="field_plan">Plan</label>
-            <textarea class="form-control" name="plan" id="field_plan"
-                [(ngModel)]="program.plan"  ></textarea>
+            <textarea class="form-control" name="plan" id="field_plan" [(ngModel)]="program.plan"></textarea>
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="hermannotesApp.program.planCost" for="field_planCost">Plan Cost</label>
-            <input type="number" class="form-control" name="planCost" id="field_planCost"
-                [(ngModel)]="program.planCost"  />
+            <input type="number" class="form-control" name="planCost" id="field_planCost" [(ngModel)]="program.planCost" />
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="hermannotesApp.program.decision" for="field_decision">Decision</label>
-            <textarea class="form-control" name="decision" id="field_decision"
-                [(ngModel)]="program.decision"  ></textarea>
+            <textarea class="form-control" name="decision" id="field_decision" [(ngModel)]="program.decision"></textarea>
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="hermannotesApp.program.decisionCost" for="field_decisionCost">Decision Cost</label>
-            <input type="number" class="form-control" name="decisionCost" id="field_decisionCost"
-                [(ngModel)]="program.decisionCost"  />
+            <input type="number" class="form-control" name="decisionCost" id="field_decisionCost" [(ngModel)]="program.decisionCost"
+            />
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="hermannotesApp.program.report" for="field_report">Report</label>
-            <textarea class="form-control" name="report" id="field_report"
-                [(ngModel)]="program.report"  ></textarea>
+            <textarea class="form-control" name="report" id="field_report" [(ngModel)]="program.report"></textarea>
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="hermannotesApp.program.reportCost" for="field_reportCost">Report Cost</label>
-            <input type="number" class="form-control" name="reportCost" id="field_reportCost"
-                [(ngModel)]="program.reportCost"  />
+            <input type="number" class="form-control" name="reportCost" id="field_reportCost" [(ngModel)]="program.reportCost" />
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="hermannotesApp.program.status" for="field_status">Status</label>
-            <select class="form-control" name="status" [(ngModel)]="program.status" id="field_status" >
+            <select class="form-control" name="status" [(ngModel)]="program.status" id="field_status">
                 <option value="plan" jhiTranslate="hermannotesApp.ProgramStatus.plan">plan</option>
                 <option value="progress" jhiTranslate="hermannotesApp.ProgramStatus.progress">progress</option>
                 <option value="closed" jhiTranslate="hermannotesApp.ProgramStatus.closed">closed</option>
@@ -72,10 +63,12 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
-            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+            <span class="fa fa-ban"></span>&nbsp;
+            <span jhiTranslate="entity.action.cancel">Cancel</span>
         </button>
         <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+            <span class="fa fa-save"></span>&nbsp;
+            <span jhiTranslate="entity.action.save">Save</span>
         </button>
     </div>
 </form>

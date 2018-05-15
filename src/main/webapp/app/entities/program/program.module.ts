@@ -14,6 +14,7 @@ import {
     programRoute,
     programPopupRoute,
     ProgramResolvePagingParams,
+    DateTimeFormatPipe,
 } from './';
 
 const ENTITY_STATES = [
@@ -33,6 +34,7 @@ const ENTITY_STATES = [
         ProgramDeleteDialogComponent,
         ProgramPopupComponent,
         ProgramDeletePopupComponent,
+        DateTimeFormatPipe,
     ],
     entryComponents: [
         ProgramComponent,
@@ -40,12 +42,16 @@ const ENTITY_STATES = [
         ProgramPopupComponent,
         ProgramDeleteDialogComponent,
         ProgramDeletePopupComponent,
+        DateTimeFormatPipe,
     ],
     providers: [
         ProgramService,
         ProgramPopupService,
         ProgramResolvePagingParams,
     ],
+    exports: [
+        ProgramComponent
+    ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class HermannotesProgramModule {}
+export class HermannotesProgramModule { }

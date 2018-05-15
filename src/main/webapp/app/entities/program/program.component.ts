@@ -55,24 +55,28 @@ export class ProgramComponent implements OnInit, OnDestroy {
         this.programService.query({
             page: this.page - 1,
             size: this.itemsPerPage,
-            sort: this.sort()}).subscribe(
+            sort: this.sort()
+        }).subscribe(
             (res: ResponseWrapper) => this.onSuccess(res.json, res.headers),
             (res: ResponseWrapper) => this.onError(res.json)
         );
     }
+
     loadPage(page: number) {
         if (page !== this.previousPage) {
             this.previousPage = page;
             this.transition();
         }
     }
+
     transition() {
-        this.router.navigate(['/program'], {queryParams:
-            {
-                page: this.page,
-                size: this.itemsPerPage,
-                sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
-            }
+        this.router.navigate(['/program'], {
+            queryParams:
+                {
+                    page: this.page,
+                    size: this.itemsPerPage,
+                    sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
+                }
         });
         this.loadAll();
     }
@@ -91,6 +95,7 @@ export class ProgramComponent implements OnInit, OnDestroy {
             this.currentAccount = account;
         });
         this.registerChangeInPrograms();
+
     }
 
     ngOnDestroy() {

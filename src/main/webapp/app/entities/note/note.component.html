@@ -1,0 +1,32 @@
+<ngb-tabset [destroyOnHide]="false">
+    <ngb-tab title="Jegyzőkönyvező">
+        <ng-template ngbTabContent>
+            <jhi-note-notary></jhi-note-notary>
+        </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Jelenléti">
+        <ng-template ngbTabContent>
+            <jhi-note-members></jhi-note-members>
+        </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Programok">
+        <ng-template ngbTabContent>
+            <jhi-note-program></jhi-note-program>
+        </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Kérvények">
+        <ng-template ngbTabContent>
+            Kérvények
+        </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Egyéb">
+        <ng-template ngbTabContent>
+            Egyéb
+        </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Következő ülés">
+        <ng-template ngbTabContent>
+            <jhi-footer></jhi-footer>
+        </ng-template>
+    </ngb-tab>
+</ngb-tabset>

@@ -1,0 +1,137 @@
+<div class="row py-2 colorBack">
+    <div class="col-1">
+        <label for="programTitle">Program</label>
+    </div>
+    <div class="col-3">
+        <input class="form-control" type="text" name="programTitle" id="programTitle" [(ngModel)]="model.title">
+    </div>
+    <div class="col-1">
+        <label for="programDate">Időpont:</label>
+    </div>
+    <div class="col-3">
+        <input class="form-control" type="datetime-local" name="programDate" id="programDate" [(ngModel)]="model.date">
+    </div>
+    <div class="col-1">
+        <label for="programStudent">Főszervező:</label>
+    </div>
+    <div class="col-3">
+        <input class="form-control" type="text" name="programStudent" id="programStudent" [(ngModel)]="model.student.name">
+    </div>
+</div>
+<div class="row colorBack">
+    <div class="col-4">
+        <div class="row mb-2">
+            <div class="col-12">
+                <label for="programTitle">Terv:</label>
+                <textarea class="form-control" id="programTitle" rows="3" [(ngModel)]="model.plan" [disabled]="planIsDisabled()" (ngModelChange)="modelChanged()"></textarea>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-8">
+                <label for="programStudent">Tervezett költség összesen:</label>
+            </div>
+            <div class="col-4">
+                <input class="form-control" type="text" name="programStudent" id="programStudent" [(ngModel)]="model.planCost" [disabled]="planIsDisabled()"
+                    (ngModelChange)="modelChanged()">
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="row mb-2">
+            <div class="col-12">
+                <label for="programDate">Döntés:</label>
+                <textarea class="form-control" id="programTitle" rows="3" [(ngModel)]="model.decision" [disabled]="decisionIsDisabled()"
+                    (ngModelChange)="modelChanged()"></textarea>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-8">
+                <label for="programStudent">Támogatott költség összesen:</label>
+            </div>
+            <div class="col-4">
+                <input class="form-control" type="text" name="programStudent" id="programStudent" [(ngModel)]="model.decisionCost" [disabled]="decisionIsDisabled()"
+                    (ngModelChange)="modelChanged()">
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="row mb-2">
+            <div class="col-12">
+                <label for="programStudent">Beszámoló</label>
+                <textarea class="form-control" id="programTitle" rows="3" [(ngModel)]="model.report" [disabled]="reportIsDisabled()" (ngModelChange)="modelChanged()"></textarea>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-8">
+                <label for="programStudent">Felhasznált költség összesen</label>
+            </div>
+            <div class="col-4">
+                <input class="form-control" type="text" name="programStudent" id="programStudent" [(ngModel)]="model.reportCost" [disabled]="reportIsDisabled()"
+                    (ngModelChange)="modelChanged()">
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="row colorBack">
+    <div class="col-sm-4">
+        <h2>Tervezett programok</h2>
+        <fieldset *ngFor="let program of programs; let i = index">
+            <div class="card my-1 " *ngIf="program.status === 'plan'">
+                <div class="card-body form-control" (click)="setSelectedCard(i)" [class.bg-success]="selectedCard === i">
+                    <div class="row">
+                        <div class="col-10">
+                            <h5 class="card-title"> {{ program.title }}</h5>
+                            <hr [class.bg-success]="selectedCard != i" [class.bg-white]="selectedCard === i">
+                            <p class="card-text"> {{ program.date | date: 'yyyyMM.dd' }} - {{ program.student.name }}</p>
+                        </div>
+                        <div class="col-2 align-middle">
+                            <span class="fa fa-check-circle fa-2x mx-8" (click)="onSaveButton()" [hidden]="selectedCard !== i || !needToSave"></span>
+                            <span class="fa fa-chevron-circle-right fa-2x" (click)="sendFromPlanToSuccess()" [hidden]="selectedCard !== i || needToSave"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="col-sm-4 statusProgress">
+        <h2>Folyamatban lévő programok</h2>
+        <fieldset *ngFor="let program of programs; let i = index">
+            <div class="card my-1" *ngIf="program.status === 'progress'">
+                <div class="card-body form-control" (click)="setSelectedCard(i)" [class.bg-danger]="selectedCard === i">
+                    <div class="row">
+                        <div class="col-10">
+                            <h5 class="card-title"> {{ program.title }} </h5>
+                            <hr [class.bg-danger]="selectedCard != i" [class.bg-white]="selectedCard === i">
+                            <p class="card-text"> {{ program.date | date: 'yyyyMM.dd' }} - {{ program.student.name }}</p>
+                        </div>
+                        <div class="col-2 align-middle">
+                            <span class="fa fa-check-circle fa-2x mx-8" (click)="onSaveButton()" [hidden]="selectedCard !== i || !needToSave"></span>
+                            <span class="fa fa-chevron-circle-right fa-2x" (click)="sendFromSuccessToClosed()" [hidden]="selectedCard !== i || needToSave"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="col-sm-4 statusClosed">
+        <h2>Lezárásra váró programok</h2>
+        <fieldset *ngFor="let program of programs; let i = index">
+            <div class="card my-1" *ngIf="program.status === 'closed'">
+                <div class="card-body form-control" (click)="setSelectedCard(i)" [class.colorClosed]="selectedCard === i">
+                    <div class="row">
+                        <div class="col-10">
+                            <h5 class="card-title"> {{ program.title }} </h5>
+                            <hr [class.colorClosed]="selectedCard != i" [class.bg-white]="selectedCard === i">
+                            <p class="card-text"> {{ program.date | date: 'yyyyMM.dd' }} - {{ program.student.name }}</p>
+                        </div>
+                        <div class="col-2 align-middle">
+                            <span class="fa fa-check-circle fa-2x mx-8" (click)="onSaveButton()" [hidden]="selectedCard !== i || !needToSave"></span>
+                            <span class="fa fa-archive fa-2x" (click)="sendFromSuccessToClosed()" [hidden]="selectedCard !== i || needToSave"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</div>

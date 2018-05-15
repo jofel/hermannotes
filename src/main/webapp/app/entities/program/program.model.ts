@@ -1,9 +1,10 @@
 import { BaseEntity } from './../../shared';
+import { Student } from '../student';
 
-const enum ProgramStatus {
-    'plan',
-    ' progress',
-    ' closed'
+export const enum ProgramStatus {
+    Plan = 'plan',
+    Progress = 'progress',
+    Closed = 'closed'
 }
 
 export class Program implements BaseEntity {
@@ -18,7 +19,8 @@ export class Program implements BaseEntity {
         public report?: any,
         public reportCost?: number,
         public status?: ProgramStatus,
-        public student?: BaseEntity,
+        public student?: Student,
     ) {
+        this.student = new Student();
     }
 }
