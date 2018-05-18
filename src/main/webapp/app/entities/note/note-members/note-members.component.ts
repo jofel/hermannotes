@@ -7,11 +7,13 @@ import { ResponseWrapper } from '../../../shared/model/response-wrapper.model';
 
 @Component({
     selector: 'jhi-note-members',
-    templateUrl: './note-members.component.html'
+    templateUrl: './note-members.component.html',
+    styleUrls: ['./note-members.css']
 })
 export class NoteMembersComponent implements OnInit, OnDestroy {
 
     students: Student[];
+    bgCard = -1;
 
     constructor(
         private studentService: StudentService,
@@ -28,7 +30,6 @@ export class NoteMembersComponent implements OnInit, OnDestroy {
         this.studentService.query().subscribe(
             (res: ResponseWrapper) => {
                 this.students = res.json;
-                console.log(this.students);
             }, (res: ResponseWrapper) => this.onError(res.json));
     }
 

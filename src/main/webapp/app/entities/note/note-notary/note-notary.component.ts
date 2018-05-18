@@ -7,11 +7,13 @@ import { ResponseWrapper } from '../../../shared/model/response-wrapper.model';
 
 @Component({
     selector: 'jhi-note-notary',
-    templateUrl: './note-notary.component.html'
+    templateUrl: './note-notary.component.html',
+    styleUrls: ['./note-notary.css']
 })
 export class NoteNotaryComponent implements OnInit, OnDestroy {
 
     students: Student[];
+    selectedStudent = -1;
 
     constructor(
         private studentService: StudentService,
@@ -28,12 +30,15 @@ export class NoteNotaryComponent implements OnInit, OnDestroy {
         this.studentService.query().subscribe(
             (res: ResponseWrapper) => {
                 this.students = res.json;
-                console.log(this.students);
             }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     private onError(error) {
         this.alertService.error(error.message, null, null);
+    }
+
+    setSelectedStudent(i: number) {
+        this.selectedStudent = i;
     }
 
 }

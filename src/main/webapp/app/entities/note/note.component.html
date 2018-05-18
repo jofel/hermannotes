@@ -1,32 +1,59 @@
 <ngb-tabset [destroyOnHide]="false">
-    <ngb-tab title="Jegyzőkönyvező">
+    <ngb-tab>
+        <ng-template ngbTabTitle>
+            <span class="tabTitle"> Jegyzőkönyvező </span>
+        </ng-template>
         <ng-template ngbTabContent>
-            <jhi-note-notary></jhi-note-notary>
+            <div class="my-4">
+                <jhi-note-notary></jhi-note-notary>
+            </div>
         </ng-template>
     </ngb-tab>
-    <ngb-tab title="Jelenléti">
+    <ngb-tab>
+        <ng-template ngbTabTitle>
+            <span class="tabTitle"> Jelenléti </span>
+        </ng-template>
         <ng-template ngbTabContent>
-            <jhi-note-members></jhi-note-members>
+            <div class="my-4">
+                <jhi-note-members></jhi-note-members>
+            </div>
         </ng-template>
     </ngb-tab>
-    <ngb-tab title="Programok">
+    <ngb-tab>
+        <ng-template ngbTabTitle>
+            <span class="tabTitle"> Programok </span>
+        </ng-template>
         <ng-template ngbTabContent>
-            <jhi-note-program></jhi-note-program>
+            <div class="my-4">
+                <jhi-note-program></jhi-note-program>
+            </div>
         </ng-template>
     </ngb-tab>
-    <ngb-tab title="Kérvények">
+    <ngb-tab>
+        <ng-template ngbTabTitle>
+            <span class="tabTitle"> Kérvények </span>
+        </ng-template>
         <ng-template ngbTabContent>
-            Kérvények
+            <div class="my-4">
+                Kérvények
+            </div>
         </ng-template>
     </ngb-tab>
-    <ngb-tab title="Egyéb">
+    <ngb-tab>
+        <ng-template ngbTabTitle>
+            <span class="tabTitle"> Egyéb </span>
+        </ng-template>
         <ng-template ngbTabContent>
-            Egyéb
+            <div class="my-4">
+                Egyéb
+            </div>
         </ng-template>
     </ngb-tab>
-    <ngb-tab title="Következő ülés">
+    <ngb-tab>
+        <ng-template ngbTabTitle>
+            <span class="tabTitle"> Következő ülés </span>
+        </ng-template>
         <ng-template ngbTabContent>
-            <jhi-footer></jhi-footer>
         </ng-template>
     </ngb-tab>
 </ngb-tabset>

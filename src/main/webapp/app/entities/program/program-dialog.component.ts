@@ -106,8 +106,6 @@ export class ProgramDialogComponent implements OnInit {
     }
 
     onDatePickerChanged() {
-        console.log('IDE FIGYELJETEK MÁR');
-        console.log(this.program.date);
     }
 }
 

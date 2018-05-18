@@ -1,99 +1,153 @@
-<div class="row py-2 colorBack">
-    <div class="col-1">
-        <label for="programTitle">Program</label>
-    </div>
-    <div class="col-3">
-        <input class="form-control" type="text" name="programTitle" id="programTitle" [(ngModel)]="model.title">
-    </div>
-    <div class="col-1">
-        <label for="programDate">Időpont:</label>
-    </div>
-    <!-- <div class="col-3">
-        <input class="form-control" type="datetime-local" name="programDate" id="programDate" [(ngModel)]="model.date">
-    </div> -->
-    <!-- <div class="input-group col-3">
-        <input id="dateDP" type="text" class="form-control" name="date" ngbDatepicker #d="ngbDatepicker" [(ngModel)]="dateOfDeclarationPicker"
-            value="{{model.date}}" (ngModelChange)="onDatePickerChanged()" />
-        <span class="input-group-btn">
-            <button type="button" class="btn btn-default" (click)="d.toggle()">
-                <i class="fa fa-calendar"></i>
+<form>
+    <div class="row py-2 colorBack">
+        <div class="col-4">
+            <label for="programTitle">Program neve:</label>
+            <input class="form-control" type="text" name="programTitle" id="programTitle" [(ngModel)]="model.title" required>
+        </div>
+        <div class="col-4">
+            <label for="programStudent">Főszervező:</label>
+            <select class="form-control" name="programStudent" id="programStudent" [(ngModel)]="model.student.id" required>
+                <option *ngFor="let student of students; let i = index" [ngValue]="student.id"> {{ student.name }} </option>
+        </div>
+        <div class="col-2">
+            <label for="programDate">Dátum:</label>
+            <div class="input-group">
+                <input id="programDate" type="text" class="form-control" name="programDate" ngbDatepicker #d="ngbDatepicker" [(ngModel)]="model.date"
+                    (ngModelChange)="onDatePickerChanged()" required/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" (click)="d.toggle()">
+                        <i class="fa fa-calendar"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <div class="col-1">
+            <label for="programTime">Időpont:</label>
+            <input class="form-control" type="text" name="programTime" id="programTime" [(ngModel)]="model.time" required>
+        </div>
+
+
+        <!-- <div class="col-1">
+            <button class="btn btn-primary"> Hozzáadás</button>
+        </div> -->
+        <div class="col-1 mt-4" *ngIf="model.id">
+            <button class="btn btn-info" (click)="clean()">
+                <span class="fa fa-undo fa-2x"></span>
+                Clear
             </button>
-        </span>
-    </div> -->
-    <div class="input-group col-3">
-        <input id="field_date" type="text" class="form-control" name="date" ngbDatepicker #d="ngbDatepicker" [(ngModel)]="model.date"
-            (ngModelChange)="onDatePickerChanged()" />
-        <span class="input-group-btn">
-            <button type="button" class="btn btn-default" (click)="d.toggle()">
-                <i class="fa fa-calendar"></i>
+        </div>
+        <div class="col-1 mt-4" *ngIf="!model.id">
+            <button class="btn btn-success" (click)="onSaveButton()">
+                <span class="fa fa-plus-circle fa-2x"></span>
+                Save
             </button>
-        </span>
-    </div>
-    <div class="col-1">
-        <label for="programStudent">Főszervező:</label>
-    </div>
-    <div class="col-3">
-        <input class="form-control" type="text" name="programStudent" id="programStudent" [(ngModel)]="model.student.name">
-    </div>
-</div>
-<div class="row colorBack">
-    <div class="col-4">
-        <div class="row mb-2">
-            <div class="col-12">
-                <label for="programTitle">Terv:</label>
-                <textarea class="form-control" id="programTitle" rows="3" [(ngModel)]="model.plan" [disabled]="planIsDisabled()" (ngModelChange)="modelChanged()"></textarea>
-            </div>
-        </div>
-        <div class="row mb-2">
-            <div class="col-8">
-                <label for="programStudent">Tervezett költség összesen:</label>
-            </div>
-            <div class="col-4">
-                <input class="form-control" type="text" name="programStudent" id="programStudent" [(ngModel)]="model.planCost" [disabled]="planIsDisabled()"
-                    (ngModelChange)="modelChanged()">
-            </div>
         </div>
     </div>
-    <div class="col-4">
-        <div class="row mb-2">
-            <div class="col-12">
-                <label for="programDate">Döntés:</label>
-                <textarea class="form-control" id="programTitle" rows="3" [(ngModel)]="model.decision" [disabled]="decisionIsDisabled()"
-                    (ngModelChange)="modelChanged()"></textarea>
+    <!-- <div class="row py-2 colorBack">
+        <div class="col-1">
+            <label for="programStudent">Főszervező:</label>
+        </div>
+        <div class="col-3">
+            <select class="form-control" name="programStudent" id="programStudent" [(ngModel)]="model.student.id" required>
+                <option *ngFor="let student of students; let i = index" [ngValue]="student.id"> {{ student.name }} </option>
+        </div>
+        <div class="col-1">
+            <label for="programDate">Időpont:</label>
+        </div>
+        <div class="input-group col-3">
+            <input id="programDate" type="text" class="form-control" name="programDate" ngbDatepicker #d="ngbDatepicker" [(ngModel)]="model.date"
+                (ngModelChange)="onDatePickerChanged()" required/>
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" (click)="d.toggle()">
+                    <i class="fa fa-calendar"></i>
+                </button>
+            </span>
+        </div>
+        <div class="col-1">
+            <label for="programStudent">Főszervező:</label>
+        </div>
+        <div class="col-3">
+            <select class="form-control" name="programStudent" id="programStudent" [(ngModel)]="model.student.id" required>
+                <option *ngFor="let student of students; let i = index" [ngValue]="student.id"> {{ student.name }} </option>
+        </div>
+    </div> -->
+
+    <div class="row colorBack">
+        <div class="col-4">
+            <div class="row mb-2">
+                <div class="col-12">
+                    <label for="programTitle">Terv:</label>
+                    <textarea class="form-control" name="plan" id="plan" rows="3" [(ngModel)]="model.plan" [required]="!planIsDisabled()" [disabled]="planIsDisabled()"
+                        (ngModelChange)="modelChanged()"></textarea>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-8">
+                    <label for="planCost">Tervezett költség összesen:</label>
+                </div>
+                <div class="col-4">
+                    <input class="form-control" type="text" name="planCost" id="planCost" [(ngModel)]="model.planCost" [required]="!planIsDisabled()"
+                        [disabled]="planIsDisabled()" (ngModelChange)="modelChanged()">
+                </div>
             </div>
         </div>
-        <div class="row mb-2">
-            <div class="col-8">
-                <label for="programStudent">Támogatott költség összesen:</label>
+        <div class="col-4">
+            <div class="row mb-2">
+                <div class="col-12">
+                    <label for="decision">Döntés:</label>
+                    <textarea class="form-control" name="decision" id="decision" rows="3" [(ngModel)]="model.decision" [required]="!decisionIsDisabled()"
+                        [disabled]="decisionIsDisabled()" (ngModelChange)="modelChanged()"></textarea>
+                </div>
             </div>
-            <div class="col-4">
-                <input class="form-control" type="text" name="programStudent" id="programStudent" [(ngModel)]="model.decisionCost" [disabled]="decisionIsDisabled()"
-                    (ngModelChange)="modelChanged()">
+            <div class="row mb-2">
+                <div class="col-8">
+                    <label for="decisionCost">Támogatott költség összesen:</label>
+                </div>
+                <div class="col-4">
+                    <input class="form-control" type="text" name="decisionCost" id="decisionCost" [(ngModel)]="model.decisionCost" [required]="!decisionIsDisabled()"
+                        [disabled]="decisionIsDisabled()" (ngModelChange)="modelChanged()">
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="row mb-2">
+                <div class="col-12">
+                    <label for="report">Beszámoló</label>
+                    <textarea class="form-control" name="report" id="report" rows="3" [(ngModel)]="model.report" [required]="!reportIsDisabled()"
+                        [disabled]="reportIsDisabled()" (ngModelChange)="modelChanged()"></textarea>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-8">
+                    <label for="reportCost">Felhasznált költség összesen</label>
+                </div>
+                <div class="col-4">
+                    <input class="form-control" type="text" name="reportCost" id="reportCost" [(ngModel)]="model.reportCost" [required]="!reportIsDisabled()"
+                        [disabled]="reportIsDisabled()" (ngModelChange)="modelChanged()">
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-4">
-        <div class="row mb-2">
-            <div class="col-12">
-                <label for="programStudent">Beszámoló</label>
-                <textarea class="form-control" id="programTitle" rows="3" [(ngModel)]="model.report" [disabled]="reportIsDisabled()" (ngModelChange)="modelChanged()"></textarea>
-            </div>
-        </div>
-        <div class="row mb-2">
-            <div class="col-8">
-                <label for="programStudent">Felhasznált költség összesen</label>
-            </div>
-            <div class="col-4">
-                <input class="form-control" type="text" name="programStudent" id="programStudent" [(ngModel)]="model.reportCost" [disabled]="reportIsDisabled()"
-                    (ngModelChange)="modelChanged()">
-            </div>
-        </div>
+    <div class="row colorBack">
+
     </div>
-</div>
+
+</form>
+<!-- <div class="row mb-2 colorBack">
+    <div class="col-12">
+        <button class="btn btn-success" (click)="onSaveButton()">Mentés</button>
+        <button class="btn btn-info pull-center" (click)="onClearButton()">Tisztít</button>
+        <button class="btn btn-danger pull-right" (click)="onDeleteButton()">Töröl</button>
+    </div>
+</div> -->
 <hr>
 <div class="row colorBack">
     <div class="col-sm-4">
-        <h2>Tervezett programok</h2>
+        <h2>Tervezett programok
+            <!-- <button class="btn btn-success">
+                <span class="fa fa-plus fa fa-2x" (click)="onSaveButton()"></span> Add
+            </button> -->
+        </h2>
         <fieldset *ngFor="let program of programs; let i = index">
             <div class="card my-1 " *ngIf="program.status === 'plan'">
                 <div class="card-body form-control" (click)="setSelectedCard(i)" [class.bg-success]="selectedCard === i">

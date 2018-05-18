@@ -1,5 +1,31 @@
-<div class="checkbox form-control form-control-lg" *ngFor="let student of students; let i = index">
-    <label for="student_radio_button_{{i}}">
-        <input type="checkbox" name="student_radio_button" value="student.id" id="student_radio_button_{{i}}"> {{student.name}}
+<div class="checkbox form-control form-control-lg">
+    <label class="form-control" for="student_radio_button_{{i}}" *ngFor="let student of students; let i = index" [class.active]="student.checked === true"
+        (click)="student.checked === true ? student.checked = false : student.checked = true">
+        <input type="checkbox" name="student_radio_button" value="student.id" id="student_radio_button_{{i}}" [(ngModel)]="student.checked"> {{student.name}}
     </label>
+    <!-- <div class="row" *ngFor="let student of students; let i = index">
+        <div class="btn-group-vertical">
+            <button type="submit" class="btn btn-success btn-sm" id="btn-success_{{ i }}" (click)="student.point = 2">
+                <span class="fa fa-check"></span>
+            </button>
+            <button type="submit" class="btn btn-info btn-sm" id="btn-success_{{ i }}" (click)="student.point = 1">
+                <span class="fa fa-clock-o"></span>
+            </button>
+        </div>
+        <div class="col-3 form-control" align="center" [class.text-success]="student.point === 2" [class.text-info]="student.point === 1"
+            [class.text-warning]="student.point === -1" [class.text-danger]="student.point === -2">
+            <h3>
+                {{ student.name}}
+            </h3>
+        </div>
+
+        <div class="btn-group-vertical">
+            <button type="submit" class="btn btn-warning btn-sm" id="btn-success_{{ i }}" (click)="student.point = - 1">
+                <span class="fa fa-remove"></span>
+            </button>
+            <button type="submit" class="btn btn-danger btn-sm" id="btn-success_{{ i }}" (click)="student.point = - 2">
+                <span class="fa fa-exclamation"></span>
+            </button>
+        </div>
+    </div> -->
 </div>

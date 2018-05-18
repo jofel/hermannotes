@@ -1,0 +1,24 @@
+.col-1:hover {
+    background-color: lightslategrey;
+}
+
+.status_ok {
+     background-color: #007E33;
+}
+
+.status_far {
+     background-color: #FF8800;
+}
+
+.status_late {
+     background-color: #0099CC;
+}
+
+.status_miss {
+     background-color: #CC0000;
+}
+
+.active {
+    background-color: #0099CC;
+    color: white;
+} 

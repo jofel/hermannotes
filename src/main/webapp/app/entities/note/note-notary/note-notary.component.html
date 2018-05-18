@@ -1,5 +1,6 @@
-<div class="radio form-control form-control-lg" *ngFor="let student of students; let i = index">
-    <label for="student_radio_button_{{i}}">
+<div class="checkbox form-control form-control-lg">
+    <label class="form-control" for="student_radio_button_{{i}}" *ngFor="let student of students; let i = index" [class.active]="selectedStudent === i"
+        (click)="setSelectedStudent(i)">
         <input type="radio" name="student_radio_button" value="student.id" id="student_radio_button_{{i}}"> {{student.name}}
     </label>
 </div>

@@ -17,11 +17,11 @@ export class CircularGenerateComponent implements OnInit, OnDestroy {
     circulars: Circular[];
     circular: Circular;
     day: any;
-    days= ['monday',
-    'tuesday',
-    'wednesday',
-    'thursday',
-    'friday'];
+    days = ['monday',
+        'tuesday',
+        'wednesday',
+        'thursday',
+        'friday'];
     currentAccount: any;
     eventSubscriber: Subscription;
 
@@ -47,7 +47,6 @@ export class CircularGenerateComponent implements OnInit, OnDestroy {
             this.currentAccount = account;
         });
         this.registerChangeInCircular();
-        console.log(this.circulars);
     }
 
     ngOnDestroy() {

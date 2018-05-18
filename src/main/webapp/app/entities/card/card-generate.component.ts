@@ -41,7 +41,6 @@ export class CardGenerateComponent implements OnInit, OnDestroy {
             this.currentAccount = account;
         });
         this.registerChangeInCard();
-        console.log( 'Kártya 1: ' + this.cardList);
     }
 
     ngOnDestroy() {

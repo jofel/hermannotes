@@ -14,6 +14,8 @@ export class Student implements BaseEntity {
         public room?: number,
         public point?: number,
         public status?: StudentStatus,
+
+        public checked?: boolean,
     ) {
     }
 }

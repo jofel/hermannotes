@@ -1,0 +1,11 @@
+.colorBack, input:disabled, textarea:disabled {
+    background-color: #ece9e9;
+}
+
+.tabTitle {
+    color: #525252;
+}
+
+.nav-tabs.active {
+    background-color:#ece9e9;
+}

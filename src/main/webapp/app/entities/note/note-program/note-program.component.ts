@@ -39,6 +39,10 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
         this.loadPrograms();
     }
 
+    ngOnclick() {
+
+    }
+
     ngOnDestroy() { }
 
     private loadStudents() {
@@ -57,22 +61,22 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
         this.programService.query().subscribe(
             (res: ResponseWrapper) => {
                 this.programs = res.json;
-                // console.log(this.programs);
             }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     save() {
         this.isSaving = true;
         if (this.model.id !== undefined) {
-            console.log('save -> update');
             this.subscribeToSaveResponse(
                 this.programService.update(this.model));
 
         } else {
-            console.log('save -> create');
+            this.model.status = ProgramStatus.Plan;
             this.subscribeToSaveResponse(
                 this.programService.create(this.model));
         }
+
+        this.model = new Program();
     }
 
     private subscribeToSaveResponse(result: Observable<Program>) {
@@ -81,6 +85,7 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
     }
 
     private onSaveSuccess(result: Program) {
+        this.loadPrograms();
         this.eventManager.broadcast({ name: 'programListModification', content: 'OK' });
         this.isSaving = false;
     }
@@ -96,7 +101,6 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
     }
 
     cardActivated($event) {
-        console.log($event.target.className);
         if ($event.target.className === 'card-text') {
             return this.cardColor = 'green';
         }
@@ -105,19 +109,22 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
 
     setSelectedCard(index: number) {
         if (this.selectedCard === index) {
+            this.selectedCard = -1;
+            this.model = new Program();
             return;
         } else {
             this.selectedCard = index;
             if (this.model) {
                 this.model = this.programs[index];
+                console.log(this.model);
             }
             this.needToSave = false;
-            this.setDatePickerModel();
+            this.initDatePickerModel();
         }
     }
 
     planIsDisabled() {
-        return this.model.status !== ProgramStatus.Plan;
+        return this.model.status !== ProgramStatus.Plan && this.selectedCard !== -1;
     }
 
     decisionIsDisabled() {
@@ -129,25 +136,16 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
     }
 
     sendFromPlanToSuccess() {
-        console.log('Next Button clicked!!');
         this.model.status = ProgramStatus.Progress;
         this.save();
     }
 
     sendFromSuccessToClosed() {
-        console.log('Next Button clicked!!');
         this.model.status = ProgramStatus.Closed;
         this.save();
     }
 
-    closed() {
-        console.log('Closed Button clicked!!');
-    }
-
     onSaveButton() {
-        console.log('Save Button clicked!! ');
-        console.log(this.model);
-        // this.model.date = this.dateOfDeclarationPicker;
         this.needToSave = false;
         this.save();
     }
@@ -157,13 +155,15 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
     }
 
     onDatePickerChanged() {
-        console.log('IDE FIGYELJETEK MÁR');
-        console.log(this.model.date);
-
         this.needToSave = true;
     }
 
-    private setDatePickerModel() {
+    clean() {
+        this.model = new Program();
+        this.selectedCard = -1;
+    }
+
+    private initDatePickerModel() {
         const date = this.model.date;
 
         this.dateOfDeclarationPicker = {
