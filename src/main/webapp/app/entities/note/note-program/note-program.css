@@ -47,14 +47,6 @@
      background-color: white;
 }
 
-.fa-chevron-circle-right:hover {
-     color: white;
-}
-
-.fa-check-circle:hover {
-     color: white;
-}
-
-.fa-archive:hover {
+.fa-check-circle:hover, .fa-archive:hover, .fa-chevron-circle-right:hover, .fa-times-circle:hover {
      color: white;
 }

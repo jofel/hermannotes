@@ -21,7 +21,10 @@ export class Program implements BaseEntity {
         public reportCost?: number,
         public status?: ProgramStatus,
         public student?: Student,
+
+        public needToSave?: boolean,
     ) {
+        this.needToSave = false;
         this.student = new Student();
     }
 }

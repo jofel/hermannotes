@@ -20,7 +20,6 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
     cardColor = 'green';
     selectedCard = -1;
     model: Program;
-    needToSave = false;
     isSaving: boolean;
     d: NgbDatepicker;
     dateOfDeclarationPicker: NgbDateStruct;
@@ -60,7 +59,7 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
     loadPrograms() {
         this.programService.query().subscribe(
             (res: ResponseWrapper) => {
-                this.programs = res.json;
+                this.programs = res.json.sort(function (a, b) { return a.id - b.id });
             }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
@@ -69,14 +68,14 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
         if (this.model.id !== undefined) {
             this.subscribeToSaveResponse(
                 this.programService.update(this.model));
-
+            // this.model = new Program();
+            // this.selectedCard = -1;
         } else {
             this.model.status = ProgramStatus.Plan;
             this.subscribeToSaveResponse(
                 this.programService.create(this.model));
+            // this.model = new Program();
         }
-
-        this.model = new Program();
     }
 
     private subscribeToSaveResponse(result: Observable<Program>) {
@@ -109,16 +108,15 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
 
     setSelectedCard(index: number) {
         if (this.selectedCard === index) {
-            this.selectedCard = -1;
-            this.model = new Program();
+            // this.selectedCard = -1;
+            // this.model = new Program();
             return;
         } else {
             this.selectedCard = index;
             if (this.model) {
                 this.model = this.programs[index];
-                console.log(this.model);
             }
-            this.needToSave = false;
+            // this.model.needToSave = false;
             this.initDatePickerModel();
         }
     }
@@ -138,24 +136,32 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
     sendFromPlanToSuccess() {
         this.model.status = ProgramStatus.Progress;
         this.save();
+        this.model.needToSave = false;
     }
 
     sendFromSuccessToClosed() {
         this.model.status = ProgramStatus.Closed;
         this.save();
+        this.model.needToSave = false;
     }
 
     onSaveButton() {
-        this.needToSave = false;
         this.save();
+        this.model.needToSave = false;
+    }
+
+    onDeleteButton(i: number) {
+        this.programs.splice(i, 1);
+        this.clean();
+
     }
 
     modelChanged() {
-        this.needToSave = true;
+        this.model.needToSave = true;
     }
 
     onDatePickerChanged() {
-        this.needToSave = true;
+        this.model.needToSave = true;
     }
 
     clean() {
