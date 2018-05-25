@@ -17,12 +17,12 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
 
     students: Student[];
     programs: Program[];
-    cardColor = 'green';
     selectedCard = -1;
     model: Program;
     isSaving: boolean;
     d: NgbDatepicker;
     dateOfDeclarationPicker: NgbDateStruct;
+    public instance;
 
     constructor(
         private studentService: StudentService,
@@ -31,6 +31,7 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
         private eventManager: JhiEventManager,
     ) {
         this.model = new Program();
+        this.instance = this;
     }
 
     ngOnInit() {
@@ -59,7 +60,7 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
     loadPrograms() {
         this.programService.query().subscribe(
             (res: ResponseWrapper) => {
-                this.programs = res.json.sort(function (a, b) { return a.id - b.id });
+                this.programs = res.json.sort((a, b) => a.id - b.id);
             }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
@@ -68,13 +69,10 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
         if (this.model.id !== undefined) {
             this.subscribeToSaveResponse(
                 this.programService.update(this.model));
-            // this.model = new Program();
-            // this.selectedCard = -1;
         } else {
             this.model.status = ProgramStatus.Plan;
             this.subscribeToSaveResponse(
                 this.programService.create(this.model));
-            // this.model = new Program();
         }
     }
 
@@ -99,28 +97,6 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
         this.onError(error);
     }
 
-    cardActivated($event) {
-        if ($event.target.className === 'card-text') {
-            return this.cardColor = 'green';
-        }
-        return this.cardColor = 'red';
-    }
-
-    setSelectedCard(index: number) {
-        if (this.selectedCard === index) {
-            // this.selectedCard = -1;
-            // this.model = new Program();
-            return;
-        } else {
-            this.selectedCard = index;
-            if (this.model) {
-                this.model = this.programs[index];
-            }
-            // this.model.needToSave = false;
-            this.initDatePickerModel();
-        }
-    }
-
     planIsDisabled() {
         return this.model.status !== ProgramStatus.Plan && this.selectedCard !== -1;
     }
@@ -133,27 +109,10 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
         return this.model.status !== ProgramStatus.Closed;
     }
 
-    sendFromPlanToSuccess() {
-        this.model.status = ProgramStatus.Progress;
-        this.save();
-        this.model.needToSave = false;
-    }
-
-    sendFromSuccessToClosed() {
-        this.model.status = ProgramStatus.Closed;
-        this.save();
-        this.model.needToSave = false;
-    }
-
     onSaveButton() {
         this.save();
         this.model.needToSave = false;
-    }
-
-    onDeleteButton(i: number) {
-        this.programs.splice(i, 1);
         this.clean();
-
     }
 
     modelChanged() {

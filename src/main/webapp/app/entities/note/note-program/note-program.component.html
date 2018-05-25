@@ -28,11 +28,6 @@
             <input class="form-control" type="text" name="programTime" id="programTime" (ngModelChange)="modelChanged()" [(ngModel)]="model.time"
                 required>
         </div>
-
-
-        <!-- <div class="col-1">
-            <button class="btn btn-primary"> Hozzáadás</button>
-        </div> -->
         <div class="col-1 mt-4" *ngIf="model.id">
             <button class="btn btn-info" (click)="clean()">
                 <span class="fa fa-undo fa-2x"></span>
@@ -42,39 +37,10 @@
         <div class="col-1 mt-4" *ngIf="!model.id">
             <button class="btn btn-success" (click)="onSaveButton()">
                 <span class="fa fa-plus-circle fa-2x"></span>
-                Save
+                Add
             </button>
         </div>
     </div>
-    <!-- <div class="row py-2 colorBack">
-        <div class="col-1">
-            <label for="programStudent">Főszervező:</label>
-        </div>
-        <div class="col-3">
-            <select class="form-control" name="programStudent" id="programStudent" [(ngModel)]="model.student.id" required>
-                <option *ngFor="let student of students; let i = index" [ngValue]="student.id"> {{ student.name }} </option>
-        </div>
-        <div class="col-1">
-            <label for="programDate">Időpont:</label>
-        </div>
-        <div class="input-group col-3">
-            <input id="programDate" type="text" class="form-control" name="programDate" ngbDatepicker #d="ngbDatepicker" [(ngModel)]="model.date"
-                (ngModelChange)="onDatePickerChanged()" required/>
-            <span class="input-group-btn">
-                <button type="button" class="btn btn-default" (click)="d.toggle()">
-                    <i class="fa fa-calendar"></i>
-                </button>
-            </span>
-        </div>
-        <div class="col-1">
-            <label for="programStudent">Főszervező:</label>
-        </div>
-        <div class="col-3">
-            <select class="form-control" name="programStudent" id="programStudent" [(ngModel)]="model.student.id" required>
-                <option *ngFor="let student of students; let i = index" [ngValue]="student.id"> {{ student.name }} </option>
-        </div>
-    </div> -->
-
     <div class="row colorBack">
         <div class="col-4">
             <div class="row mb-2">
@@ -136,111 +102,6 @@
     </div>
 
 </form>
-<!-- <div class="row mb-2 colorBack">
-    <div class="col-12">
-        <button class="btn btn-success" (click)="onSaveButton()">Mentés</button>
-        <button class="btn btn-info pull-center" (click)="onClearButton()">Tisztít</button>
-        <button class="btn btn-danger pull-right" (click)="onDeleteButton()">Töröl</button>
-    </div>
-</div> -->
 <hr>
-<div class="row colorBack">
-    <div class="col-sm-4">
-        <h2>Tervezett programok
-            <!-- <button class="btn btn-success">
-                <span class="fa fa-plus fa fa-2x" (click)="onSaveButton()"></span> Add
-            </button> -->
-        </h2>
-        <fieldset *ngFor="let program of programs; let i = index">
-            <div class="card my-1 " *ngIf="program.status === 'plan'">
-                <div class="card-body form-control" [class.bg-success]="selectedCard === i">
-                    <div class="row">
-                        <div class="col-10" (click)="setSelectedCard(i)">
-                            <h5 class="card-title"> {{ program.title }}</h5>
-                            <hr [class.bg-success]="selectedCard != i" [class.bg-white]="selectedCard === i">
-                            <p class="card-text"> {{ program.student.name }}</p>
-                        </div>
-                        <div class="col-2 align-middle">
-                            <span class="fa fa-check-circle fa-2x mx-8" (click)="onSaveButton()" [hidden]="selectedCard !== i || !model.needToSave"></span>
-                            <span class="fa fa-chevron-circle-right fa-2x" (click)="sendFromPlanToSuccess()" [hidden]="selectedCard !== i || model.needToSave"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </fieldset>
-    </div>
-    <div class="col-sm-4 statusProgress">
-        <h2>Folyamatban lévő programok - {{selectedCard}}</h2>
-        <fieldset *ngFor="let program of programs; let i = index">
-            <div class="card my-1" *ngIf="program.status === 'progress'">
-                <div class="card-body form-control" [class.bg-danger]="selectedCard === i">
-                    <div class="row">
-                        <div class="col-10" (click)="setSelectedCard(i)">
-                            <h5 class="card-title"> {{ program.title }} </h5>
-                            <hr [class.bg-danger]="selectedCard != i" [class.bg-white]="selectedCard === i">
-                            <p class="card-text"> {{ program.student.name }}</p>
-                        </div>
-                        <div class="col-2 align-middle">
-                            <div class="btn-group-vertical" [hidden]="selectedCard !== i ">
-                                <button class="btn btn-danger btn-sm" replaceUrl="true" (click)="onDeleteButton(i)">
-                                    <span class="fa fa-times-circle fa-2x"></span>
-                                </button>
-                                <button class="btn btn-danger btn-sm" [disabled]="!model.needToSave" (click)="onSaveButton()">
-                                    <span class="fa fa-check-circle fa-2x"></span>
-                                </button>
-                                <button class="btn btn-danger btn-sm" [disabled]="model.needToSave" (click)="sendFromSuccessToClosed()">
-                                    <span class="fa fa-chevron-circle-right fa-2x"></span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </fieldset>
-    </div>
-    <div class="col-sm-4 statusClosed">
-        <h2>Lezárásra váró programok</h2>
-        <fieldset *ngFor="let program of programs; let i = index">
-            <div class="card my-1" *ngIf="program.status === 'closed'">
-                <div class="card-body form-control" (click)="setSelectedCard(i)" [class.colorClosed]="selectedCard === i">
-                    <div class="row">
-                        <div class="col-10">
-                            <h5 class="card-title"> {{ program.title }} </h5>
-                            <hr [class.colorClosed]="selectedCard != i" [class.bg-white]="selectedCard === i">
-                            <p class="card-text"> {{ program.student.name }}</p>
-                        </div>
-                        <div class="col-2 align-middle">
-                            <span class="fa fa-check-circle fa-2x mx-8" (click)="onSaveButton()" [hidden]="selectedCard !== i || !model.needToSave"></span>
-                            <span class="fa fa-archive fa-2x" (click)="sendFromSuccessToClosed()" [hidden]="selectedCard !== i || model.needToSave"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </fieldset>
-    </div>
-</div>
-
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
+<jhi-note-program-board [parent]="instance"></jhi-note-program-board>
+<jhi-alert></jhi-alert>

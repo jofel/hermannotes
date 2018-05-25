@@ -8,6 +8,7 @@ import { NoteMembersComponent } from './note-members/note-members.component';
 import { NoteNotaryComponent } from './note-notary/note-notary.component';
 import { HermannotesProgramModule } from '../program/program.module';
 import { NoteProgramComponent } from './note-program/note-program.component';
+import { NoteProgramBoardComponent } from './note-program//note-program-board/note-program-board.component';
 
 const ENTITY_STATES = [
     ...noteRoute,
@@ -24,12 +25,14 @@ const ENTITY_STATES = [
         NoteNotaryComponent,
         NoteMembersComponent,
         NoteProgramComponent,
+        NoteProgramBoardComponent,
     ],
     entryComponents: [
         NoteComponent,
         NoteNotaryComponent,
         NoteMembersComponent,
         NoteProgramComponent,
+        NoteProgramBoardComponent,
     ],
     providers: [
     ],

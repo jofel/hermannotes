@@ -1,13 +1,3 @@
-.card-title {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-.plan.card-text {
-    background-color: #81c784;
-}
-
-
 .card{
     border-radius: 10px;
 }
@@ -15,24 +5,18 @@
 .card-body {
     border-radius: 10px;
 }
-.colorPlan {
-    background-color: #c8e6c9;
-}
 
-.colorPlanDark {
-    background-color: #519657;
-}
-
-.colorProgress {
-    background-color: #ffcdd2;
-}
-
-.colorProgressDark {
-    background-color: #c75b39;
-}
-
-.colorClosed {
+.cardClosed {
     background-color: #90a4ae;
+}
+
+.buttonClosed {
+    color: white;
+    background-color: #90a4ae;
+}
+
+.buttonClosed:hover {
+    background-color: #788891;
 }
 
 .colorClosedDark {
