@@ -60,16 +60,21 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
     loadPrograms() {
         this.programService.query().subscribe(
             (res: ResponseWrapper) => {
-                this.programs = res.json.sort((a, b) => a.id - b.id);
+                // this.programs = res.json.sort((a, b) => a.id - b.id);
+                this.programs = res.json.sort(function (a, b) { return a.id - b.id });
+                console.log(this.programs);
             }, (res: ResponseWrapper) => this.onError(res.json));
+        console.log('loadPrograms');
     }
 
     save() {
         this.isSaving = true;
         if (this.model.id !== undefined) {
+            console.log('UPDATE');
             this.subscribeToSaveResponse(
                 this.programService.update(this.model));
         } else {
+            console.log('CREATE');
             this.model.status = ProgramStatus.Plan;
             this.subscribeToSaveResponse(
                 this.programService.create(this.model));
@@ -82,7 +87,6 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
     }
 
     private onSaveSuccess(result: Program) {
-        this.loadPrograms();
         this.eventManager.broadcast({ name: 'programListModification', content: 'OK' });
         this.isSaving = false;
     }

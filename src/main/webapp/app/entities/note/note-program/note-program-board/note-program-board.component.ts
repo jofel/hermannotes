@@ -13,7 +13,7 @@ import { NgbDatepicker, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
     templateUrl: './note-program-board.component.html',
     styleUrls: ['../note-program.css']
 })
-export class NoteProgramBoardComponent implements OnInit, OnDestroy {
+export class NoteProgramBoardComponent {
 
     @Input() parent: any;
 
@@ -27,50 +27,8 @@ export class NoteProgramBoardComponent implements OnInit, OnDestroy {
     ) {
     }
 
-    ngOnInit() {
-    }
-
-    ngOnclick() {
-
-    }
-
-    ngOnDestroy() { }
-
     private onError(error) {
         this.alertService.error(error.message, null, null);
-    }
-
-    save() {
-        this.isSaving = true;
-        if (this.parent.model.id !== undefined) {
-            this.subscribeToSaveResponse(
-                this.programService.update(this.parent.model));
-        } else {
-            this.parent.model.status = ProgramStatus.Plan;
-            this.subscribeToSaveResponse(
-                this.programService.create(this.parent.model));
-        }
-    }
-
-    private subscribeToSaveResponse(result: Observable<Program>) {
-        result.subscribe((res: Program) =>
-            this.onSaveSuccess(res), (res: Response) => this.onSaveError(res));
-    }
-
-    private onSaveSuccess(result: Program) {
-        this.parent.loadPrograms();
-        this.eventManager.broadcast({ name: 'programListModification', content: 'OK' });
-        this.isSaving = false;
-    }
-
-    private onSaveError(error) {
-        try {
-            error.json();
-        } catch (exception) {
-            error.message = error.text();
-        }
-        this.isSaving = false;
-        this.onError(error);
     }
 
     setSelectedCard(index: number) {
@@ -85,27 +43,18 @@ export class NoteProgramBoardComponent implements OnInit, OnDestroy {
         }
     }
 
-    sendFromPlanToSuccess() {
-        this.parent.model.status = ProgramStatus.Progress;
-        this.save();
-        this.parent.model.needToSave = false;
-    }
-
-    sendFromSuccessToClosed() {
-        this.parent.model.status = ProgramStatus.Closed;
-        this.save();
-        this.parent.model.needToSave = false;
-    }
-
     sendCardForward(i: number) {
         if (this.parent.model.status === ProgramStatus.Plan) {
             this.parent.model.status = ProgramStatus.Progress;
+            console.log('plan -> progress');
         } else if (this.parent.model.status === ProgramStatus.Progress) {
             this.parent.model.status = ProgramStatus.Closed;
+            console.log('progress -> closed');
         } else if (this.parent.model.status === ProgramStatus.Closed) {
             // Archive Card
         }
-        this.save();
+        console.log(this.parent.model);
+        this.parent.save();
         this.parent.model.needToSave = false;
     }
 
@@ -116,15 +65,18 @@ export class NoteProgramBoardComponent implements OnInit, OnDestroy {
             this.parent.clean();
         } else if (this.parent.model.status === ProgramStatus.Progress) {
             this.parent.model.status = ProgramStatus.Plan;
+            console.log('progress -> plan');
+            console.log(this.parent.model.status);
         } else if (this.parent.model.status === ProgramStatus.Closed) {
             this.parent.model.status = ProgramStatus.Progress;
+            console.log('closed -> progress');
         }
-        this.save();
+        this.parent.save();
         this.parent.model.needToSave = false;
     }
 
     onSaveButton() {
-        this.save();
+        this.parent.save();
         this.parent.model.needToSave = false;
     }
 

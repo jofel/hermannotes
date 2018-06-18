@@ -51,7 +51,7 @@ export class ProgramService {
 
     private convertResponse(res: Response): ResponseWrapper {
         const jsonResponse = res.json();
-        console.log(jsonResponse);
+        // console.log(jsonResponse);
         for (let i = 0; i < jsonResponse.length; i++) {
             this.convertItemFromServer(jsonResponse[i]);
         }

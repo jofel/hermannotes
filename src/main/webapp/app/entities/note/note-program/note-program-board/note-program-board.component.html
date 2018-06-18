@@ -45,7 +45,7 @@
     </div>
 
     <div class="col-sm-4 statusProgress">
-        <h2>Folyamatban lévő programok</h2>
+        <h2>Folyamatban lévő programok {{parent.selectedCard}}</h2>
         <fieldset *ngFor="let program of parent.programs; let i = index">
             <div class="card my-1" *ngIf="program.status === 'progress'">
                 <div class="card-body form-control" [class.bg-danger]="parent.selectedCard=== i" (click)="setSelectedCard(i)">
@@ -88,26 +88,6 @@
             </div>
         </fieldset>
     </div>
-    <!-- <div class="col-sm-4 statusClosed">
-        <h2>Lezárásra váró programok</h2>
-        <fieldset *ngFor="let program of parent.programs; let i = index">
-            <div class="card my-1" *ngIf="program.status === 'closed'">
-                <div class="card-body form-control" (click)="setSelectedCard(i)" [class.colorClosed]="parent.selectedCard=== i">
-                    <div class="row">
-                        <div class="col-10">
-                            <h5 class="card-title"> {{ program.title }} </h5>
-                            <hr [class.colorClosed]="parent.selectedCard!= i" [class.bg-white]="parent.selectedCard=== i">
-                            <p class="card-text"> {{ program.student.name }}</p>
-                        </div>
-                        <div class="col-2 align-middle">
-                            <span class="fa fa-check-circle fa-2x mx-8" (click)="onSaveButton()" [hidden]="parent.selectedCard!== i || !parent.model.needToSave"></span>
-                            <span class="fa fa-archive fa-2x" (click)="sendFromSuccessToClosed()" [hidden]="parent.selectedCard!== i || parent.model.needToSave"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </fieldset>
-    </div> -->
     <div class="col-sm-4 statusProgress">
         <h2>Lezárásra váró programok</h2>
         <fieldset *ngFor="let program of parent.programs; let i = index">
