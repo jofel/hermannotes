@@ -51,7 +51,8 @@ export class NoteProgramBoardComponent {
             this.parent.model.status = ProgramStatus.Closed;
             console.log('progress -> closed');
         } else if (this.parent.model.status === ProgramStatus.Closed) {
-            // Archive Card
+            this.parent.model.closed = true;
+            this.parent.programs.splice(i, 1);
         }
         console.log(this.parent.model);
         this.parent.save();
@@ -62,6 +63,7 @@ export class NoteProgramBoardComponent {
         if (this.parent.model.status === ProgramStatus.Plan) {
             // Delete card
             this.parent.programs.splice(i, 1);
+            this.confirmDelete(i);
             this.parent.clean();
         } else if (this.parent.model.status === ProgramStatus.Progress) {
             this.parent.model.status = ProgramStatus.Plan;
@@ -87,5 +89,9 @@ export class NoteProgramBoardComponent {
 
     onDatePickerChanged() {
         this.parent.model.needToSave = true;
+    }
+
+    confirmDelete(id: number) {
+        this.programService.delete(id).subscribe();
     }
 }

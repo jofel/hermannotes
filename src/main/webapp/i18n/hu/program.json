@@ -1,6 +1,6 @@
 {
     "hermannotesApp": {
-        "program" : {
+        "program": {
             "home": {
                 "title": "Programs",
                 "createLabel": "Egy új Program létrehozása",
@@ -25,7 +25,19 @@
             "report": "Report",
             "reportCost": "Report Cost",
             "status": "Status",
-            "student": "Student"
+            "student": "Student",
+            "val": {
+                "title": "A 'Program neve' mező kitöltése kötelező!",
+                "student": "A 'Főszervező' mező kitöltése kötelező!",
+                "date": "A 'Dátum' mező kitöltése kötelező!",
+                "time": "Az 'Időpont' mező kitöltése kötelező!",
+                "plan": "A 'Terv' mező kitöltése kötelező!",
+                "planCost": "A 'Tervezett költség összesen' mező kitöltése kötelező!",
+                "decision": "A 'Döntés' mező kitöltése kötelező!",
+                "decisionCost": "A 'Támogatott költség összesen' mező kitöltése kötelező!",
+                "report": "A 'Beszámoló' mező kitöltése kötelező!",
+                "reportCost": "A 'Felhasznált költség összesen' mező kitöltése kötelező!"
+            }
         }
     }
 }

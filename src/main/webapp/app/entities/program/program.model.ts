@@ -23,8 +23,10 @@ export class Program implements BaseEntity {
         public student?: Student,
 
         public needToSave?: boolean,
+        public closed?: boolean
     ) {
         this.needToSave = false;
+        this.closed = false;
         this.student = new Student();
     }
 }

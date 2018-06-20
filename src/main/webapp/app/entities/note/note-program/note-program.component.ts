@@ -7,11 +7,14 @@ import { Program, ProgramService, ProgramStatus } from '../../program';
 import { ResponseWrapper } from '../../../shared/model/response-wrapper.model';
 import { Observable } from 'rxjs/Rx';
 import { NgbDatepicker, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { NoteProgramValidatorService } from './validation/note-program-validator.service';
+import { ValidationError } from '../../../shared/validation/validation-error';
 
 @Component({
     selector: 'jhi-note-program',
     templateUrl: './note-program.component.html',
-    styleUrls: ['./note-program.css']
+    styleUrls: ['./note-program.css'],
+    providers: [NoteProgramValidatorService],
 })
 export class NoteProgramComponent implements OnInit, OnDestroy {
 
@@ -29,6 +32,7 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
         private programService: ProgramService,
         private alertService: JhiAlertService,
         private eventManager: JhiEventManager,
+        private validatorService: NoteProgramValidatorService,
     ) {
         this.model = new Program();
         this.instance = this;
@@ -39,11 +43,26 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
         this.loadPrograms();
     }
 
-    ngOnclick() {
-
+    onClick(event) {
+        if (event.target.id === 'onAddButton') {
+            const errors = this.validatorService.validate(this.model, []);
+            if (errors && errors.length > 0) {
+                this.onValidationError(errors);
+            } else {
+                this.model.status = ProgramStatus.Plan;
+                this.subscribeToSaveResponse(
+                    this.programService.create(this.model)
+                );
+                this.loadPrograms();
+                this.model.needToSave = false;
+                this.clean();
+            }
+        }
     }
 
-    ngOnDestroy() { }
+    ngOnDestroy(): void {
+        this.alertService.clear();
+    }
 
     private loadStudents() {
         this.studentService.query().subscribe(
@@ -141,5 +160,17 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
             day: date.getDate()
         }
         this.model.date = this.dateOfDeclarationPicker;
+    }
+
+    private onValidationError(errors: ValidationError[]) {
+        for (const error of errors) {
+            const msg = error.message;
+            this.alertService.addAlert({
+                type: 'danger',
+                msg,
+                timeout: 50000,
+                toast: this.alertService.isToast()
+            }, []);
+        }
     }
 }

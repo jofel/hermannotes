@@ -35,7 +35,7 @@
             </button>
         </div>
         <div class="col-1 mt-4" *ngIf="!model.id">
-            <button class="btn btn-success" (click)="onSaveButton()">
+            <button id="onAddButton" class="btn btn-success" (click)="onClick($event)">
                 <span class="fa fa-plus-circle fa-2x"></span>
                 Add
             </button>
