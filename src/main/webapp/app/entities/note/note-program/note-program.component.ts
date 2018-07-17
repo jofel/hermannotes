@@ -164,6 +164,7 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
     }
 
     private onValidationError(errors: ValidationError[]) {
+        this.alertService.clear();
         for (const error of errors) {
             const msg = error.message;
             this.alertService.addAlert({

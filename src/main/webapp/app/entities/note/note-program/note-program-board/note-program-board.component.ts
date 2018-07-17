@@ -50,19 +50,22 @@ export class NoteProgramBoardComponent implements OnInit {
     }
 
     sendCardForward(i: number) {
-        if (this.parent.model.status === ProgramStatus.Plan) {
-            this.parent.model.status = ProgramStatus.Progress;
-            console.log('plan -> progress');
-        } else if (this.parent.model.status === ProgramStatus.Progress) {
-            this.parent.model.status = ProgramStatus.Closable;
-            console.log('progress -> closable');
-        } else if (this.parent.model.status === ProgramStatus.Closable) {
-            this.parent.model.status = ProgramStatus.Closed;
-            // this.parent.programs.splice(i, 1);
+        const errors = this.parent.validatorService.validate(this.parent.model, []);
+        if (errors && errors.length > 0) {
+            this.parent.onValidationError(errors);
+        } else {
+            if (this.parent.model.status === ProgramStatus.Plan) {
+                this.parent.model.status = ProgramStatus.Progress;
+            } else if (this.parent.model.status === ProgramStatus.Progress) {
+                this.parent.model.status = ProgramStatus.Closable;
+            } else if (this.parent.model.status === ProgramStatus.Closable) {
+                this.parent.model.status = ProgramStatus.Closed;
+                console.log('closable -> close');
+            }
+            console.log(this.parent.model);
+            this.parent.save();
+            this.parent.model.needToSave = false;
         }
-        console.log(this.parent.model);
-        this.parent.save();
-        this.parent.model.needToSave = false;
     }
 
     sendCardBack(i: number) {
