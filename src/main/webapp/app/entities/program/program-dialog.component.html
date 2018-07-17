@@ -15,30 +15,20 @@
             <input type="text" class="form-control" name="title" id="field_title" [(ngModel)]="program.title" />
         </div>
         <div class="form-group">
-            <label jhiTranslate="hermannotesApp.program.student" for="field_student">Student</label>
-            <select class="form-control" id="field_student" name="student" [(ngModel)]="program.student">
-                <option [ngValue]="null"></option>
-                <option [ngValue]="studentOption.id === program.student?.id ? program.student : studentOption" *ngFor="let studentOption of students; trackBy: trackStudentById">{{studentOption.name}}</option>
-            </select>
-        </div>
-        <!-- <div class="form-group">
             <label class="form-control-label" jhiTranslate="hermannotesApp.program.date" for="field_date">Date</label>
-            <div class="d-flex">
-                <input id="field_date" type="date" class="form-control" name="date" [(ngModel)]="program.date" />
+            <div class="input-group">
+                <input id="field_date" type="text" class="form-control" name="date" ngbDatepicker #dateDp="ngbDatepicker" [(ngModel)]="program.date"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" (click)="dateDp.toggle()">
+                        <i class="fa fa-calendar"></i>
+                    </button>
+                </span>
             </div>
-        </div> -->
-        <div class="input-group">
-            <input id="field_date" type="text" class="form-control" name="date" ngbDatepicker #dateDp="ngbDatepicker" [(ngModel)]="program.date"
-                (ngModelChange)="onDatePickerChanged()" />
-            <span class="input-group-btn">
-                <button type="button" class="btn btn-default" (click)="dateDp.toggle()">
-                    <i class="fa fa-calendar"></i>
-                </button>
-            </span>
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="hermannotesApp.program.time" for="field_time">Time</label>
-            <textarea class="form-control" name="time" id="field_time" [(ngModel)]="program.time"></textarea>
+            <input type="text" class="form-control" name="time" id="field_time" [(ngModel)]="program.time" />
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="hermannotesApp.program.plan" for="field_plan">Plan</label>
@@ -70,7 +60,16 @@
             <select class="form-control" name="status" [(ngModel)]="program.status" id="field_status">
                 <option value="plan" jhiTranslate="hermannotesApp.ProgramStatus.plan">plan</option>
                 <option value="progress" jhiTranslate="hermannotesApp.ProgramStatus.progress">progress</option>
+                <option value="closable" jhiTranslate="hermannotesApp.ProgramStatus.closable">closable</option>
                 <option value="closed" jhiTranslate="hermannotesApp.ProgramStatus.closed">closed</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="hermannotesApp.program.student" for="field_student">Student</label>
+            <select class="form-control" id="field_student" name="student" [(ngModel)]="program.student">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="studentOption.id === program.student?.id ? program.student : studentOption" *ngFor="let studentOption of students; trackBy: trackStudentById">{{studentOption.name}}</option>
             </select>
         </div>
     </div>

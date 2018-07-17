@@ -9,7 +9,9 @@
             <label for="programStudent">Főszervező:</label>
             <select class="form-control" name="programStudent" id="programStudent" (ngModelChange)="modelChanged()" [(ngModel)]="model.student.id"
                 required>
-                <option *ngFor="let student of students; let i = index" [ngValue]="student.id"> {{ student.name }} </option>
+                <ng-container *ngFor="let student of students; let i = index">
+                    <option *ngIf="student.status == 'kb'" [ngValue]="student.id"> {{ student.name }} </option>
+                </ng-container>
         </div>
         <div class="col-2">
             <label for="programDate">Dátum:</label>

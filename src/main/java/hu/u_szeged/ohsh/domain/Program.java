@@ -235,9 +235,18 @@ public class Program implements Serializable {
 
     @Override
     public String toString() {
-        return "Program{" + "id=" + getId() + ", title='" + getTitle() + "'" + ", date='" + getDate() + "'" + ", time='"
-                + getTime() + "'" + ", plan='" + getPlan() + "'" + ", planCost='" + getPlanCost() + "'" + ", decision='"
-                + getDecision() + "'" + ", decisionCost='" + getDecisionCost() + "'" + ", report='" + getReport() + "'"
-                + ", reportCost='" + getReportCost() + "'" + ", status='" + getStatus() + "'" + "}";
+        return "Program{" +
+            "id=" + getId() +
+            ", title='" + getTitle() + "'" +
+            ", date='" + getDate() + "'" +
+            ", time='" + getTime() + "'" +
+            ", plan='" + getPlan() + "'" +
+            ", planCost='" + getPlanCost() + "'" +
+            ", decision='" + getDecision() + "'" +
+            ", decisionCost='" + getDecisionCost() + "'" +
+            ", report='" + getReport() + "'" +
+            ", reportCost='" + getReportCost() + "'" +
+            ", status='" + getStatus() + "'" +
+            "}";
     }
 }

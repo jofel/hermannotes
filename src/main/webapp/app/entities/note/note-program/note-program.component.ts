@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 import { JhiEventManager, JhiParseLinks, JhiPaginationUtil, JhiLanguageService, JhiAlertService } from 'ng-jhipster';
-import { Student, StudentService } from '../../student';
+import { Student, StudentService, StudentStatus } from '../../student';
 import { Program, ProgramService, ProgramStatus } from '../../program';
 import { ResponseWrapper } from '../../../shared/model/response-wrapper.model';
 import { Observable } from 'rxjs/Rx';
@@ -19,6 +19,7 @@ import { ValidationError } from '../../../shared/validation/validation-error';
 export class NoteProgramComponent implements OnInit, OnDestroy {
 
     students: Student[];
+    studentsKb: Student[];
     programs: Program[];
     selectedCard = -1;
     model: Program;
@@ -68,7 +69,6 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
         this.studentService.query().subscribe(
             (res: ResponseWrapper) => {
                 this.students = res.json;
-                // console.log(this.students);
             }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
@@ -129,7 +129,7 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
     }
 
     reportIsDisabled() {
-        return this.model.status !== ProgramStatus.Closed;
+        return this.model.status !== ProgramStatus.Closable;
     }
 
     onSaveButton() {
@@ -149,6 +149,7 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
     clean() {
         this.model = new Program();
         this.selectedCard = -1;
+        console.log(this.studentsKb);
     }
 
     private initDatePickerModel() {

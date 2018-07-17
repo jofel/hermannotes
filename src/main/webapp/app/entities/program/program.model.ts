@@ -4,6 +4,7 @@ import { Student } from '../student';
 export const enum ProgramStatus {
     Plan = 'plan',
     Progress = 'progress',
+    Closable = 'closable',
     Closed = 'closed'
 }
 
@@ -20,8 +21,7 @@ export class Program implements BaseEntity {
         public report?: any,
         public reportCost?: number,
         public status?: ProgramStatus,
-        public student?: Student,
-
+        public student?: BaseEntity,
         public needToSave?: boolean,
         public closed?: boolean
     ) {

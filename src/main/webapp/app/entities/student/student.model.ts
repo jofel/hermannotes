@@ -1,9 +1,9 @@
 import { BaseEntity } from './../../shared';
 
-const enum StudentStatus {
-    'student',
-    ' kb',
-    ' senior'
+export const enum StudentStatus {
+    Student = 'student',
+    Kb = 'kb',
+    Senior = 'senior'
 }
 
 export class Student implements BaseEntity {

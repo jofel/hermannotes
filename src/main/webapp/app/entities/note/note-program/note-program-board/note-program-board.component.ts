@@ -13,12 +13,13 @@ import { NgbDatepicker, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
     templateUrl: './note-program-board.component.html',
     styleUrls: ['../note-program.css']
 })
-export class NoteProgramBoardComponent {
+export class NoteProgramBoardComponent implements OnInit {
 
     @Input() parent: any;
 
     selectedCard = -1;
     isSaving: boolean;
+    eventSubscriber: Subscription;
 
     constructor(
         private programService: ProgramService,
@@ -29,6 +30,11 @@ export class NoteProgramBoardComponent {
 
     private onError(error) {
         this.alertService.error(error.message, null, null);
+    }
+
+    ngOnInit() {
+        this.registerChangeInPrograms();
+        // this.parent.loadPrograms();
     }
 
     setSelectedCard(index: number) {
@@ -48,11 +54,11 @@ export class NoteProgramBoardComponent {
             this.parent.model.status = ProgramStatus.Progress;
             console.log('plan -> progress');
         } else if (this.parent.model.status === ProgramStatus.Progress) {
+            this.parent.model.status = ProgramStatus.Closable;
+            console.log('progress -> closable');
+        } else if (this.parent.model.status === ProgramStatus.Closable) {
             this.parent.model.status = ProgramStatus.Closed;
-            console.log('progress -> closed');
-        } else if (this.parent.model.status === ProgramStatus.Closed) {
-            this.parent.model.closed = true;
-            this.parent.programs.splice(i, 1);
+            // this.parent.programs.splice(i, 1);
         }
         console.log(this.parent.model);
         this.parent.save();
@@ -69,9 +75,9 @@ export class NoteProgramBoardComponent {
             this.parent.model.status = ProgramStatus.Plan;
             console.log('progress -> plan');
             console.log(this.parent.model.status);
-        } else if (this.parent.model.status === ProgramStatus.Closed) {
+        } else if (this.parent.model.status === ProgramStatus.Closable) {
             this.parent.model.status = ProgramStatus.Progress;
-            console.log('closed -> progress');
+            console.log('closable -> progress');
         }
         this.parent.save();
         this.parent.model.needToSave = false;
@@ -93,5 +99,9 @@ export class NoteProgramBoardComponent {
 
     confirmDelete(id: number) {
         this.programService.delete(id).subscribe();
+    }
+
+    registerChangeInPrograms() {
+        this.eventSubscriber = this.eventManager.subscribe('programListModification', (response) => this.parent.loadPrograms());
     }
 }

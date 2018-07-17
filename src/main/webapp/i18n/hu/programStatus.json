@@ -1,10 +1,11 @@
 {
     "hermannotesApp": {
-        "ProgramStatus" : {
+        "ProgramStatus": {
             "null": "",
-            "plan": "tervben",
-            "progress": "folyamatban",
-            "closed": "lezárva"
+            "plan": "plan",
+            "progress": "progress",
+            "closable": "closable",
+            "closed": "closed"
         }
     }
 }

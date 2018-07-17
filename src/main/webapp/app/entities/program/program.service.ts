@@ -51,12 +51,9 @@ export class ProgramService {
 
     private convertResponse(res: Response): ResponseWrapper {
         const jsonResponse = res.json();
-        // console.log(jsonResponse);
         for (let i = 0; i < jsonResponse.length; i++) {
             this.convertItemFromServer(jsonResponse[i]);
         }
-        // console.log(jsonResponse);
-        // jsonResponse.sort(function(a, b) { return a.id - b.id });
         return new ResponseWrapper(res.headers, jsonResponse, res.status);
     }
 

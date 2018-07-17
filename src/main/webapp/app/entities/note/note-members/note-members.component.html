@@ -1,8 +1,10 @@
 <div class="checkbox form-control form-control-lg">
-    <label class="form-control" for="student_radio_button_{{i}}" *ngFor="let student of students; let i = index" [class.active]="student.checked === true"
-        (click)="student.checked === true ? student.checked = false : student.checked = true">
-        <input type="checkbox" name="student_radio_button" value="student.id" id="student_radio_button_{{i}}" [(ngModel)]="student.checked"> {{student.name}}
-    </label>
+    <ng-container *ngFor="let student of students; let i = index">
+        <label class="form-control" *ngIf="student.status == 'kb'" for="student_radio_button_{{i}}" [class.active]="student.checked === true"
+            (click)="student.checked === true ? student.checked = false : student.checked = true">
+            <input type="checkbox" name="student_radio_button" value="student.id" id="student_radio_button_{{i}}" [(ngModel)]="student.checked"> {{student.name}}
+        </label>
+    </ng-container>
     <!-- <div class="row" *ngFor="let student of students; let i = index">
         <div class="btn-group-vertical">
             <button type="submit" class="btn btn-success btn-sm" id="btn-success_{{ i }}" (click)="student.point = 2">
