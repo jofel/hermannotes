@@ -27,6 +27,7 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
     d: NgbDatepicker;
     dateOfDeclarationPicker: NgbDateStruct;
     public instance;
+    eventSubscriber: Subscription;
 
     constructor(
         private studentService: StudentService,
@@ -40,6 +41,7 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+        this.registerChangeInPrograms();
         this.loadStudents();
         this.loadPrograms();
     }
@@ -58,7 +60,13 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
                 this.model.needToSave = false;
                 this.clean();
             }
+        } else if (event.target.id === 'onAddHelperButton') {
+            this.model.helpers.push(new Student());
+            console.log('helper added');
+        } else if (event.target.id === 'onDeleteHelperButton') {
+            this.model.helpers.splice(1, 1);
         }
+
     }
 
     ngOnDestroy(): void {
@@ -81,9 +89,10 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
             (res: ResponseWrapper) => {
                 // this.programs = res.json.sort((a, b) => a.id - b.id);
                 this.programs = res.json.sort(function (a, b) { return a.id - b.id });
-                console.log(this.programs);
+                if (this.selectedCard !== -1) {
+                    this.model = this.programs[this.selectedCard];
+                }
             }, (res: ResponseWrapper) => this.onError(res.json));
-        console.log('loadPrograms');
     }
 
     save() {
@@ -106,6 +115,7 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
     }
 
     private onSaveSuccess(result: Program) {
+        // this.registerChangeInPrograms();
         this.eventManager.broadcast({ name: 'programListModification', content: 'OK' });
         this.isSaving = false;
     }
@@ -130,6 +140,10 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
 
     reportIsDisabled() {
         return this.model.status !== ProgramStatus.Closable;
+    }
+
+    basicIsDisabled() {
+        return this.model.status === ProgramStatus.Closed;
     }
 
     onSaveButton() {
@@ -174,5 +188,13 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
                 toast: this.alertService.isToast()
             }, []);
         }
+    }
+
+    onDeleteHelper(i: number) {
+        this.model.helpers.splice(i, 1);
+    }
+
+    registerChangeInPrograms() {
+        this.eventSubscriber = this.eventManager.subscribe('programListModification', (response) => this.loadPrograms());
     }
 }

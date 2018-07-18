@@ -1,100 +1,142 @@
+<div class="row">
+    <button class="btn btn-primary float-right jh-create-entity create-program no-print" [routerLink]="['/', { outlets: { popup: ['program-new'] } }]">
+        <span class="fa fa-plus"></span>
+        <span jhiTranslate="hermannotesApp.program.home.createLabel">
+            Create new Program
+        </span>
+    </button>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <jhi-note-program-board [parent]="instance"></jhi-note-program-board>
+    </div>
+</div>
+
+
+<hr>
 <form>
-    <div class="row py-2 colorBack">
-        <div class="col-4">
-            <label for="programTitle">Program neve:</label>
-            <input class="form-control" type="text" name="programTitle" id="programTitle" (ngModelChange)="modelChanged()" [(ngModel)]="model.title"
-                required>
-        </div>
-        <div class="col-4">
+    <!-- <div class="row py-2 colorBack">
+        <div class="col-2">
             <label for="programStudent">Főszervező:</label>
             <select class="form-control" name="programStudent" id="programStudent" (ngModelChange)="modelChanged()" [(ngModel)]="model.student.id"
-                required>
+                [disabled]="basicIsDisabled()" required>
                 <ng-container *ngFor="let student of students; let i = index">
                     <option *ngIf="student.status == 'kb'" [ngValue]="student.id"> {{ student.name }} </option>
                 </ng-container>
+            </select>
         </div>
-        <div class="col-2">
-            <label for="programDate">Dátum:</label>
-            <div class="input-group">
-                <input id="programDate" type="text" class="form-control" name="programDate" ngbDatepicker #d="ngbDatepicker" [(ngModel)]="model.date"
-                    (ngModelChange)="onDatePickerChanged()" required/>
-                <span class="input-group-btn">
-                    <button type="button" class="btn btn-default" (click)="d.toggle()">
-                        <i class="fa fa-calendar"></i>
+        <div class="col-10">
+            <div class="row">
+                <div class="col-4">
+                    <label for="programTitle">Program neve:</label>
+                    <input class="form-control" type="text" name="programTitle" id="programTitle" (ngModelChange)="modelChanged()" [(ngModel)]="model.title"
+                        [disabled]="basicIsDisabled()" required>
+                </div>
+                <div class="col-3">
+                    <label for="programDate">Dátum:</label>
+                    <div class="input-group">
+                        <input id="programDate" type="text" class="form-control" name="programDate" ngbDatepicker #d="ngbDatepicker" [(ngModel)]="model.date"
+                            (ngModelChange)="onDatePickerChanged()" [disabled]="basicIsDisabled()" required/>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" (click)="d.toggle()">
+                                <i class="fa fa-calendar"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-1">
+                    <label for="programTime">Időpont:</label>
+                    <input class="form-control" type="text" name="programTime" id="programTime" (ngModelChange)="modelChanged()" [(ngModel)]="model.time"
+                        [disabled]="basicIsDisabled()" required>
+                </div>
+                <div class="col-3 mt-4" *ngIf="model.id">
+                    <button class="btn btn-info" (click)="clean()">
+                        <span class="fa fa-undo fa-2x"></span>
+                        Clear
                     </button>
-                </span>
-            </div>
-        </div>
-        <div class="col-1">
-            <label for="programTime">Időpont:</label>
-            <input class="form-control" type="text" name="programTime" id="programTime" (ngModelChange)="modelChanged()" [(ngModel)]="model.time"
-                required>
-        </div>
-        <div class="col-1 mt-4" *ngIf="model.id">
-            <button class="btn btn-info" (click)="clean()">
-                <span class="fa fa-undo fa-2x"></span>
-                Clear
-            </button>
-        </div>
-        <div class="col-1 mt-4" *ngIf="!model.id">
-            <button id="onAddButton" class="btn btn-success" (click)="onClick($event)">
-                <span class="fa fa-plus-circle fa-2x"></span>
-                Add
-            </button>
-        </div>
-    </div>
-    <div class="row colorBack">
-        <div class="col-4">
-            <div class="row mb-2">
-                <div class="col-12">
-                    <label for="programTitle">Terv:</label>
-                    <textarea class="form-control" name="plan" id="plan" rows="3" [(ngModel)]="model.plan" [required]="!planIsDisabled()" [disabled]="planIsDisabled()"
-                        (ngModelChange)="modelChanged()"></textarea>
+                </div>
+                <div class="col-3 mt-4" *ngIf="!model.id">
+                    <button id="onAddButton" class="btn btn-success" (click)="onClick($event)">
+                        <span class="fa fa-plus-circle fa-2x"></span>
+                        Add
+                    </button>
                 </div>
             </div>
-            <div class="row mb-2">
-                <div class="col-8">
-                    <label for="planCost">Tervezett költség összesen:</label>
+        </div>
+    </div> -->
+    <div class="row">
+        <div class="col-2">
+            <!-- <label for="programStudent2">Segítők:
+                <button id="onAddHelperButton" class="btn btn-success" (click)="onClick($event)">
+                    <span class="fa fa-plus-circle"></span>
+                </button>
+            </label>
+            <div class="input-group" *ngFor="let helper of model.helpers; let i = index">
+                <select class="form-control" name="helper_{{i}}" id="helper_{{i}}" (ngModelChange)="modelChanged()" [(ngModel)]="helper.id"
+                    [disabled]="basicIsDisabled()">
+                    <option *ngFor="let student of students; let i = index" [ngValue]="student.id"> {{ student.name }} </option>
+                </select>
+                <button id="onDeleteHelperButton" class="btn btn-danger" (click)="onDeleteHelper(i)">
+                    <span class="fa fa-trash"></span>
+                </button>
+            </div> -->
+        </div>
+        <div class="col-10 colorBack">
+            <div class="row">
+                <div class="col-4">
+                    <div class="row mb-2">
+                        <div class="col-12">
+                            <label for="programTitle">Terv:</label>
+                            <textarea class="form-control" name="plan" id="plan" rows="3" [(ngModel)]="model.plan" [required]="!planIsDisabled()" [disabled]="planIsDisabled()"
+                                (ngModelChange)="modelChanged()"></textarea>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-8">
+                            <label for="planCost">Tervezett költség összesen:</label>
+                        </div>
+                        <div class="col-4">
+                            <input class="form-control" type="text" name="planCost" id="planCost" [(ngModel)]="model.planCost" [required]="!planIsDisabled()"
+                                [disabled]="planIsDisabled()" (ngModelChange)="modelChanged()">
+                        </div>
+                    </div>
                 </div>
                 <div class="col-4">
-                    <input class="form-control" type="text" name="planCost" id="planCost" [(ngModel)]="model.planCost" [required]="!planIsDisabled()"
-                        [disabled]="planIsDisabled()" (ngModelChange)="modelChanged()">
-                </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="row mb-2">
-                <div class="col-12">
-                    <label for="decision">Döntés:</label>
-                    <textarea class="form-control" name="decision" id="decision" rows="3" [(ngModel)]="model.decision" [required]="!decisionIsDisabled()"
-                        [disabled]="decisionIsDisabled()" (ngModelChange)="modelChanged()"></textarea>
-                </div>
-            </div>
-            <div class="row mb-2">
-                <div class="col-8">
-                    <label for="decisionCost">Támogatott költség összesen:</label>
-                </div>
-                <div class="col-4">
-                    <input class="form-control" type="text" name="decisionCost" id="decisionCost" [(ngModel)]="model.decisionCost" [required]="!decisionIsDisabled()"
-                        [disabled]="decisionIsDisabled()" (ngModelChange)="modelChanged()">
-                </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="row mb-2">
-                <div class="col-12">
-                    <label for="report">Beszámoló</label>
-                    <textarea class="form-control" name="report" id="report" rows="3" [(ngModel)]="model.report" [required]="!reportIsDisabled()"
-                        [disabled]="reportIsDisabled()" (ngModelChange)="modelChanged()"></textarea>
-                </div>
-            </div>
-            <div class="row mb-2">
-                <div class="col-8">
-                    <label for="reportCost">Felhasznált költség összesen</label>
+                    <div class="row mb-2">
+                        <div class="col-12">
+                            <label for="decision">Döntés:</label>
+                            <textarea class="form-control" name="decision" id="decision" rows="3" [(ngModel)]="model.decision" [required]="!decisionIsDisabled()"
+                                [disabled]="decisionIsDisabled()" (ngModelChange)="modelChanged()"></textarea>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-8">
+                            <label for="decisionCost">Támogatott költség összesen:</label>
+                        </div>
+                        <div class="col-4">
+                            <input class="form-control" type="text" name="decisionCost" id="decisionCost" [(ngModel)]="model.decisionCost" [required]="!decisionIsDisabled()"
+                                [disabled]="decisionIsDisabled()" (ngModelChange)="modelChanged()">
+                        </div>
+                    </div>
                 </div>
                 <div class="col-4">
-                    <input class="form-control" type="text" name="reportCost" id="reportCost" [(ngModel)]="model.reportCost" [required]="!reportIsDisabled()"
-                        [disabled]="reportIsDisabled()" (ngModelChange)="modelChanged()">
+                    <div class="row mb-2">
+                        <div class="col-12">
+                            <label for="report">Beszámoló</label>
+                            <textarea class="form-control" name="report" id="report" rows="3" [(ngModel)]="model.report" [required]="!reportIsDisabled()"
+                                [disabled]="reportIsDisabled()" (ngModelChange)="modelChanged()"></textarea>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-8">
+                            <label for="reportCost">Felhasznált költség összesen</label>
+                        </div>
+                        <div class="col-4">
+                            <input class="form-control" type="text" name="reportCost" id="reportCost" [(ngModel)]="model.reportCost" [required]="!reportIsDisabled()"
+                                [disabled]="reportIsDisabled()" (ngModelChange)="modelChanged()">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -104,6 +146,5 @@
     </div>
 
 </form>
-<hr>
-<jhi-note-program-board [parent]="instance"></jhi-note-program-board>
+
 <jhi-alert></jhi-alert>

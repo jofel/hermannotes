@@ -34,7 +34,6 @@ export class NoteProgramBoardComponent implements OnInit {
 
     ngOnInit() {
         this.registerChangeInPrograms();
-        // this.parent.loadPrograms();
     }
 
     setSelectedCard(index: number) {

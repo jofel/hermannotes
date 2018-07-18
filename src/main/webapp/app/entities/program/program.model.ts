@@ -23,10 +23,13 @@ export class Program implements BaseEntity {
         public status?: ProgramStatus,
         public student?: BaseEntity,
         public needToSave?: boolean,
-        public closed?: boolean
+        public closed?: boolean,
+        public helpers?: Student[],
     ) {
         this.needToSave = false;
         this.closed = false;
         this.student = new Student();
+        this.helpers = [];
+        this.helpers.push(new Student());
     }
 }
