@@ -51,7 +51,7 @@
         {
             "fieldName": "status",
             "fieldType": "ProgramStatus",
-            "fieldValues": "new, progress, closable, closed"
+            "fieldValues": "plan, progress, closable, closed"
         }
     ],
     "changelogDate": "20171117210815",
