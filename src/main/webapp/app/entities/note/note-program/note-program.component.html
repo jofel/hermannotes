@@ -67,20 +67,15 @@
     </div> -->
     <div class="row">
         <div class="col-2">
-            <!-- <label for="programStudent2">Segítők:
-                <button id="onAddHelperButton" class="btn btn-success" (click)="onClick($event)">
-                    <span class="fa fa-plus-circle"></span>
-                </button>
-            </label>
-            <div class="input-group" *ngFor="let helper of model.helpers; let i = index">
-                <select class="form-control" name="helper_{{i}}" id="helper_{{i}}" (ngModelChange)="modelChanged()" [(ngModel)]="helper.id"
-                    [disabled]="basicIsDisabled()">
-                    <option *ngFor="let student of students; let i = index" [ngValue]="student.id"> {{ student.name }} </option>
-                </select>
-                <button id="onDeleteHelperButton" class="btn btn-danger" (click)="onDeleteHelper(i)">
-                    <span class="fa fa-trash"></span>
-                </button>
-            </div> -->
+            <button class="btn btn-primary jh-create-entity create-helper" [routerLink]="['/', { outlets: { popup: ['helper-new'] } }]">
+                <span class="fa fa-plus"></span>
+                <span jhiTranslate="hermannotesApp.helper.home.createLabel">
+                    Create new Helper
+                </span>
+            </button>
+            <ng-container *ngFor="let helper of helpers ;trackBy: trackId">
+                <p *ngIf="helper.program.id === model.id">{{ helper.student?.name }} </p>
+            </ng-container>
         </div>
         <div class="col-10 colorBack">
             <div class="row">

@@ -1,0 +1,22 @@
+{
+    "hermannotesApp": {
+        "helper" : {
+            "home": {
+                "title": "Helpers",
+                "createLabel": "Create a new Helper",
+                "createOrEditLabel": "Create or edit a Helper"
+            },
+            "created": "A new Helper is created with identifier {{ param }}",
+            "updated": "A Helper is updated with identifier {{ param }}",
+            "deleted": "A Helper is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Helper {{ id }}?"
+            },
+            "detail": {
+                "title": "Helper"
+            },
+            "program": "Program",
+            "student": "Student"
+        }
+    }
+}

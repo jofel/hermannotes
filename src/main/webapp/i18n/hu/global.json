@@ -12,6 +12,7 @@
                 "circular": "Körlevél",
                 "card": "Kártya",
                 "note": "Notesz",
+                "helper": "Segítő",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

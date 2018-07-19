@@ -44,6 +44,7 @@ public class CacheConfiguration {
             cm.createCache(hu.u_szeged.ohsh.domain.Program.class.getName(), jcacheConfiguration);
             cm.createCache(hu.u_szeged.ohsh.domain.Circular.class.getName(), jcacheConfiguration);
             cm.createCache(hu.u_szeged.ohsh.domain.Card.class.getName(), jcacheConfiguration);
+            cm.createCache(hu.u_szeged.ohsh.domain.Helper.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

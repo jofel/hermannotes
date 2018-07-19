@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs/Rx';
 import { JhiEventManager, JhiParseLinks, JhiPaginationUtil, JhiLanguageService, JhiAlertService } from 'ng-jhipster';
 import { Student, StudentService, StudentStatus } from '../../student';
 import { Program, ProgramService, ProgramStatus } from '../../program';
+import { Helper, HelperService } from '../../helper';
 import { ResponseWrapper } from '../../../shared/model/response-wrapper.model';
 import { Observable } from 'rxjs/Rx';
 import { NgbDatepicker, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
@@ -21,6 +22,7 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
     students: Student[];
     studentsKb: Student[];
     programs: Program[];
+    helpers: Helper[];
     selectedCard = -1;
     model: Program;
     isSaving: boolean;
@@ -32,6 +34,7 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
     constructor(
         private studentService: StudentService,
         private programService: ProgramService,
+        private helperService: HelperService,
         private alertService: JhiAlertService,
         private eventManager: JhiEventManager,
         private validatorService: NoteProgramValidatorService,
@@ -41,9 +44,11 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+        this.registerChangeInHelpers();
         this.registerChangeInPrograms();
         this.loadStudents();
         this.loadPrograms();
+        this.loadHelpers();
     }
 
     onClick(event) {
@@ -73,13 +78,6 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
         this.alertService.clear();
     }
 
-    private loadStudents() {
-        this.studentService.query().subscribe(
-            (res: ResponseWrapper) => {
-                this.students = res.json;
-            }, (res: ResponseWrapper) => this.onError(res.json));
-    }
-
     private onError(error) {
         this.alertService.error(error.message, null, null);
     }
@@ -92,6 +90,20 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
                 if (this.selectedCard !== -1) {
                     this.model = this.programs[this.selectedCard];
                 }
+            }, (res: ResponseWrapper) => this.onError(res.json));
+    }
+
+    loadStudents() {
+        this.studentService.query().subscribe(
+            (res: ResponseWrapper) => {
+                this.students = res.json;
+            }, (res: ResponseWrapper) => this.onError(res.json));
+    }
+
+    loadHelpers() {
+        this.helperService.query().subscribe(
+            (res: ResponseWrapper) => {
+                this.helpers = res.json;
             }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
@@ -196,5 +208,9 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
 
     registerChangeInPrograms() {
         this.eventSubscriber = this.eventManager.subscribe('programListModification', (response) => this.loadPrograms());
+    }
+
+    registerChangeInHelpers() {
+        this.eventSubscriber = this.eventManager.subscribe('helperListModification', (response) => this.loadHelpers());
     }
 }

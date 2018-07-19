@@ -1,0 +1,22 @@
+{
+    "hermannotesApp": {
+        "helper": {
+            "home": {
+                "title": "Segítő",
+                "createLabel": "Egy új Segítő létrehozása",
+                "createOrEditLabel": "Hozzon létre, vagy módosítson Segítőt"
+            },
+            "created": "Egy új Segítő lett létrehozva {{ param }} azonosítóval",
+            "updated": "A Segítő módosítva lett {{ param }} azonosítóval",
+            "deleted": "A Segítő törölve lett {{ param }} azonosítóval",
+            "delete": {
+                "question": "Biztos benne, hogy törölni szeretné az Segítőt {{ id }} azonosítóval?"
+            },
+            "detail": {
+                "title": "Segítő"
+            },
+            "program": "Program",
+            "student": "Hallgató"
+        }
+    }
+}
