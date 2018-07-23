@@ -2,30 +2,30 @@
     "hermannotesApp": {
         "program": {
             "home": {
-                "title": "Programs",
+                "title": "Programok",
                 "createLabel": "Egy új Program létrehozása",
-                "createOrEditLabel": "Hozzon létre, vagy módosítson Programt"
+                "createOrEditLabel": "Hozzon létre, vagy módosítson Programot"
             },
             "created": "Egy új Program lett létrehozva {{ param }} azonosítóval",
             "updated": "A Program módosítva lett {{ param }} azonosítóval",
             "deleted": "A Program törölve lett {{ param }} azonosítóval",
             "delete": {
-                "question": "Biztos benne, hogy törölni szeretné az Programt {{ id }} azonosítóval?"
+                "question": "Biztos benne, hogy törölni szeretné az Programot {{ id }} azonosítóval?"
             },
             "detail": {
                 "title": "Program"
             },
-            "title": "Title",
-            "date": "Date",
-            "time": "Time",
-            "plan": "Plan",
-            "planCost": "Plan Cost",
-            "decision": "Decision",
-            "decisionCost": "Decision Cost",
-            "report": "Report",
-            "reportCost": "Report Cost",
-            "status": "Status",
-            "student": "Student",
+            "title": "Cím",
+            "date": "Dátum",
+            "time": "Időpont",
+            "plan": "Terv",
+            "planCost": "Tervezett költség",
+            "decision": "Döntés",
+            "decisionCost": "Támogatott összeg",
+            "report": "Beszámoló",
+            "reportCost": "Felhasznált összeg",
+            "status": "Státusz",
+            "student": "Hallgató",
             "val": {
                 "title": "A 'Program neve' mező kitöltése kötelező!",
                 "student": "A 'Főszervező' mező kitöltése kötelező!",
