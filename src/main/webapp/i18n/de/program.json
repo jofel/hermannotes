@@ -1,10 +1,10 @@
 {
     "hermannotesApp": {
-        "program" : {
+        "program": {
             "home": {
                 "title": "Programs",
                 "createLabel": "Program erstellen",
-                "createOrEditLabel": "Program erstellen oder bearbeiten"
+                "editLabel": "Program bearbeiten"
             },
             "created": "Program erstellt mit ID {{ param }}",
             "updated": "Program aktualisiert mit ID {{ param }}",

@@ -2,10 +2,10 @@
     "hermannotesApp": {
         "ProgramStatus": {
             "null": "",
-            "plan": "plan",
-            "progress": "progress",
-            "closable": "closable",
-            "closed": "closed"
+            "plan": "Tervezett",
+            "progress": "Folyamatban",
+            "closable": "Lezárandó",
+            "closed": "Lezárt"
         }
     }
 }

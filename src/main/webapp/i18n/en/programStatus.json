@@ -2,10 +2,10 @@
     "hermannotesApp": {
         "ProgramStatus": {
             "null": "",
-            "plan": "plan",
-            "progress": "progress",
-            "closable": "closable",
-            "closed": "closed"
+            "plan": "Plan",
+            "progress": "Progress",
+            "closable": "Closable",
+            "closed": "Closed"
         }
     }
 }

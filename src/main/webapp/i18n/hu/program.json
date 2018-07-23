@@ -4,7 +4,7 @@
             "home": {
                 "title": "Programok",
                 "createLabel": "Egy új Program létrehozása",
-                "createOrEditLabel": "Hozzon létre, vagy módosítson Programot"
+                "editLabel": "Program módosítása"
             },
             "created": "Egy új Program lett létrehozva {{ param }} azonosítóval",
             "updated": "A Program módosítva lett {{ param }} azonosítóval",
