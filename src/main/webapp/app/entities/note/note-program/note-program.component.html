@@ -15,8 +15,8 @@
                 </div>
             </div>
             <div class="row" *ngFor="let helper of helpers ;trackBy: trackId">
-                <div class="col-9">
-                    <p *ngIf="helper.program.id === model.id">{{ helper.student?.name }} </p>
+                <div class="col-9 mb-2" *ngIf="helper.program.id === model.id">
+                    <p>{{ helper.student?.name }} </p>
                 </div>
                 <div class="btn-group" role="group">
                     <button *ngIf="helper.program.id === model.id" type="submit" [routerLink]="['/', { outlets: { popup: 'helper/'+ helper.id + '/edit'} }]"
