@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Rx';
 import { NgbActiveModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager, JhiAlertService, JhiDataUtils } from 'ng-jhipster';
 
-import { Program } from './program.model';
+import { Program, ProgramStatus } from './program.model';
 import { ProgramPopupService } from './program-popup.service';
 import { ProgramService } from './program.service';
 import { Student, StudentService } from '../student';
@@ -71,6 +71,7 @@ export class ProgramDialogComponent implements OnInit {
             this.subscribeToSaveResponse(
                 this.programService.update(this.program));
         } else {
+            this.program.status = ProgramStatus.Plan;
             this.subscribeToSaveResponse(
                 this.programService.create(this.program));
         }
@@ -82,7 +83,7 @@ export class ProgramDialogComponent implements OnInit {
     }
 
     private onSaveSuccess(result: Program) {
-        this.eventManager.broadcast({ name: 'programListModification', content: 'OK'});
+        this.eventManager.broadcast({ name: 'programListModification', content: 'OK' });
         this.isSaving = false;
         this.activeModal.dismiss(result);
     }
@@ -117,11 +118,11 @@ export class ProgramPopupComponent implements OnInit, OnDestroy {
     constructor(
         private route: ActivatedRoute,
         private programPopupService: ProgramPopupService
-    ) {}
+    ) { }
 
     ngOnInit() {
         this.routeSub = this.route.params.subscribe((params) => {
-            if ( params['id'] ) {
+            if (params['id']) {
                 this.programPopupService
                     .open(ProgramDialogComponent as Component, params['id']);
             } else {

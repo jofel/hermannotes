@@ -1,96 +1,43 @@
 <div class="row">
-    <button class="btn btn-primary float-right jh-create-entity create-program no-print" [routerLink]="['/', { outlets: { popup: ['program-new'] } }]">
-        <span class="fa fa-plus"></span>
-        <span jhiTranslate="hermannotesApp.program.home.createLabel">
-            Create new Program
-        </span>
-    </button>
-
-</div>
-
-<div class="row">
     <div class="col-12">
         <jhi-note-program-board [parent]="instance"></jhi-note-program-board>
     </div>
 </div>
 
-
 <hr>
 <form>
-    <!-- <div class="row py-2 colorBack">
-                        <div class="col-2">
-                            <label for="programStudent">Főszervező:</label>
-                            <select class="form-control" name="programStudent" id="programStudent" (ngModelChange)="modelChanged()" [(ngModel)]="model.student.id"
-                [disabled]="basicIsDisabled()" required>
-                <ng-container *ngFor="let student of students; let i = index">
-                    <option *ngIf="student.status == 'kb'" [ngValue]="student.id"> {{ student.name }} </option>
-                </ng-container>
-            </select>
-        </div>
-        <div class="col-10">
-            <div class="row">
-                <div class="col-4">
-                    <label for="programTitle">Program neve:</label>
-                    <input class="form-control" type="text" name="programTitle" id="programTitle" (ngModelChange)="modelChanged()" [(ngModel)]="model.title"
-                        [disabled]="basicIsDisabled()" required>
-                </div>
-                <div class="col-3">
-                    <label for="programDate">Dátum:</label>
-                    <div class="input-group">
-                        <input id="programDate" type="text" class="form-control" name="programDate" ngbDatepicker #d="ngbDatepicker" [(ngModel)]="model.date"
-                            (ngModelChange)="onDatePickerChanged()" [disabled]="basicIsDisabled()" required/>
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" (click)="d.toggle()">
-                                <i class="fa fa-calendar"></i>
-                            </button>
-                        </span>
-                    </div>
-                </div>
-                <div class="col-1">
-                    <label for="programTime">Időpont:</label>
-                    <input class="form-control" type="text" name="programTime" id="programTime" (ngModelChange)="modelChanged()" [(ngModel)]="model.time"
-                        [disabled]="basicIsDisabled()" required>
-                </div>
-                <div class="col-3 mt-4" *ngIf="model.id">
-                    <button class="btn btn-info" (click)="clean()">
-                        <span class="fa fa-undo fa-2x"></span>
-                        Clear
-                    </button>
-                </div>
-                <div class="col-3 mt-4" *ngIf="!model.id">
-                    <button id="onAddButton" class="btn btn-success" (click)="onClick($event)">
-                        <span class="fa fa-plus-circle fa-2x"></span>
-                        Add
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div> -->
     <div class="row">
-        <div class="col-2 colorBack">
+        <div class="col-2 ">
+
             <div class="row mb-2">
                 <div class="col-12">
-                    <label for="programTitle">Segítők:</label>
+                    <h5 for="programTitle">Segítők:</h5>
                 </div>
             </div>
             <div class="row" *ngFor="let helper of helpers ;trackBy: trackId">
                 <div class="col-9">
                     <p *ngIf="helper.program.id === model.id">{{ helper.student?.name }} </p>
                 </div>
-                <div class="col-1">
-                    <span *ngIf="helper.program.id === model.id" class="fa fa-edit"></span>
-                </div>
-                <div class="col-1">
-                    <span *ngIf="helper.program.id === model.id" class="fa fa-minus"></span>
+                <div class="btn-group" role="group">
+                    <button *ngIf="helper.program.id === model.id" type="submit" [routerLink]="['/', { outlets: { popup: 'helper/'+ helper.id + '/edit'} }]"
+                        replaceUrl="true" class="btn btn-primary btn-sm">
+                        <span class="fa fa-pencil"></span>
+                        <!-- <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span> -->
+                    </button>
+                    <button *ngIf="helper.program.id === model.id" type="submit" [routerLink]="['/', { outlets: { popup: 'helper/'+ helper.id + '/delete'} }]"
+                        replaceUrl="true" class="btn btn-danger btn-sm">
+                        <span class="fa fa-remove"></span>
+                        <!-- <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span> -->
+                    </button>
                 </div>
             </div>
             <div class="row">
-                <div class="col-5"></div>
-                <div class="col-6">
-                    <button class="btn btn-success jh-create-entity create-helper" [routerLink]="['/', { outlets: { popup: ['helper-new'] } }]">
+                <div class="col-12">
+                    <button class="btn btn-success jh-create-entity create-helper" [routerLink]="['/', { outlets: { popup: ['helper-new'] } }]"
+                        [hidden]="selectedCard === -1">
                         <span class="fa fa-plus"></span>
                         <!-- <span jhiTranslate="hermannotesApp.helper.home.createLabel">
-                        Create new Helper
+                            Create new Helper
                         </span> -->
                     </button>
                 </div>

@@ -1,7 +1,8 @@
 <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
 
     <div class="modal-header">
-        <h4 class="modal-title" id="myProgramLabel" jhiTranslate="hermannotesApp.program.home.createOrEditLabel">Create or edit a Program</h4>
+        <h4 class="modal-title" id="myProgramLabel" jhiTranslate="hermannotesApp.program.home.createLabel" [hidden]="program.id">Create a Program</h4>
+        <h4 class="modal-title" id="myProgramLabel" jhiTranslate="hermannotesApp.program.home.editLabel" [hidden]="!program.id">Edit a Program</h4>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="clear()">&times;</button>
     </div>
     <div class="modal-body">
@@ -12,13 +13,13 @@
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="hermannotesApp.program.title" for="field_title">Title</label>
-            <input type="text" class="form-control" name="title" id="field_title" [(ngModel)]="program.title" />
+            <input type="text" class="form-control" name="title" id="field_title" [(ngModel)]="program.title" required/>
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="hermannotesApp.program.date" for="field_date">Date</label>
             <div class="input-group">
                 <input id="field_date" type="text" class="form-control" name="date" ngbDatepicker #dateDp="ngbDatepicker" [(ngModel)]="program.date"
-                />
+                    required />
                 <span class="input-group-btn">
                     <button type="button" class="btn btn-default" (click)="dateDp.toggle()">
                         <i class="fa fa-calendar"></i>
@@ -28,36 +29,43 @@
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="hermannotesApp.program.time" for="field_time">Time</label>
-            <input type="text" class="form-control" name="time" id="field_time" [(ngModel)]="program.time" />
+            <input type="text" class="form-control" name="time" id="field_time" [(ngModel)]="program.time" required/>
         </div>
         <div class="form-group">
+            <label jhiTranslate="hermannotesApp.program.student" for="field_student">Student</label>
+            <select class="form-control" id="field_student" name="student" [(ngModel)]="program.student" required>
+                <option [ngValue]="null"></option>
+                <option [ngValue]="studentOption.id === program.student?.id ? program.student : studentOption" *ngFor="let studentOption of students; trackBy: trackStudentById">{{studentOption.name}}</option>
+            </select>
+        </div>
+        <div class="form-group" *ngIf="program.status === 'plan'">
             <label class="form-control-label" jhiTranslate="hermannotesApp.program.plan" for="field_plan">Plan</label>
-            <textarea class="form-control" name="plan" id="field_plan" [(ngModel)]="program.plan"></textarea>
+            <textarea class="form-control" name="plan" id="field_plan" [(ngModel)]="program.plan" required></textarea>
         </div>
-        <div class="form-group">
+        <div class="form-group" *ngIf="program.status === 'plan'">
             <label class="form-control-label" jhiTranslate="hermannotesApp.program.planCost" for="field_planCost">Plan Cost</label>
-            <input type="number" class="form-control" name="planCost" id="field_planCost" [(ngModel)]="program.planCost" />
+            <input type="number" class="form-control" name="planCost" id="field_planCost" [(ngModel)]="program.planCost" required/>
         </div>
-        <div class="form-group">
+        <div class="form-group" *ngIf="program.id && program.status === 'progress'">
             <label class="form-control-label" jhiTranslate="hermannotesApp.program.decision" for="field_decision">Decision</label>
-            <textarea class="form-control" name="decision" id="field_decision" [(ngModel)]="program.decision"></textarea>
+            <textarea class="form-control" name="decision" id="field_decision" [(ngModel)]="program.decision" required></textarea>
         </div>
-        <div class="form-group">
+        <div class="form-group" *ngIf="program.id && program.status === 'progress'">
             <label class="form-control-label" jhiTranslate="hermannotesApp.program.decisionCost" for="field_decisionCost">Decision Cost</label>
             <input type="number" class="form-control" name="decisionCost" id="field_decisionCost" [(ngModel)]="program.decisionCost"
-            />
+                required />
         </div>
-        <div class="form-group">
+        <div class="form-group" *ngIf="program.id && program.status === 'closable'">
             <label class="form-control-label" jhiTranslate="hermannotesApp.program.report" for="field_report">Report</label>
-            <textarea class="form-control" name="report" id="field_report" [(ngModel)]="program.report"></textarea>
+            <textarea class="form-control" name="report" id="field_report" [(ngModel)]="program.report" required></textarea>
         </div>
-        <div class="form-group">
+        <div class="form-group" *ngIf="program.id && program.status === 'closable'">
             <label class="form-control-label" jhiTranslate="hermannotesApp.program.reportCost" for="field_reportCost">Report Cost</label>
-            <input type="number" class="form-control" name="reportCost" id="field_reportCost" [(ngModel)]="program.reportCost" />
+            <input type="number" class="form-control" name="reportCost" id="field_reportCost" [(ngModel)]="program.reportCost" required/>
         </div>
-        <div class="form-group">
+        <div class="form-group" [hidden]="!program.id">
             <label class="form-control-label" jhiTranslate="hermannotesApp.program.status" for="field_status">Status</label>
-            <select class="form-control" name="status" [(ngModel)]="program.status" id="field_status">
+            <select class="form-control" name="status" [(ngModel)]="program.status" id="field_status" disabled>
                 <option value="plan" jhiTranslate="hermannotesApp.ProgramStatus.plan">plan</option>
                 <option value="progress" jhiTranslate="hermannotesApp.ProgramStatus.progress">progress</option>
                 <option value="closable" jhiTranslate="hermannotesApp.ProgramStatus.closable">closable</option>
@@ -65,22 +73,16 @@
             </select>
         </div>
 
-        <div class="form-group">
-            <label jhiTranslate="hermannotesApp.program.student" for="field_student">Student</label>
-            <select class="form-control" id="field_student" name="student" [(ngModel)]="program.student">
-                <option [ngValue]="null"></option>
-                <option [ngValue]="studentOption.id === program.student?.id ? program.student : studentOption" *ngFor="let studentOption of students; trackBy: trackStudentById">{{studentOption.name}}</option>
-            </select>
-        </div>
 
-        <div class="form-group">
+
+        <!-- <div class="form-group">
             <button class="btn btn-primary float-right jh-create-entity create-helper" [routerLink]="['/', { outlets: { popup: ['helper-new'] } }]">
                 <span class="fa fa-plus"></span>
                 <span jhiTranslate="hermannotesApp.helper.home.createLabel">
                     Create new Helper
                 </span>
             </button>
-        </div>
+        </div> -->
 
     </div>
     <div class="modal-footer">
