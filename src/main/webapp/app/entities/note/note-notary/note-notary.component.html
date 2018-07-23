@@ -1,7 +1,7 @@
 <div class="checkbox form-control form-control-lg">
     <ng-container *ngFor="let student of students; let i = index">
-        <label class="form-control" *ngIf="student.status == 'kb'" for="student_radio_button_{{i}}" [class.active]="selectedStudent === i"
-            (click)="setSelectedStudent(i)">
+        <label class="form-control" *ngIf="student.status == 'kb'" for="student_radio_button_{{i}}" [class.bg-primary]="selectedStudent === i"
+            [class.text-white]="selectedStudent === i" (click)="setSelectedStudent(i)">
             <input *ngIf="student.status == 'kb'" type="radio" name="student_radio_button" value="student.id" id="student_radio_button_{{i}}"> {{student.name}}
         </label>
     </ng-container>

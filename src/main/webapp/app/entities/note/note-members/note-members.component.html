@@ -1,7 +1,7 @@
 <div class="checkbox form-control form-control-lg">
     <ng-container *ngFor="let student of students; let i = index">
-        <label class="form-control" *ngIf="student.status == 'kb'" for="student_radio_button_{{i}}" [class.active]="student.checked === true"
-            (click)="student.checked === true ? student.checked = false : student.checked = true">
+        <label class="form-control" *ngIf="student.status == 'kb'" for="student_radio_button_{{i}}" [class.bg-primary]="student.checked === true"
+            [class.text-white]="student.checked === true" (click)="student.checked === true ? student.checked = false : student.checked = true">
             <input type="checkbox" name="student_radio_button" value="student.id" id="student_radio_button_{{i}}" [(ngModel)]="student.checked"> {{student.name}}
         </label>
     </ng-container>
