@@ -1,0 +1,30 @@
+{
+    "hermannotesApp": {
+        "request" : {
+            "home": {
+                "title": "Requests",
+                "createLabel": "Request erstellen",
+                "createOrEditLabel": "Request erstellen oder bearbeiten"
+            },
+            "created": "Request erstellt mit ID {{ param }}",
+            "updated": "Request aktualisiert mit ID {{ param }}",
+            "deleted": "Request gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Request {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Request"
+            },
+            "title": "Title",
+            "date": "Date",
+            "time": "Time",
+            "content": "Content",
+            "contentcost": "Contentcost",
+            "decision": "Decision",
+            "decisioncost": "Decisioncost",
+            "status": "Status",
+            "student": "Student",
+            "messenger": "Messenger"
+        }
+    }
+}

@@ -1,0 +1,88 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myRequestLabel" jhiTranslate="hermannotesApp.request.home.createOrEditLabel">Create or edit a Request</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!request.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="request.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hermannotesApp.request.title" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                [(ngModel)]="request.title"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hermannotesApp.request.date" for="field_date">Date</label>
+            <div class="input-group">
+                <input id="field_date" type="text" class="form-control" name="date" ngbDatepicker  #dateDp="ngbDatepicker" [(ngModel)]="request.date"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" (click)="dateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hermannotesApp.request.time" for="field_time">Time</label>
+            <input type="text" class="form-control" name="time" id="field_time"
+                [(ngModel)]="request.time"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hermannotesApp.request.content" for="field_content">Content</label>
+            <textarea class="form-control" name="content" id="field_content"
+                [(ngModel)]="request.content"  ></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hermannotesApp.request.contentcost" for="field_contentcost">Contentcost</label>
+            <input type="number" class="form-control" name="contentcost" id="field_contentcost"
+                [(ngModel)]="request.contentcost"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hermannotesApp.request.decision" for="field_decision">Decision</label>
+            <textarea class="form-control" name="decision" id="field_decision"
+                [(ngModel)]="request.decision"  ></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hermannotesApp.request.decisioncost" for="field_decisioncost">Decisioncost</label>
+            <input type="number" class="form-control" name="decisioncost" id="field_decisioncost"
+                [(ngModel)]="request.decisioncost"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hermannotesApp.request.status" for="field_status">Status</label>
+            <select class="form-control" name="status" [(ngModel)]="request.status" id="field_status" >
+                <option value="plan" jhiTranslate="hermannotesApp.RequestStatus.plan">plan</option>
+                <option value="progress" jhiTranslate="hermannotesApp.RequestStatus.progress">progress</option>
+                <option value="closable" jhiTranslate="hermannotesApp.RequestStatus.closable">closable</option>
+                <option value="closed" jhiTranslate="hermannotesApp.RequestStatus.closed">closed</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="hermannotesApp.request.student" for="field_student">Student</label>
+            <select class="form-control" id="field_student" name="student" [(ngModel)]="request.student" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="studentOption.id === request.student?.id ? request.student : studentOption" *ngFor="let studentOption of students; trackBy: trackStudentById">{{studentOption.name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="hermannotesApp.request.messenger" for="field_messenger">Messenger</label>
+            <select class="form-control" id="field_messenger" name="messenger" [(ngModel)]="request.messenger" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="studentOption.id === request.messenger?.id ? request.messenger : studentOption" *ngFor="let studentOption of students; trackBy: trackStudentById">{{studentOption.name}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

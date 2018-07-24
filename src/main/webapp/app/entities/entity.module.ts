@@ -6,6 +6,7 @@ import { HermannotesCircularModule } from './circular/circular.module';
 import { HermannotesCardModule } from './card/card.module';
 import { HermannotesNoteModule } from './note/note.module';
 import { HermannotesHelperModule } from './helper/helper.module';
+import { HermannotesRequestModule } from './request/request.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -16,6 +17,7 @@ import { HermannotesHelperModule } from './helper/helper.module';
         HermannotesCardModule,
         HermannotesNoteModule,
         HermannotesHelperModule,
+        HermannotesRequestModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],

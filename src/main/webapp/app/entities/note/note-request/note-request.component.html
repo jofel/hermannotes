@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-12">
+        <jhi-note-request-board [parent]="instance"></jhi-note-request-board>
+    </div>
+</div>
+
+<hr>
+<form>
+    <div class="row colorBack">
+        <div class="col-4">
+            <div class="row mb-2">
+                <div class="col-12">
+                    <label for="programTitle">Terv:</label>
+                    <textarea class="form-control" name="plan" id="plan" rows="3" [(ngModel)]="model.plan" [required]="!planIsDisabled()" [disabled]="planIsDisabled()"
+                        (ngModelChange)="modelChanged()"></textarea>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-8">
+                    <label for="planCost">Tervezett költség összesen:</label>
+                </div>
+                <div class="col-4">
+                    <input class="form-control" type="text" name="planCost" id="planCost" [(ngModel)]="model.planCost" [required]="!planIsDisabled()"
+                        [disabled]="planIsDisabled()" (ngModelChange)="modelChanged()">
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="row mb-2">
+                <div class="col-12">
+                    <label for="decision">Döntés:</label>
+                    <textarea class="form-control" name="decision" id="decision" rows="3" [(ngModel)]="model.decision" [required]="!decisionIsDisabled()"
+                        [disabled]="decisionIsDisabled()" (ngModelChange)="modelChanged()"></textarea>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-8">
+                    <label for="decisionCost">Támogatott költség összesen:</label>
+                </div>
+                <div class="col-4">
+                    <input class="form-control" type="text" name="decisionCost" id="decisionCost" [(ngModel)]="model.decisionCost" [required]="!decisionIsDisabled()"
+                        [disabled]="decisionIsDisabled()" (ngModelChange)="modelChanged()">
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="row mb-2">
+                <div class="col-12">
+                    <label for="report">Beszámoló</label>
+                    <textarea class="form-control" name="report" id="report" rows="3" [(ngModel)]="model.report" [required]="!reportIsDisabled()"
+                        [disabled]="reportIsDisabled()" (ngModelChange)="modelChanged()"></textarea>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-8">
+                    <label for="reportCost">Felhasznált költség összesen</label>
+                </div>
+                <div class="col-4">
+                    <input class="form-control" type="text" name="reportCost" id="reportCost" [(ngModel)]="model.reportCost" [required]="!reportIsDisabled()"
+                        [disabled]="reportIsDisabled()" (ngModelChange)="modelChanged()">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<jhi-alert></jhi-alert>

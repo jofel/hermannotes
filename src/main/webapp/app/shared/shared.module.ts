@@ -14,7 +14,7 @@ import {
     Principal,
     HasAnyAuthorityDirective,
     JhiLoginModalComponent
-} from './';
+} from '.';
 
 @NgModule({
     imports: [
@@ -46,4 +46,4 @@ import {
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
 })
-export class HermannotesSharedModule {}
+export class HermannotesSharedModule { }

@@ -1,0 +1,30 @@
+{
+    "hermannotesApp": {
+        "request" : {
+            "home": {
+                "title": "Requests",
+                "createLabel": "Egy új Request létrehozása",
+                "createOrEditLabel": "Hozzon létre, vagy módosítson Requestt"
+            },
+            "created": "Egy új Request lett létrehozva {{ param }} azonosítóval",
+            "updated": "A Request módosítva lett {{ param }} azonosítóval",
+            "deleted": "A Request törölve lett {{ param }} azonosítóval",
+            "delete": {
+                "question": "Biztos benne, hogy törölni szeretné az Requestt {{ id }} azonosítóval?"
+            },
+            "detail": {
+                "title": "Request"
+            },
+            "title": "Title",
+            "date": "Date",
+            "time": "Time",
+            "content": "Content",
+            "contentcost": "Contentcost",
+            "decision": "Decision",
+            "decisioncost": "Decisioncost",
+            "status": "Status",
+            "student": "Student",
+            "messenger": "Messenger"
+        }
+    }
+}

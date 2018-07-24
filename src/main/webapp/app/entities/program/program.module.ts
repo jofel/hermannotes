@@ -14,7 +14,7 @@ import {
     programRoute,
     programPopupRoute,
     ProgramResolvePagingParams,
-} from './';
+} from '.';
 
 const ENTITY_STATES = [
     ...programRoute,

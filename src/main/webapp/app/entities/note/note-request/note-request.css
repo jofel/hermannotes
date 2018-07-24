@@ -1,0 +1,36 @@
+.card{
+    border-radius: 10px;
+}
+
+.card-body {
+    border-radius: 10px;
+}
+
+.cardClosed {
+    background-color: #90a4ae;
+}
+
+.buttonClosed {
+    color: white;
+    background-color: #90a4ae;
+}
+
+.buttonClosed:hover {
+    background-color: #788891;
+}
+
+.colorClosedDark {
+    background-color: #808e95;
+}
+
+.colorBack, input:disabled, textarea:disabled {
+    background-color: #ece9e9;
+}
+
+.bg-white {
+     background-color: white;
+}
+
+.fa-check-circle:hover, .fa-archive:hover, .fa-chevron-circle-right:hover, .fa-times-circle:hover {
+     color: white;
+}

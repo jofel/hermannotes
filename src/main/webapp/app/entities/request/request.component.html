@@ -1,0 +1,90 @@
+<div>
+    <h2>
+        <span jhiTranslate="hermannotesApp.request.home.title">Requests</span>
+        <button class="btn btn-primary float-right jh-create-entity create-request" [routerLink]="['/', { outlets: { popup: ['request-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="hermannotesApp.request.home.createLabel">
+            Create new Request
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="requests">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="title"><span jhiTranslate="hermannotesApp.request.title">Title</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="date"><span jhiTranslate="hermannotesApp.request.date">Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="time"><span jhiTranslate="hermannotesApp.request.time">Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="content"><span jhiTranslate="hermannotesApp.request.content">Content</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="contentcost"><span jhiTranslate="hermannotesApp.request.contentcost">Contentcost</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="decision"><span jhiTranslate="hermannotesApp.request.decision">Decision</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="decisioncost"><span jhiTranslate="hermannotesApp.request.decisioncost">Decisioncost</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="status"><span jhiTranslate="hermannotesApp.request.status">Status</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="student.name"><span jhiTranslate="hermannotesApp.request.student">Student</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="messenger.name"><span jhiTranslate="hermannotesApp.request.messenger">Messenger</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let request of requests ;trackBy: trackId">
+                <td><a [routerLink]="['../request', request.id ]">{{request.id}}</a></td>
+                <td>{{request.title}}</td>
+                <td>{{request.date | date:'mediumDate'}}</td>
+                <td>{{request.time}}</td>
+                <td>{{request.content}}</td>
+                <td>{{request.contentcost}}</td>
+                <td>{{request.decision}}</td>
+                <td>{{request.decisioncost}}</td>
+                <td jhiTranslate="{{'hermannotesApp.RequestStatus.' + request.status}}">{{request.status}}</td>
+                <td>
+                    <div *ngIf="request.student">
+                        <a [routerLink]="['../student', request.student?.id ]" >{{request.student?.name}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="request.messenger">
+                        <a [routerLink]="['../student', request.messenger?.id ]" >{{request.messenger?.name}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../request', request.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'request/'+ request.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'request/'+ request.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <div *ngIf="requests && requests.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

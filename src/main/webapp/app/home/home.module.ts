@@ -3,12 +3,12 @@ import { RouterModule } from '@angular/router';
 
 import { HermannotesSharedModule } from '../shared';
 
-import { HOME_ROUTE, HomeComponent } from './';
+import { HOME_ROUTE, HomeComponent } from '.';
 
 @NgModule({
     imports: [
         HermannotesSharedModule,
-        RouterModule.forRoot([ HOME_ROUTE ], { useHash: true })
+        RouterModule.forRoot([HOME_ROUTE], { useHash: true })
     ],
     declarations: [
         HomeComponent,
@@ -19,4 +19,4 @@ import { HOME_ROUTE, HomeComponent } from './';
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class HermannotesHomeModule {}
+export class HermannotesHomeModule { }

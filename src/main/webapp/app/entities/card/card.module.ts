@@ -15,7 +15,7 @@ import {
     cardRoute,
     cardPopupRoute,
     CardResolvePagingParams,
-} from './';
+} from '.';
 
 const ENTITY_STATES = [
     ...cardRoute,

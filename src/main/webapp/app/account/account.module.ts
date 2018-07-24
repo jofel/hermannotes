@@ -17,7 +17,7 @@ import {
     PasswordResetFinishComponent,
     SettingsComponent,
     accountState
-} from './';
+} from '.';
 
 @NgModule({
     imports: [
@@ -42,4 +42,4 @@ import {
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class HermannotesAccountModule {}
+export class HermannotesAccountModule { }

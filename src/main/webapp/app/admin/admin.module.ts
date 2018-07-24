@@ -28,7 +28,7 @@ import {
     UserResolvePagingParams,
     UserResolve,
     UserModalService
-} from './';
+} from '.';
 
 @NgModule({
     imports: [
@@ -70,4 +70,4 @@ import {
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class HermannotesAdminModule {}
+export class HermannotesAdminModule { }

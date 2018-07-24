@@ -13,7 +13,7 @@ import {
     StudentDeleteDialogComponent,
     studentRoute,
     studentPopupRoute,
-} from './';
+} from '.';
 
 const ENTITY_STATES = [
     ...studentRoute,
@@ -46,4 +46,4 @@ const ENTITY_STATES = [
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class HermannotesStudentModule {}
+export class HermannotesStudentModule { }

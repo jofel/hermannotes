@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, URLSearchParams } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs';
 import { LocalStorageService, SessionStorageService } from 'ng2-webstorage';
 
 @Injectable()
@@ -9,7 +9,7 @@ export class AuthServerProvider {
         private http: Http,
         private $localStorage: LocalStorageService,
         private $sessionStorage: SessionStorageService
-    ) {}
+    ) { }
 
     getToken() {
         return this.$localStorage.retrieve('authenticationToken') || this.$sessionStorage.retrieve('authenticationToken');

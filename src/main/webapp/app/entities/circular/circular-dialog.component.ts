@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Response } from '@angular/http';
 
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs';
 import { NgbActiveModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager, JhiAlertService, JhiDataUtils } from 'ng-jhipster';
 
@@ -81,7 +81,7 @@ export class CircularDialogComponent implements OnInit {
     }
 
     private onSaveSuccess(result: Circular) {
-        this.eventManager.broadcast({ name: 'circularListModification', content: 'OK'});
+        this.eventManager.broadcast({ name: 'circularListModification', content: 'OK' });
         this.isSaving = false;
         this.activeModal.dismiss(result);
     }
@@ -116,11 +116,11 @@ export class CircularPopupComponent implements OnInit, OnDestroy {
     constructor(
         private route: ActivatedRoute,
         private circularPopupService: CircularPopupService
-    ) {}
+    ) { }
 
     ngOnInit() {
         this.routeSub = this.route.params.subscribe((params) => {
-            if ( params['id'] ) {
+            if (params['id']) {
                 this.circularPopupService
                     .open(CircularDialogComponent as Component, params['id']);
             } else {

@@ -1,12 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs/Rx';
+import { Subscription } from 'rxjs';
 import { JhiEventManager, JhiParseLinks, JhiPaginationUtil, JhiLanguageService, JhiAlertService } from 'ng-jhipster';
 import { Student, StudentService, StudentStatus } from '../../student';
 import { Program, ProgramService, ProgramStatus } from '../../program';
 import { Helper, HelperService } from '../../helper';
 import { ResponseWrapper } from '../../../shared/model/response-wrapper.model';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs';
 import { NgbDatepicker, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { NoteProgramValidatorService } from './validation/note-program-validator.service';
 import { ValidationError } from '../../../shared/validation/validation-error';

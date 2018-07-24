@@ -7,7 +7,7 @@ import {
     passwordResetInitRoute,
     registerRoute,
     settingsRoute
-} from './';
+} from '.';
 
 const ACCOUNT_ROUTES = [
     activateRoute,

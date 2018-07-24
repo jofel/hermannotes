@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Response } from '@angular/http';
 
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs';
 import { NgbActiveModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 
@@ -58,7 +58,7 @@ export class StudentDialogComponent implements OnInit {
     }
 
     private onSaveSuccess(result: Student) {
-        this.eventManager.broadcast({ name: 'studentListModification', content: 'OK'});
+        this.eventManager.broadcast({ name: 'studentListModification', content: 'OK' });
         this.isSaving = false;
         this.activeModal.dismiss(result);
     }
@@ -89,11 +89,11 @@ export class StudentPopupComponent implements OnInit, OnDestroy {
     constructor(
         private route: ActivatedRoute,
         private studentPopupService: StudentPopupService
-    ) {}
+    ) { }
 
     ngOnInit() {
         this.routeSub = this.route.params.subscribe((params) => {
-            if ( params['id'] ) {
+            if (params['id']) {
                 this.studentPopupService
                     .open(StudentDialogComponent as Component, params['id']);
             } else {

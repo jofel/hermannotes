@@ -14,7 +14,7 @@ import {
     helperRoute,
     helperPopupRoute,
     HelperResolvePagingParams,
-} from './';
+} from '.';
 
 const ENTITY_STATES = [
     ...helperRoute,

@@ -15,7 +15,7 @@ import {
     circularRoute,
     circularPopupRoute,
     CircularResolvePagingParams,
-} from './';
+} from '.';
 
 const ENTITY_STATES = [
     ...circularRoute,

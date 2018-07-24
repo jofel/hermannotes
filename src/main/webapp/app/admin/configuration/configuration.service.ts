@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class JhiConfigurationService {
@@ -22,7 +22,7 @@ export class JhiConfigurationService {
 
             return properties.sort((propertyA, propertyB) => {
                 return (propertyA.prefix === propertyB.prefix) ? 0 :
-                       (propertyA.prefix < propertyB.prefix) ? -1 : 1;
+                    (propertyA.prefix < propertyB.prefix) ? -1 : 1;
             });
         });
     }
@@ -40,7 +40,7 @@ export class JhiConfigurationService {
 
                     for (const valKey in valsObject) {
                         if (valsObject.hasOwnProperty(valKey)) {
-                            vals.push({key: valKey, val: valsObject[valKey]});
+                            vals.push({ key: valKey, val: valsObject[valKey] });
                         }
                     }
                     properties[key] = vals;

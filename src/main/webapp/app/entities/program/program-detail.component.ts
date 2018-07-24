@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs/Rx';
-import { JhiEventManager , JhiDataUtils } from 'ng-jhipster';
+import { Subscription } from 'rxjs';
+import { JhiEventManager, JhiDataUtils } from 'ng-jhipster';
 
 import { Program } from './program.model';
 import { ProgramService } from './program.service';

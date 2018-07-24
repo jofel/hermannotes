@@ -1,4 +1,4 @@
-import { BaseEntity } from './../../shared';
+import { BaseEntity } from '../../shared';
 
 export const enum StudentStatus {
     Student = 'student',

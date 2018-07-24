@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs/Rx';
+import { Subscription } from 'rxjs';
 import { JhiEventManager, JhiParseLinks, JhiPaginationUtil, JhiLanguageService, JhiAlertService } from 'ng-jhipster';
 
 import { Student } from './student.model';
@@ -13,7 +13,7 @@ import { PaginationConfig } from '../../blocks/config/uib-pagination.config';
     templateUrl: './student.component.html'
 })
 export class StudentComponent implements OnInit, OnDestroy {
-students: Student[];
+    students: Student[];
     currentAccount: any;
     eventSubscriber: Subscription;
 

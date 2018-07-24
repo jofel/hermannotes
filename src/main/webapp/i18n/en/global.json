@@ -12,6 +12,7 @@
                 "circular": "Circular",
                 "card": "Card",
                 "helper": "Helper",
+                "request": "Request",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

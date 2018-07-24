@@ -7,7 +7,7 @@ import {
     FindLanguageFromKeyPipe,
     JhiAlertComponent,
     JhiAlertErrorComponent
-} from './';
+} from '.';
 
 @NgModule({
     imports: [
@@ -33,4 +33,4 @@ import {
         JhiAlertErrorComponent
     ]
 })
-export class HermannotesSharedCommonModule {}
+export class HermannotesSharedCommonModule { }

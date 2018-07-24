@@ -1,11 +1,11 @@
 import { Component, OnInit, OnDestroy, Input, Output, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs/Rx';
+import { Subscription } from 'rxjs';
 import { JhiEventManager, JhiParseLinks, JhiPaginationUtil, JhiLanguageService, JhiAlertService } from 'ng-jhipster';
 import { Student, StudentService } from '../../../student';
 import { Program, ProgramService, ProgramStatus } from '../../../program';
 import { ResponseWrapper } from '../../../../shared/model/response-wrapper.model';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs';
 import { NgbDatepicker, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
