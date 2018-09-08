@@ -36,6 +36,14 @@
         <dd>
             <span jhiTranslate="{{'hermannotesApp.RequestStatus.' + request.status}}">{{request.status}}</span>
         </dd>
+        <dt><span jhiTranslate="hermannotesApp.request.personal">Personal</span></dt>
+        <dd>
+            <span>{{request.personal}}</span>
+        </dd>
+        <dt><span jhiTranslate="hermannotesApp.request.notified">Notified</span></dt>
+        <dd>
+            <span>{{request.notified}}</span>
+        </dd>
         <dt><span jhiTranslate="hermannotesApp.request.student">Student</span></dt>
         <dd>
             <div *ngIf="request.student">

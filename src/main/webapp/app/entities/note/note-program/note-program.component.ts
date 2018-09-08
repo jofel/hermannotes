@@ -20,7 +20,6 @@ import { ValidationError } from '../../../shared/validation/validation-error';
 export class NoteProgramComponent implements OnInit, OnDestroy {
 
     students: Student[];
-    studentsKb: Student[];
     programs: Program[];
     helpers: Helper[];
     selectedCard = -1;
@@ -175,7 +174,6 @@ export class NoteProgramComponent implements OnInit, OnDestroy {
     clean() {
         this.model = new Program();
         this.selectedCard = -1;
-        console.log(this.studentsKb);
     }
 
     private initDatePickerModel() {

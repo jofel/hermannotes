@@ -23,6 +23,8 @@
             "decision": "Decision",
             "decisioncost": "Decisioncost",
             "status": "Status",
+            "personal": "Personal",
+            "notified": "Notified",
             "student": "Student",
             "messenger": "Messenger"
         }

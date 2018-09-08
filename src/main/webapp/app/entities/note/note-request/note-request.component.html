@@ -10,17 +10,17 @@
         <div class="col-4">
             <div class="row mb-2">
                 <div class="col-12">
-                    <label for="programTitle">Terv:</label>
-                    <textarea class="form-control" name="plan" id="plan" rows="3" [(ngModel)]="model.plan" [required]="!planIsDisabled()" [disabled]="planIsDisabled()"
-                        (ngModelChange)="modelChanged()"></textarea>
+                    <label for="programTitle">Kérvény:</label>
+                    <textarea class="form-control" name="plan" id="plan" rows="3" [(ngModel)]="model.content" [required]="!planIsDisabled()"
+                        [disabled]="planIsDisabled()" (ngModelChange)="modelChanged()"></textarea>
                 </div>
             </div>
             <div class="row mb-2">
                 <div class="col-8">
-                    <label for="planCost">Tervezett költség összesen:</label>
+                    <label for="planCost">Kérvényezett összeg:</label>
                 </div>
                 <div class="col-4">
-                    <input class="form-control" type="text" name="planCost" id="planCost" [(ngModel)]="model.planCost" [required]="!planIsDisabled()"
+                    <input class="form-control" type="text" name="planCost" id="planCost" [(ngModel)]="model.contentcost" [required]="!planIsDisabled()"
                         [disabled]="planIsDisabled()" (ngModelChange)="modelChanged()">
                 </div>
             </div>
@@ -35,10 +35,10 @@
             </div>
             <div class="row mb-2">
                 <div class="col-8">
-                    <label for="decisionCost">Támogatott költség összesen:</label>
+                    <label for="decisionCost">Támogatott összeg:</label>
                 </div>
                 <div class="col-4">
-                    <input class="form-control" type="text" name="decisionCost" id="decisionCost" [(ngModel)]="model.decisionCost" [required]="!decisionIsDisabled()"
+                    <input class="form-control" type="text" name="decisionCost" id="decisionCost" [(ngModel)]="model.decisioncost" [required]="!decisionIsDisabled()"
                         [disabled]="decisionIsDisabled()" (ngModelChange)="modelChanged()">
                 </div>
             </div>
@@ -46,17 +46,31 @@
         <div class="col-4">
             <div class="row mb-2">
                 <div class="col-12">
-                    <label for="report">Beszámoló</label>
-                    <textarea class="form-control" name="report" id="report" rows="3" [(ngModel)]="model.report" [required]="!reportIsDisabled()"
-                        [disabled]="reportIsDisabled()" (ngModelChange)="modelChanged()"></textarea>
+                    <label for="field_student">Kiértesítésért felel</label>
+                    <select class="form-control" id="field_student" name="student" [(ngModel)]="model.messenger" [disabled]="reportIsDisabled()"
+                        [required]="!reportIsDisabled()">
+                        <option [ngValue]="null"></option>
+                        <ng-container *ngFor="let studentOption of students; trackBy: trackStudentById">
+                            <option *ngIf="studentOption.status === 'kb'" [ngValue]="studentOption.id === model.messenger?.id ? model.messenger : studentOption">{{studentOption?.name}}</option>
+                        </ng-container>
+                    </select>
                 </div>
             </div>
             <div class="row mb-2">
                 <div class="col-8">
-                    <label for="reportCost">Felhasznált költség összesen</label>
+                    <label for="decisionCost">Kiértesítve:</label>
                 </div>
                 <div class="col-4">
-                    <input class="form-control" type="text" name="reportCost" id="reportCost" [(ngModel)]="model.reportCost" [required]="!reportIsDisabled()"
+                    <input class="form-control" type="checkbox" name="notified" id="notified" [(ngModel)]="model.notified" [required]="!reportIsDisabled()"
+                        [disabled]="reportIsDisabled()" (ngModelChange)="modelChanged()">
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-8">
+                    <label for="decisionCost">Személyi kérdés:</label>
+                </div>
+                <div class="col-4">
+                    <input class="form-control" type="checkbox" name="personal" id="personal" [(ngModel)]="model.personal" [required]="!reportIsDisabled()"
                         [disabled]="reportIsDisabled()" (ngModelChange)="modelChanged()">
                 </div>
             </div>

@@ -1,11 +1,11 @@
 {
     "hermannotesApp": {
-        "RequestStatus" : {
+        "RequestStatus": {
             "null": "",
-            "plan": "plan",
-            "progress": "progress",
-            "closable": "closable",
-            "closed": "closed"
+            "plan": "Plan",
+            "progress": "Fortschritte",
+            "closable": "Verschließbar",
+            "closed": "Verschlossen"
         }
     }
 }

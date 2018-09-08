@@ -65,6 +65,12 @@ public class RequestResourceIntTest {
     private static final RequestStatus DEFAULT_STATUS = RequestStatus.plan;
     private static final RequestStatus UPDATED_STATUS = RequestStatus.progress;
 
+    private static final Boolean DEFAULT_PERSONAL = false;
+    private static final Boolean UPDATED_PERSONAL = true;
+
+    private static final Boolean DEFAULT_NOTIFIED = false;
+    private static final Boolean UPDATED_NOTIFIED = true;
+
     @Autowired
     private RequestRepository requestRepository;
 
@@ -109,7 +115,9 @@ public class RequestResourceIntTest {
             .contentcost(DEFAULT_CONTENTCOST)
             .decision(DEFAULT_DECISION)
             .decisioncost(DEFAULT_DECISIONCOST)
-            .status(DEFAULT_STATUS);
+            .status(DEFAULT_STATUS)
+            .personal(DEFAULT_PERSONAL)
+            .notified(DEFAULT_NOTIFIED);
         return request;
     }
 
@@ -141,6 +149,8 @@ public class RequestResourceIntTest {
         assertThat(testRequest.getDecision()).isEqualTo(DEFAULT_DECISION);
         assertThat(testRequest.getDecisioncost()).isEqualTo(DEFAULT_DECISIONCOST);
         assertThat(testRequest.getStatus()).isEqualTo(DEFAULT_STATUS);
+        assertThat(testRequest.isPersonal()).isEqualTo(DEFAULT_PERSONAL);
+        assertThat(testRequest.isNotified()).isEqualTo(DEFAULT_NOTIFIED);
     }
 
     @Test
@@ -180,7 +190,9 @@ public class RequestResourceIntTest {
             .andExpect(jsonPath("$.[*].contentcost").value(hasItem(DEFAULT_CONTENTCOST)))
             .andExpect(jsonPath("$.[*].decision").value(hasItem(DEFAULT_DECISION.toString())))
             .andExpect(jsonPath("$.[*].decisioncost").value(hasItem(DEFAULT_DECISIONCOST)))
-            .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())));
+            .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())))
+            .andExpect(jsonPath("$.[*].personal").value(hasItem(DEFAULT_PERSONAL.booleanValue())))
+            .andExpect(jsonPath("$.[*].notified").value(hasItem(DEFAULT_NOTIFIED.booleanValue())));
     }
 
     @Test
@@ -201,7 +213,9 @@ public class RequestResourceIntTest {
             .andExpect(jsonPath("$.contentcost").value(DEFAULT_CONTENTCOST))
             .andExpect(jsonPath("$.decision").value(DEFAULT_DECISION.toString()))
             .andExpect(jsonPath("$.decisioncost").value(DEFAULT_DECISIONCOST))
-            .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()));
+            .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()))
+            .andExpect(jsonPath("$.personal").value(DEFAULT_PERSONAL.booleanValue()))
+            .andExpect(jsonPath("$.notified").value(DEFAULT_NOTIFIED.booleanValue()));
     }
 
     @Test
@@ -229,7 +243,9 @@ public class RequestResourceIntTest {
             .contentcost(UPDATED_CONTENTCOST)
             .decision(UPDATED_DECISION)
             .decisioncost(UPDATED_DECISIONCOST)
-            .status(UPDATED_STATUS);
+            .status(UPDATED_STATUS)
+            .personal(UPDATED_PERSONAL)
+            .notified(UPDATED_NOTIFIED);
 
         restRequestMockMvc.perform(put("/api/requests")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -248,6 +264,8 @@ public class RequestResourceIntTest {
         assertThat(testRequest.getDecision()).isEqualTo(UPDATED_DECISION);
         assertThat(testRequest.getDecisioncost()).isEqualTo(UPDATED_DECISIONCOST);
         assertThat(testRequest.getStatus()).isEqualTo(UPDATED_STATUS);
+        assertThat(testRequest.isPersonal()).isEqualTo(UPDATED_PERSONAL);
+        assertThat(testRequest.isNotified()).isEqualTo(UPDATED_NOTIFIED);
     }
 
     @Test

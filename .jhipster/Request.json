@@ -49,6 +49,14 @@
             "fieldName": "status",
             "fieldType": "RequestStatus",
             "fieldValues": "plan, progress, closable, closed"
+        },
+        {
+            "fieldName": "personal",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "notified",
+            "fieldType": "Boolean"
         }
     ],
     "changelogDate": "20180724073713",

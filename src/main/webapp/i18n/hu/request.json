@@ -1,30 +1,41 @@
 {
     "hermannotesApp": {
-        "request" : {
+        "request": {
             "home": {
-                "title": "Requests",
-                "createLabel": "Egy új Request létrehozása",
-                "createOrEditLabel": "Hozzon létre, vagy módosítson Requestt"
+                "title": "Kérvények",
+                "createLabel": "Egy új Kérvény létrehozása",
+                "editLabel": "Egy Kérvény módosítása",
+                "createOrEditLabel": "Hozzon létre, vagy módosítson Kérvényt"
             },
-            "created": "Egy új Request lett létrehozva {{ param }} azonosítóval",
-            "updated": "A Request módosítva lett {{ param }} azonosítóval",
-            "deleted": "A Request törölve lett {{ param }} azonosítóval",
+            "created": "Egy új Kérvény lett létrehozva {{ param }} azonosítóval",
+            "updated": "A Kérvény módosítva lett {{ param }} azonosítóval",
+            "deleted": "A Kérvény törölve lett {{ param }} azonosítóval",
             "delete": {
-                "question": "Biztos benne, hogy törölni szeretné az Requestt {{ id }} azonosítóval?"
+                "question": "Biztos benne, hogy törölni szeretné az Kérvényt {{ id }} azonosítóval?"
             },
             "detail": {
-                "title": "Request"
+                "title": "Kérvény"
             },
-            "title": "Title",
-            "date": "Date",
-            "time": "Time",
-            "content": "Content",
-            "contentcost": "Contentcost",
-            "decision": "Decision",
-            "decisioncost": "Decisioncost",
-            "status": "Status",
-            "student": "Student",
-            "messenger": "Messenger"
+            "title": "Cím",
+            "date": "Dátum",
+            "time": "Időpont",
+            "content": "Kérvény",
+            "contentcost": "Költség",
+            "decision": "Döntés",
+            "decisioncost": "Támogatás",
+            "status": "Státusz",
+            "personal": "Személyi kérdés",
+            "notified": "Kiértesítve",
+            "student": "Kérvényező",
+            "messenger": "Értesítő",
+            "val": {
+                "content": "A 'Kérvény' mező kitöltése kötelező!",
+                "contentcost": "A 'Kérvényezett összeg' mező kitöltése kötelező!",
+                "decision": "A 'Döntés' mező kitöltése kötelező!",
+                "decisioncost": "A 'Támogatott költség összesen' mező kitöltése kötelező!",
+                "messenger": "A 'Kiértesítésért felel' mező kitöltése kötelező!",
+                "notified": "A 'Kiértesítve' mező kitöltése kötelező!"
+            }
         }
     }
 }

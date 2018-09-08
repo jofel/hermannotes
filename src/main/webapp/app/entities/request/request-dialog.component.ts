@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Rx';
 import { NgbActiveModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager, JhiAlertService, JhiDataUtils } from 'ng-jhipster';
 
-import { Request } from './request.model';
+import { Request, RequestStatus } from './request.model';
 import { RequestPopupService } from './request-popup.service';
 import { RequestService } from './request.service';
 import { Student, StudentService } from '../student';
@@ -71,6 +71,7 @@ export class RequestDialogComponent implements OnInit {
             this.subscribeToSaveResponse(
                 this.requestService.update(this.request));
         } else {
+            this.request.status = RequestStatus.Plan;
             this.subscribeToSaveResponse(
                 this.requestService.create(this.request));
         }
@@ -82,7 +83,7 @@ export class RequestDialogComponent implements OnInit {
     }
 
     private onSaveSuccess(result: Request) {
-        this.eventManager.broadcast({ name: 'requestListModification', content: 'OK'});
+        this.eventManager.broadcast({ name: 'requestListModification', content: 'OK' });
         this.isSaving = false;
         this.activeModal.dismiss(result);
     }
@@ -117,11 +118,11 @@ export class RequestPopupComponent implements OnInit, OnDestroy {
     constructor(
         private route: ActivatedRoute,
         private requestPopupService: RequestPopupService
-    ) {}
+    ) { }
 
     ngOnInit() {
         this.routeSub = this.route.params.subscribe((params) => {
-            if ( params['id'] ) {
+            if (params['id']) {
                 this.requestPopupService
                     .open(RequestDialogComponent as Component, params['id']);
             } else {

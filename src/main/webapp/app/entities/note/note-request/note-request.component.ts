@@ -20,7 +20,6 @@ import { ValidationError } from '../../../shared/validation/validation-error';
 export class NoteRequestComponent implements OnInit, OnDestroy {
 
     students: Student[];
-    studentsKb: Student[];
     requests: Request[];
     helpers: Helper[];
     selectedCard = -1;
@@ -44,11 +43,9 @@ export class NoteRequestComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        // this.registerChangeInHelpers();
-        // this.registerChangeInPrograms();
+        this.registerChangeInRequests();
         this.loadStudents();
-        this.loadRequest();
-        // this.loadHelpers();
+        this.loadRequests();
     }
 
     onClick(event) {
@@ -82,7 +79,7 @@ export class NoteRequestComponent implements OnInit, OnDestroy {
         this.alertService.error(error.message, null, null);
     }
 
-    loadRequest() {
+    loadRequests() {
         this.requestService.query().subscribe(
             (res: ResponseWrapper) => {
                 // this.programs = res.json.sort((a, b) => a.id - b.id);
@@ -115,7 +112,7 @@ export class NoteRequestComponent implements OnInit, OnDestroy {
                 this.requestService.update(this.model));
         } else {
             console.log('CREATE');
-            // this.model.status = ProgramStatus.Plan;
+            this.model.status = RequestStatus.Plan;
             this.subscribeToSaveResponse(
                 this.requestService.create(this.model));
         }
@@ -128,7 +125,7 @@ export class NoteRequestComponent implements OnInit, OnDestroy {
 
     private onSaveSuccess(result: Request) {
         // this.registerChangeInPrograms();
-        this.eventManager.broadcast({ name: 'programListModification', content: 'OK' });
+        this.eventManager.broadcast({ name: 'requestListModification', content: 'OK' });
         this.isSaving = false;
     }
 
@@ -160,22 +157,21 @@ export class NoteRequestComponent implements OnInit, OnDestroy {
 
     onSaveButton() {
         this.save();
-        // this.model.needToSave = false;
+        this.model.needToSave = false;
         this.clean();
     }
 
     modelChanged() {
-        // this.model.needToSave = true;
+        this.model.needToSave = true;
     }
 
     onDatePickerChanged() {
-        // this.model.needToSave = true;
+        this.model.needToSave = true;
     }
 
     clean() {
         this.model = new Request();
         this.selectedCard = -1;
-        // console.log(this.studentsKb);
     }
 
     private initDatePickerModel() {
@@ -202,15 +198,8 @@ export class NoteRequestComponent implements OnInit, OnDestroy {
         }
     }
 
-    // onDeleteHelper(i: number) {
-    //     this.model.helpers.splice(i, 1);
-    // }
-
-    registerChangeInRequest() {
-        this.eventSubscriber = this.eventManager.subscribe('programListModification', (response) => this.loadRequest());
+    registerChangeInRequests() {
+        this.eventSubscriber = this.eventManager.subscribe('requestListModification', (response) => this.loadRequests());
     }
 
-    // registerChangeInHelpers() {
-    //     this.eventSubscriber = this.eventManager.subscribe('helperListModification', (response) => this.loadHelpers());
-    // }
 }

@@ -30,7 +30,7 @@
                         <div class="col-2 align-middle">
                         </div>
                         <div class="col-8">
-                            <p class="card-text"> {{ request.student.name }}</p>
+                            <p class="card-text"> {{ request.student?.name }}</p>
                         </div>
                         <div *ngIf="parent.model.needToSave" class="col-2 align-middle">
                             <div class="btn-group-vertical" [hidden]="parent.selectedCard!== i ">
@@ -92,7 +92,7 @@
                         <div class="col-2 align-middle">
                         </div>
                         <div class="col-8">
-                            <p class="card-text"> {{ request.student.name }}</p>
+                            <p class="card-text"> {{ request.student?.name }}</p>
                         </div>
                         <div *ngIf="parent.model.needToSave" class="col-2 align-middle">
                             <div class="btn-group-vertical" [hidden]="parent.selectedCard!== i ">
@@ -143,7 +143,7 @@
                         <div class="col-2 align-middle">
                         </div>
                         <div class="col-8">
-                            <p class="card-text"> {{ request.student.name }}</p>
+                            <p class="card-text"> {{ request.student?.name }}</p>
                         </div>
                         <div *ngIf="parent.model.needToSave" class="col-2 align-middle">
                             <div class="btn-group-vertical" [hidden]="parent.selectedCard!== i ">

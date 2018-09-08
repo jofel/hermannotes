@@ -18,10 +18,14 @@ export class Request implements BaseEntity {
         public decision?: any,
         public decisioncost?: number,
         public status?: RequestStatus,
+        public personal?: boolean,
+        public notified?: boolean,
         public student?: BaseEntity,
         public messenger?: BaseEntity,
         public needToSave?: Boolean,
     ) {
         this.needToSave = false;
+        this.personal = false;
+        this.notified = false;
     }
 }

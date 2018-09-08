@@ -52,6 +52,12 @@ public class Request implements Serializable {
     @Column(name = "status")
     private RequestStatus status;
 
+    @Column(name = "personal")
+    private Boolean personal;
+
+    @Column(name = "notified")
+    private Boolean notified;
+
     @ManyToOne
     private Student student;
 
@@ -170,6 +176,32 @@ public class Request implements Serializable {
         this.status = status;
     }
 
+    public Boolean isPersonal() {
+        return personal;
+    }
+
+    public Request personal(Boolean personal) {
+        this.personal = personal;
+        return this;
+    }
+
+    public void setPersonal(Boolean personal) {
+        this.personal = personal;
+    }
+
+    public Boolean isNotified() {
+        return notified;
+    }
+
+    public Request notified(Boolean notified) {
+        this.notified = notified;
+        return this;
+    }
+
+    public void setNotified(Boolean notified) {
+        this.notified = notified;
+    }
+
     public Student getStudent() {
         return student;
     }
@@ -228,6 +260,8 @@ public class Request implements Serializable {
             ", decision='" + getDecision() + "'" +
             ", decisioncost='" + getDecisioncost() + "'" +
             ", status='" + getStatus() + "'" +
+            ", personal='" + isPersonal() + "'" +
+            ", notified='" + isNotified() + "'" +
             "}";
     }
 }
